@@ -1482,7 +1482,7 @@ async function shareVerse() {
   const g1=ctx.createRadialGradient(W*.75,H*.2,0,W*.75,H*.2,500); g1.addColorStop(0,'rgba(34,56,112,.28)'); g1.addColorStop(1,'transparent'); ctx.fillStyle=g1; ctx.fillRect(0,0,W,H);
   const g2=ctx.createRadialGradient(W*.25,H*.75,0,W*.25,H*.75,400); g2.addColorStop(0,'rgba(138,111,48,.12)'); g2.addColorStop(1,'transparent'); ctx.fillStyle=g2; ctx.fillRect(0,0,W,H);
   // card area — vertically centered with breathing room
-  const padX=72, padYTop=220, padYBot=220;
+  const padX=72, padYTop=200, padYBot=280;
   const cardX=padX, cardY=padYTop, cardW=W-padX*2, cardH=H-padYTop-padYBot;
   // card background
   const cardBg=ctx.createLinearGradient(cardX,cardY,cardX,cardY+cardH);
@@ -1529,12 +1529,9 @@ async function shareVerse() {
   // surah ref
   ctx.font='400 26px Cinzel,serif'; ctx.fillStyle='rgba(96,112,144,.85)'; ctx.textAlign='center';
   ctx.fillText(ref.toUpperCase(), cx, y);
-  // watermark — bottom of card
-  ctx.font='400 24px "Noto Naskh Arabic",serif'; ctx.fillStyle='rgba(138,111,48,.35)'; ctx.textAlign='center';
-  ctx.fillText('سكينة · sakina', cx, cardY+cardH-45);
-  // domain hint below card
-  ctx.font='400 22px Cinzel,serif'; ctx.fillStyle='rgba(72,88,112,.6)'; ctx.textAlign='center';
-  ctx.fillText('assalamualaykum.app', cx, H-padYBot+70);
+  // single domain watermark — inside card, safely above bottom edge, won't get cut in Stories
+  ctx.font='400 22px Cinzel,serif'; ctx.fillStyle='rgba(138,111,48,.38)'; ctx.textAlign='center';
+  ctx.fillText('assalamualaykum.app', cx, cardY+cardH-52);
   // share / download
   canvas.toBlob(async blob => {
     const file = new File([blob],'assalamualaykum-verse.png',{type:'image/png'});
