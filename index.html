@@ -124,7 +124,7 @@ align-items: center;
 header {
 width: 100%;
 text-align: center;
-padding: 48px 20px 20px;
+padding: 58px 20px 20px;
 }
 .logo-arabic {
 font-family: ‘Noto Naskh Arabic’, serif;
@@ -458,9 +458,6 @@ transition: all 0.3s;
 .btn-back:hover { color: var(–cream); border-color: rgba(255,255,255,0.25); }
 
 /* favorite button active state */
-.btn-fav.active { color: #e06080; border-color: rgba(220,80,120,.4); }
-.btn-fav.active svg { fill: #e06080; }
-
 /* ─── VERSE TRANSITIONS ─── */
 .verse-card {
 transition: opacity .35s ease, transform .35s ease;
@@ -501,90 +498,63 @@ text-transform: uppercase;
 .verse-card.theme-purpose  { background: linear-gradient(150deg, rgba(25,20,55,.65), rgba(12,10,28,.85)); border-color: rgba(110,100,190,.2); }
 .verse-card.theme-anxiety  { background: linear-gradient(150deg, rgba(18,35,50,.65), rgba(8,18,25,.85)); border-color: rgba(90,140,180,.2); }
 
-/* ─── FAVORITES PAGE ─── */
-#screen-favs {
-display: none;
-width: 100%;
-max-width: 700px;
-padding: 0 20px 100px;
-flex-direction: column;
-align-items: center;
-}
-#screen-favs.on { display: flex; animation: fadeUp .6s ease both; }
-.favs-empty {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.1rem;
-font-style: italic;
-color: var(–muted-light);
-text-align: center;
-margin-top: 60px;
-line-height: 1.8;
-}
-.fav-item {
-width: 100%;
-background: linear-gradient(150deg, rgba(22,36,72,.55), rgba(10,18,32,.75));
-border: 1px solid rgba(201,168,76,.15);
-border-radius: 16px;
-padding: 28px 30px;
-margin-bottom: 16px;
-position: relative;
-cursor: pointer;
-transition: border-color .3s, box-shadow .3s;
-}
-.fav-item:hover { border-color: rgba(201,168,76,.3); box-shadow: 0 8px 30px rgba(0,0,0,.4); }
-.fav-item .fav-ar { font-family: ‘Noto Naskh Arabic’, serif; font-size: 1.3rem; color: var(–gold-light); direction: rtl; text-align: right; margin-bottom: 12px; line-height: 1.8; }
-.fav-item .fav-en { font-family: ‘Cormorant Garamond’, serif; font-size: 1rem; font-style: italic; color: var(–cream-dim); line-height: 1.65; margin-bottom: 8px; }
-.fav-item .fav-ref { font-family: ‘Cinzel’, serif; font-size: .6rem; letter-spacing: .2em; color: var(–muted-light); }
-.fav-remove { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(–muted); cursor: pointer; font-size: 1rem; opacity: .6; transition: opacity .2s; }
-.fav-remove:hover { opacity: 1; color: #e06080; }
-
-/* ─── PRIVATE BROWSE WARNING ─── */
-#private-warn {
-display: none;
-position: fixed;
-bottom: 60px;
-left: 50%;
-transform: translateX(-50%);
-background: rgba(10,18,32,.97);
-border: 1px solid rgba(201,168,76,.25);
-border-radius: 12px;
-padding: 14px 20px;
-max-width: 340px;
-width: calc(100% - 40px);
-text-align: center;
-z-index: 300;
-font-family: ‘Cormorant Garamond’, serif;
-font-size: .9rem;
-font-style: italic;
-color: var(–cream-dim);
-backdrop-filter: blur(20px);
-animation: fadeUp .3s ease;
-}
-#private-warn.show { display: block; }
-
 /* ─── FOOTER ─── */
 footer {
 position: fixed;
 bottom: 0; left: 0; right: 0;
-padding: 12px 20px 20px;
+padding: 10px 20px 18px;
 text-align: center;
-font-size: 0.72rem;
+font-size: 0.68rem;
 color: var(–muted);
 letter-spacing: 0.1em;
-background: linear-gradient(to top, var(–night) 60%, transparent);
+background: #080e1a;
+border-top: 1px solid rgba(201,168,76,.08);
 z-index: 10;
+white-space: nowrap;
+overflow: hidden;
 }
 footer a {
 color: var(–gold-dim);
 text-decoration: none;
 font-family: ‘Cinzel’, serif;
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-margin-left: 12px;
+font-size: 0.62rem;
+letter-spacing: 0.18em;
 opacity: 0.8;
 transition: opacity 0.2s;
 }
 footer a:hover { opacity: 1; }
+
+/* top nav bar for Instagram + Saved */
+#top-nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 50;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 12px 18px;
+pointer-events: none;
+}
+#top-nav a, #top-nav button {
+pointer-events: all;
+background: rgba(8,14,26,.75);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid rgba(201,168,76,.15);
+border-radius: 40px;
+padding: 7px 14px;
+font-family: ‘Cinzel’, serif;
+font-size: .6rem;
+letter-spacing: .2em;
+color: var(–gold-dim);
+text-decoration: none;
+cursor: pointer;
+transition: all .3s;
+display: flex;
+align-items: center;
+gap: 6px;
+}
+#top-nav a:hover, #top-nav button:hover { border-color: rgba(201,168,76,.35); color: var(–gold-light); }
 
 /* ─── PWA BANNER ─── */
 #pwa-tip {
@@ -685,11 +655,11 @@ to { opacity: 1; transform: translateY(0); }
 #votd-banner {
 width: 100%;
 max-width: 680px;
-margin: 0 20px 28px;
+margin: 0 20px 20px;
 background: linear-gradient(135deg, rgba(22,36,72,.5), rgba(10,18,32,.7));
 border: 1px solid rgba(201,168,76,.2);
 border-radius: 14px;
-padding: 18px 22px;
+padding: clamp(12px, 3vw, 18px) clamp(14px, 4vw, 22px);
 cursor: pointer;
 transition: border-color .3s, box-shadow .3s;
 position: relative;
@@ -717,26 +687,26 @@ gap: 8px;
 .votd-label::after { content: ‘’; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(138,111,48,.3), transparent); }
 .votd-arabic {
 font-family: ‘Noto Naskh Arabic’, serif;
-font-size: 1.15rem;
+font-size: clamp(.9rem, 3.5vw, 1.15rem);
 font-weight: 500;
 color: var(–gold-light);
 direction: rtl;
 text-align: right;
-line-height: 1.8;
-margin-bottom: 8px;
+line-height: 1.7;
+margin-bottom: 6px;
 }
 .votd-english {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: .92rem;
+font-size: clamp(.78rem, 2.8vw, .92rem);
 font-style: italic;
 font-weight: 300;
 color: var(–cream-dim);
-line-height: 1.6;
-margin-bottom: 6px;
+line-height: 1.5;
+margin-bottom: 5px;
 }
 .votd-ref {
 font-family: ‘Cinzel’, serif;
-font-size: .58rem;
+font-size: .55rem;
 letter-spacing: .18em;
 color: var(–muted-light);
 }
@@ -957,6 +927,20 @@ to   { opacity: 1; transform: translateY(0); }
   </div>
 </div>
 
+<!-- TOP NAV -->
+
+<div id="top-nav">
+  <a href="https://www.instagram.com/assalamualaykum.app" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4.5"/>
+      <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>
+    </svg>
+    <span>Instagram</span>
+  </a>
+  <div></div>
+</div>
+
 <!-- STARS -->
 
 <canvas id="stars" aria-hidden="true"></canvas>
@@ -1053,12 +1037,6 @@ to   { opacity: 1; transform: translateY(0); }
 <div class="card-actions">
   <button class="btn-pull" id="pullAgainBtn" data-en="✦  Another verse" data-ar="✦  آية أخرى">✦ &nbsp; Another verse</button>
 
-  <!-- favorite -->
-  <button class="btn-icon btn-fav" id="favBtn" aria-label="Save to favorites">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-    <span id="favLabel" data-en="Save" data-ar="حفظ">Save</span>
-  </button>
-
   <!-- copy -->
   <button class="btn-icon" id="copyBtn" aria-label="Copy verse">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -1077,26 +1055,10 @@ to   { opacity: 1; transform: translateY(0); }
 
   </section>
 
-  <!-- FAVORITES SCREEN -->
-
-  <section id="screen-favs">
-    <p class="prompt-label" style="margin-bottom:28px;" id="favsTitle" data-en="Your Saved Verses" data-ar="الآيات المحفوظة">Your Saved Verses</p>
-    <div id="favsGrid" style="width:100%;"></div>
-    <button class="btn-back" id="favsBackBtn" data-en="← Back" data-ar="رجوع →" style="margin-top:20px;">← Back</button>
-  </section>
-
 </div>
 
 <footer>
-  <a href="https://www.instagram.com/assalamualaykum.app" target="_blank" rel="noopener" aria-label="Instagram" style="opacity:.7;transition:opacity .2s;vertical-align:middle;margin-right:2px;">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8a6f30" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-      <circle cx="12" cy="12" r="4.5"/>
-      <circle cx="17.5" cy="6.5" r=".8" fill="#8a6f30" stroke="none"/>
-    </svg>
-  </a>
-  <span> ☽ Always Free ☽ assalamualaykum.app ☽</span><a href="#" id="pwaLink" style="margin-left:4px;">Save as App ↗</a>
-  <a href="#" id="favsLink" style="margin-left:10px;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;color:#8a6f30;opacity:.8;text-decoration:none;" data-en="♡ Saved" data-ar="♡ المحفوظة">♡ Saved</a>
+  <span id="footerText">Always Free ☽ assalamualaykum.app ☽ </span><a href="#" id="pwaLink">Save as App ↗</a>
 </footer>
 
 <!-- PWA TIP -->
@@ -1108,7 +1070,6 @@ to   { opacity: 1; transform: translateY(0); }
 </div>
 
 <div id="share-toast" style="position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:#0a1220;border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:13px 22px;font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.16em;color:#e2c47a;white-space:nowrap;z-index:200;opacity:0;transition:opacity .4s;pointer-events:none;">Verse image saved ✦</div>
-<div id="private-warn" style="display:none;position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:rgba(10,18,32,.97);border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:14px 20px;max-width:340px;width:calc(100% - 40px);text-align:center;z-index:300;font-family:'Cormorant Garamond',serif;font-size:.9rem;font-style:italic;color:var(--cream-dim);backdrop-filter:blur(20px);"></div>
 <canvas id="shareCanvas" style="display:none;"></canvas>
 
 <script>
@@ -2239,8 +2200,8 @@ let lang = 'en';
 initVOTD();
 
 const UI_TEXT = {
-  en: { sub:'Light from the Quran, for every moment of need.', feelings:'What brought you here today?', situations:'What are you going through?', or:'or speak your heart', placeholder:'Tell me what\'s on your heart…', pull:'✦  Pull a verse  ✦', another:'✦  Another verse', share:'Share', copy:'Copy', save:'Save', back:'← Back', favsTitle:'Your Saved Verses', favsLink:'♡ Saved', swipe:'← swipe for next verse →', pwaTitle:'Save to Your Home Screen', pwaBody:'In Safari, tap the Share icon ↑ then choose "Add to Home Screen." Opens like a native app — no App Store needed.', saved:'Verse image saved ✦', copied:'Verse copied ✦', footer:'Always Free ☽ assalamualaykum.app', pwaLink:'Save as App ↗', close:'Close', meaning:'Peace Be Upon You', translit:'Assalamu Alaykum' },
-  ar: { sub:'نور من القرآن الكريم، في كل لحظة تحتاج فيها', feelings:'ما الذي أتى بك اليوم؟', situations:'ما الذي تمر به؟', or:'أو تحدث من قلبك', placeholder:'أخبرني ما يشغل قلبك…', pull:'✦  اسحب آية  ✦', another:'✦  آية أخرى', share:'مشاركة', copy:'نسخ', save:'حفظ', back:'رجوع →', favsTitle:'الآيات المحفوظة', favsLink:'♡ المحفوظة', swipe:'← اسحب للآية التالية →', pwaTitle:'احفظ على شاشتك الرئيسية', pwaBody:'في Safari، اضغط على أيقونة المشاركة ↑ ثم اختر "إضافة إلى الشاشة الرئيسية".', saved:'تم حفظ الصورة ✦', copied:'تم النسخ ✦', footer:'دائمًا مجاني ☽ assalamualaykum.app', pwaLink:'احفظ كتطبيق ↗', close:'إغلاق', meaning:'وعليكم السلام', translit:'Wa Alaykum Assalam' }
+  en: { sub:'Light from the Quran, for every moment of need.', feelings:'What brought you here today?', situations:'What are you going through?', or:'or speak your heart', placeholder:'Tell me what\'s on your heart…', pull:'✦  Pull a verse  ✦', another:'✦  Another verse', share:'Share', copy:'Copy', back:'← Back', swipe:'← swipe for next verse →', pwaTitle:'Save to Your Home Screen', pwaBody:'In Safari, tap the Share icon ↑ then choose "Add to Home Screen." Opens like a native app — no App Store needed.', saved:'Verse image saved ✦', copied:'Verse copied ✦', footer:'Always Free ☽ assalamualaykum.app', pwaLink:'Save as App ↗', close:'Close', meaning:'Peace Be Upon You', translit:'Assalamu Alaykum' },
+  ar: { sub:'نور من القرآن الكريم، في كل لحظة تحتاج فيها', feelings:'ما الذي أتى بك اليوم؟', situations:'ما الذي تمر به؟', or:'أو تحدث من قلبك', placeholder:'أخبرني ما يشغل قلبك…', pull:'✦  اسحب آية  ✦', another:'✦  آية أخرى', share:'مشاركة', copy:'نسخ', back:'رجوع →', swipe:'← اسحب للآية التالية →', pwaTitle:'احفظ على شاشتك الرئيسية', pwaBody:'في Safari، اضغط على أيقونة المشاركة ↑ ثم اختر "إضافة إلى الشاشة الرئيسية".', saved:'تم حفظ الصورة ✦', copied:'تم النسخ ✦', footer:'دائمًا مجاني ☽ assalamualaykum.app', pwaLink:'احفظ كتطبيق ↗', close:'إغلاق', meaning:'وعليكم السلام', translit:'Wa Alaykum Assalam' }
 };
 
 function applyLang() {
@@ -2260,16 +2221,12 @@ function applyLang() {
   if(el('pullAgainBtn')) el('pullAgainBtn').textContent = t.another;
   if(el('shareLabel')) el('shareLabel').textContent = t.share;
   if(el('copyLabel')) el('copyLabel').textContent = t.copy;
-  if(el('favLabel')) el('favLabel').textContent = t.save;
   if(el('backBtn')) el('backBtn').textContent = t.back;
-  if(el('favsBackBtn')) el('favsBackBtn').textContent = t.back;
-  if(el('favsTitle')) el('favsTitle').textContent = t.favsTitle;
-  if(el('favsLink')) el('favsLink').textContent = t.favsLink;
   if(el('swipeHint')) el('swipeHint').textContent = t.swipe;
   const pwaH = document.querySelector('#pwa-tip h3'); if(pwaH) pwaH.textContent = t.pwaTitle;
   const pwaP = document.querySelector('#pwa-tip p'); if(pwaP) pwaP.textContent = t.pwaBody;
   if(el('closeTip')) el('closeTip').textContent = t.close;
-  const fspan = document.querySelector('footer span'); if(fspan) fspan.textContent = t.footer;
+  const fspan = el('footerText'); if(fspan) fspan.textContent = t.footer + ' ☽ ';
   if(el('pwaLink')) el('pwaLink').textContent = t.pwaLink;
   const votdL = el('votdLabel');
   if(votdL) votdL.innerHTML = lang==='ar' ? '☽ &nbsp; آية اليوم' : '☽ &nbsp; Verse of the Day';
@@ -2367,7 +2324,6 @@ function renderVerse(v, label, moodKey) {
     if (moodKey) card.classList.add('theme-' + moodKey);
 
     // update favorite button state
-    updateFavBtn();
 
     // fade in
     card.classList.remove('fading');
@@ -2434,91 +2390,12 @@ document.getElementById('pullAgainBtn').addEventListener('click', () => {
 
 function goHome() {
   document.getElementById('screen-verse').classList.remove('visible');
-  document.getElementById('screen-favs').classList.remove('on');
   document.getElementById('screen-home').style.display = 'flex';
   document.getElementById('aiInput').value = '';
   document.getElementById('ai-result').style.display = 'none';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 document.getElementById('backBtn').addEventListener('click', goHome);
-document.getElementById('favsBackBtn').addEventListener('click', goHome);
-
-// ═══════════════════════════════
-// FAVORITES
-// ═══════════════════════════════
-function getFavs() {
-  try { return JSON.parse(localStorage.getItem('aa_favs') || '[]'); }
-  catch(e) { return []; }
-}
-function isPrivate() {
-  try { localStorage.setItem('_t','1'); localStorage.removeItem('_t'); return false; }
-  catch(e) { return true; }
-}
-function saveFavs(favs) {
-  saveFavs(favs);
-}
-function showPrivateWarn() {
-  const w = document.getElementById('private-warn');
-  w.textContent = lang==='ar' ? 'لا يمكن الحفظ في وضع التصفح الخاص.' : 'Saving is not available in private browsing mode.';
-  w.style.display = 'block';
-  setTimeout(() => w.style.display = 'none', 3000);
-}
-function updateFavBtn() {
-  const ar = document.getElementById('verseArabic').textContent;
-  const favs = getFavs();
-  const isFaved = favs.some(f => f.ar === ar);
-  const btn = document.getElementById('favBtn');
-  if (isFaved) { btn.classList.add('active'); }
-  else { btn.classList.remove('active'); }
-}
-
-document.getElementById('favBtn').addEventListener('click', () => {
-  if (isPrivate()) { showPrivateWarn(); return; }
-  const ar  = document.getElementById('verseArabic').textContent;
-  const en  = document.getElementById('verseEnglish').textContent;
-  const ref = document.getElementById('verseRef').textContent;
-  const favs = getFavs();
-  const idx = favs.findIndex(f => f.ar === ar);
-  if (idx >= 0) { favs.splice(idx,1); showToast(lang==='ar'?'تم الحذف':'Removed from saved'); }
-  else { favs.unshift({ar,en,ref}); showToast(lang==='ar'?'تم الحفظ ♡':'Saved ♡'); }
-  saveFavs(favs);
-  updateFavBtn();
-});
-
-document.getElementById('favsLink').addEventListener('click', e => {
-  e.preventDefault();
-  const favs = getFavs();
-  const grid = document.getElementById('favsGrid');
-  grid.innerHTML = '';
-  if (favs.length === 0) {
-    grid.innerHTML = `<p class="favs-empty">${lang==='ar'?'لا توجد آيات محفوظة بعد.\nاضغط ♡ على أي آية لحفظها.':'No saved verses yet.\nTap ♡ on any verse to save it.'}</p>`;
-  } else {
-    favs.forEach((f,i) => {
-      const d = document.createElement('div');
-      d.className = 'fav-item';
-      d.innerHTML = `
-        <button class="fav-remove" data-i="${i}" aria-label="Remove">✕</button>
-        <div class="fav-ar">${f.ar}</div>
-        <div class="fav-en">${f.en}</div>
-        <div class="fav-ref">${f.ref}</div>`;
-      d.querySelector('.fav-remove').addEventListener('click', e => {
-        e.stopPropagation();
-        const fs = getFavs(); fs.splice(i,1);
-        try { localStorage.setItem('aa_favs', JSON.stringify(fs)); } catch(e2) {}
-        document.getElementById('favsLink').click();
-      });
-      d.addEventListener('click', () => {
-        renderVerse({ar:f.ar, en:f.en, ref:f.ref}, f.ref.split(' ')[0], null);
-      });
-      grid.appendChild(d);
-    });
-  }
-  document.getElementById('screen-home').style.display = 'none';
-  document.getElementById('screen-verse').classList.remove('visible');
-  document.getElementById('screen-favs').classList.add('on');
-  window.scrollTo({top:0,behavior:'smooth'});
-});
-
 // ═══════════════════════════════
 // COPY VERSE
 // ═══════════════════════════════
