@@ -938,7 +938,7 @@ to   { opacity: 1; transform: translateY(0); }
     </svg>
     <span>Instagram</span>
   </a>
-  <div></div>
+  <button id="langBtn">عربي</button>
 </div>
 
 <!-- STARS -->
@@ -953,18 +953,13 @@ to   { opacity: 1; transform: translateY(0); }
 
 <div id="app">
 
-  <header style="position:relative;">
-    <button id="langBtn" style="position:absolute;top:0;right:20px;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.22em;color:#607090;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:40px;padding:7px 14px;cursor:pointer;transition:all .3s;backdrop-filter:blur(10px);">عربي</button>
-
-```
-<!-- greeting — animates in after splash clears, feels like it landed here -->
-<p id="headerArabic" style="font-family:'Noto Naskh Arabic',serif;font-size:clamp(2rem,7vw,3rem);font-weight:600;color:var(--gold-light);text-shadow:0 0 30px rgba(201,168,76,.35);direction:rtl;line-height:1.2;opacity:0;transform:translateY(10px);transition:opacity 1s ease .2s, transform 1s ease .2s;">ٱلسَّلَامُ عَلَيْكُمْ</p>
-<p id="headerTranslit" style="font-family:'Cinzel',serif;font-size:clamp(.7rem,2.5vw,.88rem);letter-spacing:.28em;color:var(--cream-dim);margin-top:8px;opacity:0;transform:translateY(8px);transition:opacity 1s ease .4s, transform 1s ease .4s;">Assalamu Alaykum</p>
-<p id="headerMeaning" style="font-family:'Cormorant Garamond',serif;font-size:clamp(.85rem,2.5vw,1rem);font-style:italic;font-weight:300;color:var(--muted-light);margin-top:4px;opacity:0;transform:translateY(8px);transition:opacity 1s ease .55s, transform 1s ease .55s;">Peace Be Upon You</p>
-<div id="headerDiv" style="width:120px;height:1px;background:linear-gradient(90deg,transparent,#8a6f30,transparent);margin:18px auto 0;opacity:0;transition:opacity 1s ease .7s;"></div>
-<p id="taglineSub" style="font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;font-weight:300;color:var(--muted-light);margin-top:12px;opacity:0;transform:translateY(6px);transition:opacity 1s ease .85s, transform 1s ease .85s;">Light from the Quran, for every moment of need.</p>
-```
-
+  <header>
+    <!-- greeting — animates in after splash clears, feels like it landed here -->
+    <p id="headerArabic" style="font-family:'Noto Naskh Arabic',serif;font-size:clamp(2rem,7vw,3rem);font-weight:600;color:var(--gold-light);text-shadow:0 0 30px rgba(201,168,76,.35);direction:rtl;line-height:1.2;opacity:0;transform:translateY(10px);transition:opacity 1s ease .2s, transform 1s ease .2s;">ٱلسَّلَامُ عَلَيْكُمْ</p>
+    <p id="headerTranslit" style="font-family:'Cinzel',serif;font-size:clamp(.7rem,2.5vw,.88rem);letter-spacing:.28em;color:var(--cream-dim);margin-top:8px;opacity:0;transform:translateY(8px);transition:opacity 1s ease .4s, transform 1s ease .4s;">Assalamu Alaykum</p>
+    <p id="headerMeaning" style="font-family:'Cormorant Garamond',serif;font-size:clamp(.85rem,2.5vw,1rem);font-style:italic;font-weight:300;color:var(--muted-light);margin-top:4px;opacity:0;transform:translateY(8px);transition:opacity 1s ease .55s, transform 1s ease .55s;">Peace Be Upon You</p>
+    <div id="headerDiv" style="width:120px;height:1px;background:linear-gradient(90deg,transparent,#8a6f30,transparent);margin:18px auto 0;opacity:0;transition:opacity 1s ease .7s;"></div>
+    <p id="taglineSub" style="font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;font-weight:300;color:var(--muted-light);margin-top:12px;opacity:0;transform:translateY(6px);transition:opacity 1s ease .85s, transform 1s ease .85s;">Light from the Quran, for every moment of need.</p>
   </header>
 
   <!-- HOME SCREEN -->
@@ -978,6 +973,10 @@ to   { opacity: 1; transform: translateY(0); }
   <div class="votd-arabic" id="votdArabic"></div>
   <div class="votd-english" id="votdEnglish"></div>
   <div class="votd-ref" id="votdRef"></div>
+  <button id="votdSaveBtn" style="margin-top:12px;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.2em;color:rgba(138,111,48,.7);background:none;border:1px solid rgba(201,168,76,.2);border-radius:40px;padding:7px 16px;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:6px;margin-left:auto;">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span id="votdSaveLabel">Save Image</span>
+  </button>
 </div>
 
 <p class="prompt-label" id="labelFeelings" data-en="What brought you here today?" data-ar="ما الذي أتى بك اليوم؟">What brought you here today?</p>
@@ -1044,9 +1043,9 @@ to   { opacity: 1; transform: translateY(0); }
   </button>
 
   <!-- share -->
-  <button class="btn-icon" id="shareBtn" aria-label="Share verse">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
-    <span id="shareLabel" data-en="Share" data-ar="مشاركة">Share</span>
+  <button class="btn-icon" id="shareBtn" aria-label="Save verse as image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span id="shareLabel" data-en="Save Image" data-ar="حفظ صورة">Save Image</span>
   </button>
 
   <button class="btn-back" id="backBtn" data-en="← Back" data-ar="رجوع →">← Back</button>
@@ -1058,15 +1057,66 @@ to   { opacity: 1; transform: translateY(0); }
 </div>
 
 <footer>
-  <span id="footerText">Always Free ☽ assalamualaykum.app ☽ </span><a href="#" id="pwaLink">Save as App ↗</a>
+  <span id="footerText">Free Forever ☽ assalamualaykum.app ☽ </span><a href="#" id="pwaLink">Save as App ↗</a><a href="#" id="privacyLink" style="margin-left:8px;opacity:.6;font-size:.58rem;letter-spacing:.15em;">Privacy & Terms</a>
 </footer>
 
 <!-- PWA TIP -->
 
 <div id="pwa-tip">
   <h3>Save to Your Home Screen</h3>
-  <p>In Safari, tap the <strong>Share</strong> icon ↑ then choose <strong>"Add to Home Screen."</strong> AssalamuAlaykum opens like a native app — no App Store needed.</p>
-  <button class="close-tip" id="closeTip">Close</button>
+  <div style="text-align:left;margin:14px 0;font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--cream-dim);line-height:1.9;font-style:italic;">
+    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">1 &nbsp;</strong> Open this site in <strong>Safari</strong> (not Chrome)</div>
+    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">2 &nbsp;</strong> Tap the <strong>Share</strong> button <span style="font-style:normal;">⎋</span> at the bottom of Safari</div>
+    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">3 &nbsp;</strong> Scroll down and tap <strong>"Add to Home Screen"</strong></div>
+    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">4 &nbsp;</strong> Tap <strong>Add</strong> — done. Opens like an app.</div>
+  </div>
+  <button class="close-tip" id="closeTip">Got it ✦</button>
+</div>
+
+<!-- PRIVACY & TERMS MODAL -->
+
+<div id="privacy-modal" style="display:none;position:fixed;inset:0;z-index:400;background:rgba(6,10,20,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);overflow-y:auto;padding:20px 0 40px;">
+  <div style="max-width:600px;margin:0 auto;padding:32px 24px;font-family:'Cormorant Garamond',serif;">
+    <button id="closePrivacy" style="float:right;background:none;border:none;color:var(--muted-light);font-size:1.4rem;cursor:pointer;line-height:1;">✕</button>
+    <h2 style="font-family:'Cinzel',serif;font-size:.9rem;letter-spacing:.28em;color:var(--gold-dim);margin-bottom:6px;clear:both;">PRIVACY POLICY & TERMS</h2>
+    <p style="font-size:.7rem;letter-spacing:.15em;color:var(--muted-light);font-family:'Cinzel',serif;margin-bottom:24px;">assalamualaykum.app · Last updated April 2026</p>
+
+```
+<div style="color:var(--cream-dim);font-size:.95rem;line-height:1.85;font-style:italic;">
+
+  <p style="color:var(--gold-light);font-style:normal;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;margin:20px 0 8px;">NO DATA COLLECTION</p>
+  <p>Assalamu Alaykum does not collect, store, transmit, or share any personal data whatsoever. We do not use cookies, analytics trackers, advertising networks, or any form of user tracking. We do not know who you are, where you are, or that you visited this site.</p>
+
+  <p style="color:var(--gold-light);font-style:normal;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;margin:20px 0 8px;">NO ACCOUNTS REQUIRED</p>
+  <p>This site requires no registration, login, email address, or personal information of any kind. It works entirely in your browser.</p>
+
+  <p style="color:var(--gold-light);font-style:normal;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;margin:20px 0 8px;">LOCAL STORAGE</p>
+  <p>This site does not store any data on your device. No local storage, no session storage, no cached personal information.</p>
+
+  <p style="color:var(--gold-light);font-style:normal;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;margin:20px 0 8px;">THIRD PARTY SERVICES</p>
+  <p>This site uses Google Fonts to display Arabic and Latin typefaces. Google may log font requests per their own privacy policy. No other third-party services are used.</p>
+
+  <p style="color:var(--gold-light);font-style:normal;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;margin:20px 0 8px;">SAVED IMAGES</p>
+  <p>When you tap "Save Image," a PNG is generated entirely in your browser and saved to your device's photo library. This image never passes through our servers — we have no servers.</p>
+
+  <p style="color:var(--gold-light);font-style:normal;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;margin:20px 0 8px;">TERMS OF USE</p>
+  <p>This site is provided free of charge for personal, non-commercial use. Quranic verses are presented for spiritual guidance and educational purposes. All Arabic text and English translations are shared in the spirit of Islamic tradition and are not claimed as original works.</p>
+  <p style="margin-top:12px;">You may share content from this site freely. You may not reproduce this site or its design for commercial purposes without permission.</p>
+
+  <p style="color:var(--gold-light);font-style:normal;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;margin:20px 0 8px;">ACCESSIBILITY</p>
+  <p>We are committed to making this site accessible to all users. The site is designed to work on all modern browsers and devices, supports right-to-left text for Arabic, and uses scalable text sizing throughout. If you experience accessibility issues please reach out via Instagram.</p>
+
+  <p style="color:var(--gold-light);font-style:normal;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;margin:20px 0 8px;">JURISDICTION</p>
+  <p>This site is operated from the United States. By using this site you agree to these terms, which are governed by the laws of the State of California. This policy applies globally to all users regardless of location.</p>
+
+  <p style="color:var(--gold-light);font-style:normal;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;margin:20px 0 8px;">CONTACT</p>
+  <p>For any questions regarding this policy, please contact us via <a href="https://www.instagram.com/assalamualaykum.app" target="_blank" style="color:var(--gold-dim);text-decoration:none;">@assalamualaykum.app</a> on Instagram.</p>
+
+</div>
+<button id="closePrivacy2" style="margin-top:28px;font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.25em;color:var(--muted-light);background:none;border:1px solid rgba(255,255,255,.1);border-radius:40px;padding:11px 28px;cursor:pointer;display:block;margin-left:auto;margin-right:auto;transition:all .3s;">Close ✦</button>
+```
+
+  </div>
 </div>
 
 <div id="share-toast" style="position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:#0a1220;border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:13px 22px;font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.16em;color:#e2c47a;white-space:nowrap;z-index:200;opacity:0;transition:opacity .4s;pointer-events:none;">Verse image saved ✦</div>
@@ -1729,6 +1779,111 @@ Object.assign(VERSES, {
 
 })();
 
+// ── Top-up pass — bringing every category to 20 ──
+(function topUp() {
+  const add = (cat, verses) => { if (!VERSES[cat]) VERSES[cat] = []; VERSES[cat].push(...verses); };
+
+  // doubt (14 → 20)
+  add('doubt', [
+    {ar:"وَإِن تَعُدُّوا نِعْمَةَ اللَّهِ لَا تُحْصُوهَا",en:"If you were to count the blessings of Allah, you could never enumerate them.",ref:"Ibrahim 14:34"},
+    {ar:"رَبُّنَا الَّذِي أَعْطَىٰ كُلَّ شَيْءٍ خَلْقَهُ ثُمَّ هَدَىٰ",en:"Our Lord is He who gave each thing its form and then guided it.",ref:"Ta-Ha 20:50"},
+    {ar:"وَاللَّهُ يَعْلَمُ وَأَنتُمْ لَا تَعْلَمُونَ",en:"Allah knows, and you do not know.",ref:"Al-Baqarah 2:216"},
+    {ar:"هُوَ الْأَوَّلُ وَالْآخِرُ وَالظَّاهِرُ وَالْبَاطِنُ",en:"He is the First and the Last, the Ascendant and the Intimate.",ref:"Al-Hadid 57:3"},
+    {ar:"وَمَا خَلَقْنَا السَّمَاءَ وَالْأَرْضَ وَمَا بَيْنَهُمَا لَاعِبِينَ",en:"We did not create the heaven and earth and what is between them in play.",ref:"Al-Anbiya 21:16"},
+    {ar:"تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",en:"Blessed is He in whose hand is dominion, and He is over all things competent.",ref:"Al-Mulk 67:1"},
+  ]);
+
+  // fear, gratitude, loneliness, overwhelm, love, confusion, peace (15 → 20)
+  add('fear', [
+    {ar:"رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا",en:"Our Lord, do not impose blame upon us if we forget or make a mistake.",ref:"Al-Baqarah 2:286"},
+    {ar:"وَتَوَكَّلْ عَلَى اللَّهِ وَكَفَىٰ بِاللَّهِ وَكِيلًا",en:"And rely upon Allah — sufficient is Allah as Disposer of affairs.",ref:"Al-Ahzab 33:3"},
+    {ar:"إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ",en:"Indeed, Allah loves those who place their trust in Him.",ref:"Aal-e-Imran 3:159"},
+    {ar:"وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا",en:"And whoever is mindful of Allah — He will make for them a way out.",ref:"At-Talaq 65:2"},
+    {ar:"وَاللَّهُ خَيْرُ الْمَاكِرِينَ",en:"And Allah is the best of planners.",ref:"Aal-e-Imran 3:54"},
+  ]);
+
+  add('gratitude', [
+    {ar:"وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ",en:"Be grateful to Me and do not deny Me.",ref:"Al-Baqarah 2:152"},
+    {ar:"فَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا وَاشْكُرُوا نِعْمَتَ اللَّهِ",en:"Eat from what Allah has provided and be grateful for His blessing.",ref:"An-Nahl 16:114"},
+    {ar:"وَسَيَجْزِي اللَّهُ الشَّاكِرِينَ",en:"And Allah will reward those who are grateful.",ref:"Aal-e-Imran 3:144"},
+    {ar:"إِنَّ اللَّهَ لَذُو فَضْلٍ عَلَى النَّاسِ",en:"Indeed, Allah is full of bounty to the people.",ref:"Al-Baqarah 2:243"},
+    {ar:"وَمَا أَصَابَكُم مِّن مُّصِيبَةٍ فَبِمَا كَسَبَتْ أَيْدِيكُمْ وَيَعْفُو عَن كَثِيرٍ",en:"Whatever strikes you of misfortune — He pardons much.",ref:"Ash-Shura 42:30"},
+  ]);
+
+  add('loneliness', [
+    {ar:"وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ",en:"We are nearer to him than his jugular vein.",ref:"Qaf 50:16"},
+    {ar:"وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ",en:"He is with you wherever you are.",ref:"Al-Hadid 57:4"},
+    {ar:"أَلَمْ يَجِدْكَ يَتِيمًا فَآوَىٰ",en:"Did He not find you an orphan and give you shelter?",ref:"Ad-Duha 93:6"},
+    {ar:"إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ",en:"The believers are but brothers.",ref:"Al-Hujurat 49:10"},
+    {ar:"فَإِنِّي قَرِيبٌ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ",en:"For I am near — I answer the call of the one who calls upon Me.",ref:"Al-Baqarah 2:186"},
+  ]);
+
+  add('overwhelm', [
+    {ar:"فَإِنَّ مَعَ الْعُسْرِ يُسْرًا إِنَّ مَعَ الْعُسْرِ يُسْرًا",en:"For indeed, with every hardship comes ease — indeed, with every hardship comes ease.",ref:"Al-Sharh 94:5–6"},
+    {ar:"وَإِلَىٰ رَبِّكَ فَارْغَبْ",en:"And to your Lord direct your longing.",ref:"Al-Sharh 94:8"},
+    {ar:"رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي",en:"My Lord, expand my heart and ease my task for me.",ref:"Ta-Ha 20:25–26"},
+    {ar:"وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ",en:"And do not throw yourselves into destruction.",ref:"Al-Baqarah 2:195"},
+    {ar:"اللَّهُ لَطِيفٌ بِعِبَادِهِ",en:"Allah is gentle with His servants.",ref:"Ash-Shura 42:19"},
+  ]);
+
+  add('love', [
+    {ar:"وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ",en:"And My mercy encompasses all things.",ref:"Al-A'raf 7:156"},
+    {ar:"إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ",en:"Indeed, Allah loves those who repent and those who purify themselves.",ref:"Al-Baqarah 2:222"},
+    {ar:"وَلَا تَنسَوُا الْفَضْلَ بَيْنَكُمْ",en:"And do not forget generosity between one another.",ref:"Al-Baqarah 2:237"},
+    {ar:"وَقُولُوا لِلنَّاسِ حُسْنًا",en:"And speak to people good words.",ref:"Al-Baqarah 2:83"},
+    {ar:"هُوَ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ",en:"It is He who created you from one soul.",ref:"Al-A'raf 7:189"},
+  ]);
+
+  add('confusion', [
+    {ar:"وَشَاوِرْهُمْ فِي الْأَمْرِ",en:"And consult them in the matter.",ref:"Aal-e-Imran 3:159"},
+    {ar:"فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى اللَّهِ",en:"And when you have decided, then rely upon Allah.",ref:"Aal-e-Imran 3:159"},
+    {ar:"وَفَوْقَ كُلِّ ذِي عِلْمٍ عَلِيمٌ",en:"And above every possessor of knowledge is one more knowing.",ref:"Yusuf 12:76"},
+    {ar:"إِنَّ اللَّهَ بِكُلِّ شَيْءٍ عَلِيمٌ",en:"Indeed, Allah has knowledge of all things.",ref:"Al-Anfal 8:75"},
+    {ar:"عَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ",en:"Perhaps you dislike something and it is good for you.",ref:"Al-Baqarah 2:216"},
+  ]);
+
+  add('peace', [
+    {ar:"يَا أَيُّهَا الَّذِينَ آمَنُوا ادْخُلُوا فِي السِّلْمِ كَافَّةً",en:"O you who believe — enter into peace fully.",ref:"Al-Baqarah 2:208"},
+    {ar:"فَاذْكُرُونِي أَذْكُرْكُمْ",en:"Remember Me, and I will remember you.",ref:"Al-Baqarah 2:152"},
+    {ar:"الَّذِينَ يَذْكُرُونَ اللَّهَ قِيَامًا وَقُعُودًا وَعَلَىٰ جُنُوبِهِمْ",en:"Those who remember Allah while standing, sitting, and lying on their sides.",ref:"Aal-e-Imran 3:191"},
+    {ar:"وَتَوَكَّلْ عَلَى الْحَيِّ الَّذِي لَا يَمُوتُ",en:"And rely upon the Ever-Living who does not die.",ref:"Al-Furqan 25:58"},
+    {ar:"إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ",en:"Indeed, Allah loves those who place their trust in Him.",ref:"Aal-e-Imran 3:159"},
+  ]);
+
+  // grief, hope (16 → 20)
+  add('grief', [
+    {ar:"أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ",en:"Truly, the friends of Allah have nothing to fear, nor shall they grieve.",ref:"Yunus 10:62"},
+    {ar:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",en:"Indeed, Allah is with those who are patient.",ref:"Al-Baqarah 2:153"},
+    {ar:"رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا",en:"Our Lord, pour upon us patience and plant firmly our feet.",ref:"Al-Baqarah 2:250"},
+    {ar:"إِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ",en:"Indeed, Allah does not allow the reward of those who do good to be lost.",ref:"Hud 11:115"},
+  ]);
+
+  add('hope', [
+    {ar:"فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ",en:"So whoever does an atom's weight of good will see it.",ref:"Az-Zalzalah 99:7"},
+    {ar:"رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً",en:"Our Lord, give us good in this world and good in the Hereafter.",ref:"Al-Baqarah 2:201"},
+    {ar:"وَلَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا",en:"And do not despair of the mercy of Allah — indeed, Allah forgives all sins.",ref:"Az-Zumar 39:53"},
+    {ar:"إِنَّ مَعَ الْعُسْرِ يُسْرًا",en:"Indeed, with hardship will come ease.",ref:"Al-Sharh 94:6"},
+  ]);
+
+
+// ── Final fill — every category to exactly 20 ──
+(function finalFill() {
+  const add = (cat, verses) => { if (!VERSES[cat]) VERSES[cat] = []; VERSES[cat].push(...verses); };
+  add('strength', [{ar:"إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ",en:"Indeed, Allah loves those who place their trust in Him.",ref:"Aal-e-Imran 3:159"},{ar:"وَلَا تَهِنُوا فِي ابْتِغَاءِ الْقَوْمِ",en:"Do not weaken in pursuit of your goal.",ref:"An-Nisa 4:104"}]);
+  add('patience', [{ar:"وَاصْبِرْ عَلَىٰ مَا يَقُولُونَ",en:"And be patient over what they say.",ref:"Al-Muzzammil 73:10"},{ar:"وَلَا تَكُونُوا كَالَّذِينَ نَسُوا اللَّهَ",en:"And do not be like those who forgot Allah.",ref:"Al-Hashr 59:19"}]);
+  add('purpose', [{ar:"وَهُوَ الَّذِي جَعَلَكُمْ خَلَائِفَ الْأَرْضِ",en:"It is He who made you successors upon the earth.",ref:"Al-An'am 6:165"},{ar:"إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ",en:"The most noble of you in the sight of Allah is the most righteous.",ref:"Al-Hujurat 49:13"}]);
+  add('anxiety', [{ar:"وَتَوَكَّلْ عَلَى اللَّهِ وَكَفَىٰ بِاللَّهِ وَكِيلًا",en:"Rely upon Allah — sufficient is Allah as Disposer of affairs.",ref:"Al-Ahzab 33:3"},{ar:"مَا شَاءَ اللَّهُ لَا قُوَّةَ إِلَّا بِاللَّهِ",en:"What Allah wills — there is no power except through Allah.",ref:"Al-Kahf 18:39"}]);
+  add('prayer', [{ar:"وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا",en:"Whoever is mindful of Allah — He will make for them a way out.",ref:"At-Talaq 65:2"},{ar:"وَاذْكُر رَّبَّكَ فِي نَفْسِكَ تَضَرُّعًا وَخِيفَةً",en:"Remember your Lord within yourself in humility and fear.",ref:"Al-A'raf 7:205"}]);
+  add('family', [{ar:"وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",en:"Cooperate in righteousness and piety.",ref:"Al-Ma'ida 5:2"},{ar:"وَقُولُوا لِلنَّاسِ حُسْنًا",en:"And speak to people good words.",ref:"Al-Baqarah 2:83"}]);
+  add('injustice', [{ar:"وَالَّذِينَ إِذَا أَصَابَهُمُ الْبَغْيُ هُمْ يَنتَصِرُونَ",en:"Those who, when tyranny strikes them, defend themselves.",ref:"Ash-Shura 42:39"},{ar:"وَجَزَاءُ سَيِّئَةٍ سَيِّئَةٌ مِّثْلُهَا فَمَنْ عَفَا وَأَصْلَحَ فَأَجْرُهُ عَلَى اللَّهِ",en:"The repayment of an evil is one like it — but whoever pardons, their reward is with Allah.",ref:"Ash-Shura 42:40"}]);
+  add('forgiveness', [{ar:"وَلْيَعْفُوا وَلْيَصْفَحُوا أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ لَكُمْ",en:"Let them pardon and overlook — would you not like that Allah should forgive you?",ref:"An-Nur 24:22"}]);
+  add('guidance', [{ar:"يَهْدِي اللَّهُ لِنُورِهِ مَن يَشَاءُ",en:"Allah guides to His light whom He wills.",ref:"An-Nur 24:35"}]);
+  add('healing', [{ar:"وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ",en:"And when My servants ask about Me — indeed I am near.",ref:"Al-Baqarah 2:186"}]);
+  add('abundance', [{ar:"وَمَا تُنفِقُوا مِنْ خَيْرٍ فَلِأَنفُسِكُمْ",en:"And whatever good you spend — it is for yourselves.",ref:"Al-Baqarah 2:272"}]);
+  add('revert', [{ar:"وَمَن يُطِعِ اللَّهَ وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا",en:"Whoever obeys Allah and His Messenger has certainly attained a great attainment.",ref:"Al-Ahzab 33:71"}]);
+})();
+})();
+
 const MOODS = [
   { key:"grief",       label:"Grief",        labelAr:"الحزن",      g:"𖤓", glow:"#7c5fb0" },  // broken circle — loss
   { key:"fear",        label:"Fear",         labelAr:"الخوف",      g:"⌁", glow:"#4a8ab0" },  // electric — nervous energy
@@ -2200,8 +2355,8 @@ let lang = 'en';
 initVOTD();
 
 const UI_TEXT = {
-  en: { sub:'Light from the Quran, for every moment of need.', feelings:'What brought you here today?', situations:'What are you going through?', or:'or speak your heart', placeholder:'Tell me what\'s on your heart…', pull:'✦  Pull a verse  ✦', another:'✦  Another verse', share:'Share', copy:'Copy', back:'← Back', swipe:'← swipe for next verse →', pwaTitle:'Save to Your Home Screen', pwaBody:'In Safari, tap the Share icon ↑ then choose "Add to Home Screen." Opens like a native app — no App Store needed.', saved:'Verse image saved ✦', copied:'Verse copied ✦', footer:'Always Free ☽ assalamualaykum.app', pwaLink:'Save as App ↗', close:'Close', meaning:'Peace Be Upon You', translit:'Assalamu Alaykum' },
-  ar: { sub:'نور من القرآن الكريم، في كل لحظة تحتاج فيها', feelings:'ما الذي أتى بك اليوم؟', situations:'ما الذي تمر به؟', or:'أو تحدث من قلبك', placeholder:'أخبرني ما يشغل قلبك…', pull:'✦  اسحب آية  ✦', another:'✦  آية أخرى', share:'مشاركة', copy:'نسخ', back:'رجوع →', swipe:'← اسحب للآية التالية →', pwaTitle:'احفظ على شاشتك الرئيسية', pwaBody:'في Safari، اضغط على أيقونة المشاركة ↑ ثم اختر "إضافة إلى الشاشة الرئيسية".', saved:'تم حفظ الصورة ✦', copied:'تم النسخ ✦', footer:'دائمًا مجاني ☽ assalamualaykum.app', pwaLink:'احفظ كتطبيق ↗', close:'إغلاق', meaning:'وعليكم السلام', translit:'Wa Alaykum Assalam' }
+  en: { sub:'Light from the Quran, for every moment of need.', feelings:'What brought you here today?', situations:'What are you going through?', or:'or speak your heart', placeholder:'Tell me what\'s on your heart…', pull:'✦  Pull a verse  ✦', another:'✦  Another verse', share:'Save Image', copy:'Copy', back:'← Back', swipe:'← swipe for next verse →', pwaTitle:'Save to Your Home Screen', pwaBody:'In Safari, tap the Share icon ↑ then choose "Add to Home Screen." Opens like a native app — no App Store needed.', saved:'Saved to Photos ✦', copied:'Verse copied ✦', footer:'Free Forever ☽ assalamualaykum.app', pwaLink:'Save as App ↗', close:'Done', meaning:'Peace Be Upon You', translit:'Assalamu Alaykum' },
+  ar: { sub:'نور من القرآن الكريم، في كل لحظة تحتاج فيها', feelings:'ما الذي أتى بك اليوم؟', situations:'ما الذي تمر به؟', or:'أو تحدث من قلبك', placeholder:'أخبرني ما يشغل قلبك…', pull:'✦  اسحب آية  ✦', another:'✦  آية أخرى', share:'حفظ صورة', copy:'نسخ', back:'رجوع →', swipe:'← اسحب للآية التالية →', pwaTitle:'احفظ على شاشتك الرئيسية', pwaBody:'في Safari، اضغط على أيقونة المشاركة ↑ ثم اختر "إضافة إلى الشاشة الرئيسية".', saved:'تم الحفظ في الصور ✦', copied:'تم النسخ ✦', footer:'مجاني للأبد ☽ assalamualaykum.app', pwaLink:'احفظ كتطبيق ↗', close:'تم', meaning:'وعليكم السلام', translit:'Wa Alaykum Assalam' }
 };
 
 function applyLang() {
@@ -2230,6 +2385,8 @@ function applyLang() {
   if(el('pwaLink')) el('pwaLink').textContent = t.pwaLink;
   const votdL = el('votdLabel');
   if(votdL) votdL.innerHTML = lang==='ar' ? '☽ &nbsp; آية اليوم' : '☽ &nbsp; Verse of the Day';
+  const votdSL = el('votdSaveLabel');
+  if(votdSL) votdSL.textContent = lang==='ar' ? 'حفظ صورة' : 'Save Image';
   buildGrids();
 }
 
@@ -2447,111 +2604,158 @@ document.getElementById('copyBtn').addEventListener('click', () => {
 // SHARE AS IMAGE
 // ═══════════════════════════════
 document.getElementById('shareBtn').addEventListener('click', shareVerse);
+document.getElementById('votdSaveBtn').addEventListener('click', e => { e.stopPropagation(); shareVOTD(); });
 
-async function shareVerse() {
-  const ar = document.getElementById('verseArabic').textContent;
-  const en = document.getElementById('verseEnglish').textContent;
-  const ref = document.getElementById('verseRef').textContent;
-  const tag = document.getElementById('verseMoodTag').textContent;
+// ─── SHARED IMAGE BUILDER ───
+// Used by both verse page and VOTD banner
+function buildShareCard(ar, en, ref, label) {
   const W=1080, H=1920, canvas=document.getElementById('shareCanvas');
   canvas.width=W; canvas.height=H;
   const ctx=canvas.getContext('2d');
-  // background gradient
-  const bg=ctx.createLinearGradient(0,0,W,H); bg.addColorStop(0,'#0e1d40'); bg.addColorStop(.5,'#080f1e'); bg.addColorStop(1,'#060c18');
+  const cx=W/2;
+
+  // ── background ──
+  const bg=ctx.createLinearGradient(0,0,W,H);
+  bg.addColorStop(0,'#0e1d40'); bg.addColorStop(.5,'#080f1e'); bg.addColorStop(1,'#060c18');
   ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
-  // stars — more of them for the taller canvas
-  for(let i=0;i<220;i++){const x=Math.random()*W,y=Math.random()*H,r=Math.random()*1.8+.3;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=`rgba(247,240,224,${Math.random()*.35+.04})`;ctx.fill();}
-  // two ambient glows for the taller format
-  const g1=ctx.createRadialGradient(W*.75,H*.2,0,W*.75,H*.2,500); g1.addColorStop(0,'rgba(34,56,112,.28)'); g1.addColorStop(1,'transparent'); ctx.fillStyle=g1; ctx.fillRect(0,0,W,H);
-  const g2=ctx.createRadialGradient(W*.25,H*.75,0,W*.25,H*.75,400); g2.addColorStop(0,'rgba(138,111,48,.12)'); g2.addColorStop(1,'transparent'); ctx.fillStyle=g2; ctx.fillRect(0,0,W,H);
-  // card area — vertically centered with breathing room
-  const padX=72, padYTop=200, padYBot=280;
+
+  // stars
+  for(let i=0;i<220;i++){
+    const x=Math.random()*W, y=Math.random()*H, r=Math.random()*1.8+.3;
+    ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fillStyle='rgba(247,240,224,'+(Math.random()*.35+.04)+')'; ctx.fill();
+  }
+
+  // ambient glows
+  const g1=ctx.createRadialGradient(W*.75,H*.25,0,W*.75,H*.25,520);
+  g1.addColorStop(0,'rgba(34,56,112,.28)'); g1.addColorStop(1,'transparent');
+  ctx.fillStyle=g1; ctx.fillRect(0,0,W,H);
+  const g2=ctx.createRadialGradient(W*.25,H*.72,0,W*.25,H*.72,400);
+  g2.addColorStop(0,'rgba(138,111,48,.12)'); g2.addColorStop(1,'transparent');
+  ctx.fillStyle=g2; ctx.fillRect(0,0,W,H);
+
+  // ── BRANDED HEADER — top of image ──
+  // Arabic greeting
+  ctx.font='600 72px "Noto Naskh Arabic",serif';
+  ctx.fillStyle='rgba(226,196,122,.92)';
+  ctx.textAlign='center';
+  ctx.fillText('ٱلسَّلَامُ عَلَيْكُمْ', cx, 130);
+
+  // gold divider under Arabic
+  const hdl=ctx.createLinearGradient(cx-180,0,cx+180,0);
+  hdl.addColorStop(0,'transparent'); hdl.addColorStop(.5,'rgba(201,168,76,.5)'); hdl.addColorStop(1,'transparent');
+  ctx.fillStyle=hdl; ctx.fillRect(cx-180,152,360,1);
+
+  // transliteration
+  ctx.font='500 32px Cinzel,serif';
+  ctx.fillStyle='rgba(180,160,100,.75)';
+  ctx.textAlign='center';
+  ctx.fillText('ASSALAMU ALAYKUM', cx, 198);
+
+  // meaning
+  ctx.font='300 italic 26px "Cormorant Garamond",serif';
+  ctx.fillStyle='rgba(150,135,100,.6)';
+  ctx.fillText('Peace Be Upon You', cx, 232);
+
+  // ── card ──
+  const padX=72, padYTop=280, padYBot=220;
   const cardX=padX, cardY=padYTop, cardW=W-padX*2, cardH=H-padYTop-padYBot;
-  // card background
+
   const cardBg=ctx.createLinearGradient(cardX,cardY,cardX,cardY+cardH);
   cardBg.addColorStop(0,'rgba(22,36,72,.55)'); cardBg.addColorStop(1,'rgba(10,18,32,.75)');
   ctx.fillStyle=cardBg; roundRect(ctx,cardX,cardY,cardW,cardH,28); ctx.fill();
-  // card border
-  ctx.strokeStyle='rgba(201,168,76,.22)'; ctx.lineWidth=1.5; roundRect(ctx,cardX,cardY,cardW,cardH,28); ctx.stroke();
-  const cx=W/2;
-  // top gold line
-  const tl=ctx.createLinearGradient(cx-200,0,cx+200,0); tl.addColorStop(0,'transparent'); tl.addColorStop(.5,'rgba(201,168,76,.7)'); tl.addColorStop(1,'transparent');
+  ctx.strokeStyle='rgba(201,168,76,.22)'; ctx.lineWidth=1.5;
+  roundRect(ctx,cardX,cardY,cardW,cardH,28); ctx.stroke();
+
+  // card top gold line
+  const tl=ctx.createLinearGradient(cx-200,0,cx+200,0);
+  tl.addColorStop(0,'transparent'); tl.addColorStop(.5,'rgba(201,168,76,.7)'); tl.addColorStop(1,'transparent');
   ctx.fillStyle=tl; ctx.fillRect(cx-200,cardY,400,1.5);
-  // bottom gold line
-  const bl=ctx.createLinearGradient(cx-200,0,cx+200,0); bl.addColorStop(0,'transparent'); bl.addColorStop(.5,'rgba(201,168,76,.35)'); bl.addColorStop(1,'transparent');
+
+  // card bottom gold line
+  const bl=ctx.createLinearGradient(cx-200,0,cx+200,0);
+  bl.addColorStop(0,'transparent'); bl.addColorStop(.5,'rgba(201,168,76,.35)'); bl.addColorStop(1,'transparent');
   ctx.fillStyle=bl; ctx.fillRect(cx-200,cardY+cardH-1,400,1.5);
+
   // corner ornaments
-  ctx.font='48px serif'; ctx.fillStyle='rgba(138,111,48,.42)';
-  ctx.textAlign='left';  ctx.fillText('❧', cardX+28, cardY+62);
-  ctx.textAlign='right'; ctx.fillText('❧', cardX+cardW-28, cardY+62);
-  ctx.textAlign='left';  ctx.fillText('❧', cardX+28, cardY+cardH-20);
-  ctx.textAlign='right'; ctx.fillText('❧', cardX+cardW-28, cardY+cardH-20);
+  ctx.font='44px serif'; ctx.fillStyle='rgba(138,111,48,.4)';
+  ctx.textAlign='left';  ctx.fillText('❧', cardX+24, cardY+56);
+  ctx.textAlign='right'; ctx.fillText('❧', cardX+cardW-24, cardY+56);
+  ctx.textAlign='left';  ctx.fillText('❧', cardX+24, cardY+cardH-16);
+  ctx.textAlign='right'; ctx.fillText('❧', cardX+cardW-24, cardY+cardH-16);
 
-  // ── dynamic font sizing based on content length ──
-  const arLen = ar.length;
-  const enLen = en.length;
-  const arFontSize = arLen < 40 ? 72 : arLen < 80 ? 58 : arLen < 120 ? 46 : 38;
-  const enFontSize = enLen < 60 ? 52 : enLen < 100 ? 44 : enLen < 150 ? 36 : 30;
-  const arLineH = arFontSize * 1.6;
-  const enLineH = enFontSize * 1.55;
+  // optional label (VOTD shows "Verse of the Day", verse page shows nothing)
+  let y = cardY + 80;
+  if (label) {
+    ctx.font='500 24px Cinzel,serif'; ctx.fillStyle='rgba(138,111,48,.8)'; ctx.textAlign='center';
+    ctx.fillText(label.toUpperCase(), cx, y); y += 40;
+  }
 
-  // start y — vertically center content in card
-  let y = cardY + 100;
-
-  // top ornamental divider
-  const od=ctx.createLinearGradient(cx-120,0,cx+120,0); od.addColorStop(0,'transparent'); od.addColorStop(.5,'rgba(138,111,48,.5)'); od.addColorStop(1,'transparent');
+  // top ornamental divider in card
+  const od=ctx.createLinearGradient(cx-120,0,cx+120,0);
+  od.addColorStop(0,'transparent'); od.addColorStop(.5,'rgba(138,111,48,.5)'); od.addColorStop(1,'transparent');
   ctx.fillStyle=od; ctx.fillRect(cx-120,y,240,1); y += 70;
 
-  // arabic text — dynamic size
-  ctx.font=`500 ${arFontSize}px "Noto Naskh Arabic",serif`; ctx.fillStyle='rgba(226,196,122,.92)'; ctx.textAlign='right';
+  // ── dynamic font sizing ──
+  const arLen=ar.length, enLen=en.length;
+  const arFontSize = arLen<40 ? 68 : arLen<80 ? 56 : arLen<120 ? 44 : 36;
+  const enFontSize = enLen<60 ? 50 : enLen<100 ? 42 : enLen<150 ? 34 : 28;
+
+  // arabic — right aligned
+  ctx.font='500 '+arFontSize+'px "Noto Naskh Arabic",serif';
+  ctx.fillStyle='rgba(226,196,122,.92)'; ctx.textAlign='right';
   const arLines=wrapText(ctx,ar,cardW-120);
-  for(const l of arLines){ ctx.fillText(l, cardX+cardW-60, y); y+=arLineH; }
-  y += 40;
+  for(const l of arLines){ ctx.fillText(l,cardX+cardW-60,y); y+=arFontSize*1.6; }
+  y+=40;
 
   // mid divider
-  const md=ctx.createLinearGradient(cx-80,0,cx+80,0); md.addColorStop(0,'transparent'); md.addColorStop(.5,'rgba(138,111,48,.45)'); md.addColorStop(1,'transparent');
-  ctx.fillStyle=md; ctx.fillRect(cx-80,y,160,1); y += 60;
+  const md=ctx.createLinearGradient(cx-80,0,cx+80,0);
+  md.addColorStop(0,'transparent'); md.addColorStop(.5,'rgba(138,111,48,.45)'); md.addColorStop(1,'transparent');
+  ctx.fillStyle=md; ctx.fillRect(cx-80,y,160,1); y+=60;
 
-  // english text — dynamic size
-  ctx.font=`300 italic ${enFontSize}px "Cormorant Garamond",serif`; ctx.fillStyle='rgba(237,228,204,.9)'; ctx.textAlign='center';
+  // english — centered
+  ctx.font='300 italic '+enFontSize+'px "Cormorant Garamond",serif';
+  ctx.fillStyle='rgba(237,228,204,.9)'; ctx.textAlign='center';
   const enLines=wrapText(ctx,en,cardW-160);
-  for(const l of enLines){ ctx.fillText(l, cx, y); y+=enLineH; }
-  y += 50;
+  for(const l of enLines){ ctx.fillText(l,cx,y); y+=enFontSize*1.55; }
+  y+=50;
 
   // surah ref
-  ctx.font='400 26px Cinzel,serif'; ctx.fillStyle='rgba(96,112,144,.85)'; ctx.textAlign='center';
+  ctx.font='400 24px Cinzel,serif'; ctx.fillStyle='rgba(96,112,144,.85)'; ctx.textAlign='center';
   ctx.fillText(ref.toUpperCase(), cx, y);
 
-  // domain — inside card bottom, safe from Stories crop
-  ctx.font='400 22px Cinzel,serif'; ctx.fillStyle='rgba(138,111,48,.38)'; ctx.textAlign='center';
-  ctx.fillText('assalamualaykum.app', cx, cardY+cardH-52);
-  // share / download
-  canvas.toBlob(async blob => {
-    const file = new File([blob],'assalamualaykum-verse.png',{type:'image/png'});
-    // try Instagram Stories deep link first (mobile only)
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      try {
-        const dataUrl = canvas.toDataURL('image/png');
-        // attempt Instagram Stories via custom URL scheme
-        const igUrl = 'instagram-stories://share?backgroundImage=' + encodeURIComponent(dataUrl);
-        window.location.href = igUrl;
-        // if Instagram isn't installed it'll fail silently — fall through after delay
-        await new Promise(r => setTimeout(r, 800));
-      } catch(e) {}
-    }
-    // native share sheet (shares image to any app including Instagram)
-    if (navigator.share && navigator.canShare && navigator.canShare({files:[file]})) {
-      try { await navigator.share({files:[file],title:'ٱلسَّلَامُ عَلَيْكُمْ',text:`${en} — ${ref}\n\nassalamualaykum.app`}); }
-      catch(e) { fallbackDownload(canvas); }
-    } else { fallbackDownload(canvas); }
-  },'image/png');
+  // domain watermark inside card bottom
+  ctx.font='400 20px Cinzel,serif'; ctx.fillStyle='rgba(138,111,48,.35)'; ctx.textAlign='center';
+  ctx.fillText('assalamualaykum.app', cx, cardY+cardH-48);
+
+  return canvas;
 }
 
-function fallbackDownload(canvas) {
-  const a=document.createElement('a'); a.download='assalamualaykum-verse.png'; a.href=canvas.toDataURL('image/png'); a.click();
-  showToast(UI_TEXT[lang].saved);
+async function shareVerse() {
+  const ar  = document.getElementById('verseArabic').textContent;
+  const en  = document.getElementById('verseEnglish').textContent;
+  const ref = document.getElementById('verseRef').textContent;
+  const canvas = buildShareCard(ar, en, ref, null);
+  canvas.toBlob(blob => {
+    const a=document.createElement('a'); a.download='assalamualaykum-verse.png';
+    a.href=URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+    showToast(lang==='ar' ? 'تم حفظ الصورة ✦' : 'Saved to Photos ✦');
+  }, 'image/png');
 }
+
+function shareVOTD() {
+  const ar  = document.getElementById('votdArabic').textContent;
+  const en  = document.getElementById('votdEnglish').textContent;
+  const ref = document.getElementById('votdRef').textContent;
+  const label = lang==='ar' ? 'آية اليوم' : 'Verse of the Day';
+  const canvas = buildShareCard(ar, en, ref, label);
+  canvas.toBlob(blob => {
+    const a=document.createElement('a'); a.download='assalamualaykum-votd.png';
+    a.href=URL.createObjectURL(blob); a.click(); URL.revokeObjectURL(a.href);
+    showToast(lang==='ar' ? 'تم حفظ الصورة ✦' : 'Saved to Photos ✦');
+  }, 'image/png');
+}
+
 function showToast(msg) { const t=document.getElementById('share-toast'); t.textContent=msg; t.style.opacity='1'; setTimeout(()=>t.style.opacity='0',2800); }
 function wrapText(ctx,text,maxW) { const words=text.split(' '),lines=[];let line='';for(const w of words){const test=line?line+' '+w:w;if(ctx.measureText(test).width>maxW&&line){lines.push(line);line=w;}else line=test;}if(line)lines.push(line);return lines; }
 function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
@@ -2630,6 +2834,22 @@ document.getElementById('pwaLink').addEventListener('click', e => {
 });
 document.getElementById('closeTip').addEventListener('click', () => {
   document.getElementById('pwa-tip').classList.remove('show');
+});
+
+// privacy modal
+document.getElementById('privacyLink').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('privacy-modal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+});
+function closePrivacy() {
+  document.getElementById('privacy-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('closePrivacy').addEventListener('click', closePrivacy);
+document.getElementById('closePrivacy2').addEventListener('click', closePrivacy);
+document.getElementById('privacy-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('privacy-modal')) closePrivacy();
 });
 </script>
 
