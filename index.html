@@ -1436,6 +1436,338 @@ Object.assign(VERSES, {
   loss:"grief", sickness:"healing", financial:"abundance", identity:"purpose", sin:"forgiveness", tested:"patience", marriage:"love", seeking:"guidance"
 });
 
+// ── VERSE EXPANSION — bringing every category to 15+ ──
+(function expandVerses() {
+  const add = (cat, verses) => { if (!VERSES[cat]) VERSES[cat] = []; VERSES[cat].push(...verses); };
+
+  add('grief', [
+    {ar:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",en:"Indeed, Allah is with those who are patient.",ref:"Al-Baqarah 2:153"},
+    {ar:"عَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ",en:"Perhaps you dislike something and it is good for you.",ref:"Al-Baqarah 2:216"},
+    {ar:"وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ",en:"And your Lord will give to you, and you will be satisfied.",ref:"Ad-Duha 93:5"},
+    {ar:"مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",en:"Your Lord has not abandoned you, nor has He detested you.",ref:"Ad-Duha 93:3"},
+    {ar:"وَأَيُّوبَ إِذْ نَادَىٰ رَبَّهُ أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ",en:"And Ayyub, when he called to his Lord: Affliction has touched me, and You are the Most Merciful.",ref:"Al-Anbiya 21:83"},
+    {ar:"وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوعِ",en:"We will test you with something of fear and hunger — but give glad tidings to those who are patient.",ref:"Al-Baqarah 2:155"},
+    {ar:"أَلَمْ يَجِدْكَ يَتِيمًا فَآوَىٰ",en:"Did He not find you an orphan and give you shelter?",ref:"Ad-Duha 93:6"},
+    {ar:"فَإِنَّ مَعَ الْعُسْرِ يُسْرًا إِنَّ مَعَ الْعُسْرِ يُسْرًا",en:"For indeed, with every hardship comes ease — indeed, with every hardship comes ease.",ref:"Al-Sharh 94:5–6"},
+    {ar:"وَلَا تَحْزَنْ عَلَيْهِمْ وَلَا تَكُن فِي ضَيْقٍ",en:"And do not be saddened by them, nor be in distress.",ref:"An-Naml 27:70"},
+    {ar:"وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ",en:"And the Hereafter is better for you than the first life.",ref:"Ad-Duha 93:4"},
+    {ar:"رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا",en:"Our Lord, do not impose blame upon us if we forget or make a mistake.",ref:"Al-Baqarah 2:286"},
+  ]);
+
+  add('fear', [
+    {ar:"لَا تَخَافُوا وَلَا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ",en:"Fear not, nor grieve — and receive the glad tidings of Paradise.",ref:"Fussilat 41:30"},
+    {ar:"إِنَّ اللَّهَ يُدَافِعُ عَنِ الَّذِينَ آمَنُوا",en:"Indeed, Allah defends those who have believed.",ref:"Al-Hajj 22:38"},
+    {ar:"سَيَجْعَلُ اللَّهُ بَعْدَ عُسْرٍ يُسْرًا",en:"Allah will bring about ease after difficulty.",ref:"At-Talaq 65:7"},
+    {ar:"وَتَوَكَّلْ عَلَى الْحَيِّ الَّذِي لَا يَمُوتُ",en:"And rely upon the Ever-Living who does not die.",ref:"Al-Furqan 25:58"},
+    {ar:"لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا",en:"Do not grieve — indeed, Allah is with us.",ref:"At-Tawbah 9:40"},
+    {ar:"فَلَا تَخَافُوهُمْ وَخَافُونِ إِن كُنتُم مُّؤْمِنِينَ",en:"So fear them not, but fear Me, if you are believers.",ref:"Aal-e-Imran 3:175"},
+    {ar:"وَإِن يَمْسَسْكَ اللَّهُ بِضُرٍّ فَلَا كَاشِفَ لَهُ إِلَّا هُوَ",en:"And if Allah should touch you with adversity — there is no remover of it except Him.",ref:"Al-An'am 6:17"},
+    {ar:"وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا",en:"And whoever is mindful of Allah — He will make for them a way out.",ref:"At-Talaq 65:2"},
+    {ar:"اللَّهُ لَطِيفٌ بِعِبَادِهِ",en:"Allah is gentle with His servants.",ref:"Ash-Shura 42:19"},
+    {ar:"أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",en:"Truly, it is in the remembrance of Allah that hearts find rest.",ref:"Ar-Ra'd 13:28"},
+    {ar:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",en:"Indeed, Allah is with those who are patient.",ref:"Al-Baqarah 2:153"},
+  ]);
+
+  add('loneliness', [
+    {ar:"وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ",en:"We have certainly honored the children of Adam.",ref:"Al-Isra 17:70"},
+    {ar:"وَاللَّهُ يَعْلَمُ مَا تُسِرُّونَ وَمَا تُعْلِنُونَ",en:"Allah knows what you conceal and what you reveal.",ref:"An-Nahl 16:19"},
+    {ar:"وَهُوَ الَّذِي فِي السَّمَاءِ إِلَٰهٌ وَفِي الْأَرْضِ إِلَٰهٌ",en:"It is He who is God in heaven and God on earth.",ref:"Az-Zukhruf 43:84"},
+    {ar:"مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",en:"Your Lord has not abandoned you, nor has He detested you.",ref:"Ad-Duha 93:3"},
+    {ar:"أَلَمْ يَجِدْكَ يَتِيمًا فَآوَىٰ",en:"Did He not find you an orphan and give you shelter?",ref:"Ad-Duha 93:6"},
+    {ar:"وَإِن تَعُدُّوا نِعْمَةَ اللَّهِ لَا تُحْصُوهَا",en:"And if you were to count the blessings of Allah, you could not enumerate them.",ref:"Ibrahim 14:34"},
+    {ar:"وَلَا تَحْزَنْ عَلَيْهِمْ",en:"And do not be saddened by them.",ref:"An-Naml 27:70"},
+    {ar:"إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ",en:"Indeed, to Allah we belong, and to Him we shall return.",ref:"Al-Baqarah 2:156"},
+    {ar:"لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",en:"Allah does not burden a soul beyond that it can bear.",ref:"Al-Baqarah 2:286"},
+    {ar:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",en:"Indeed, Allah is with those who are patient.",ref:"Al-Baqarah 2:153"},
+    {ar:"اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ",en:"Allah is the Light of the heavens and the earth.",ref:"An-Nur 24:35"},
+  ]);
+
+  add('overwhelm', [
+    {ar:"وَمَا جَعَلَ عَلَيْكُمْ فِي الدِّينِ مِنْ حَرَجٍ",en:"And He has not placed upon you in the religion any difficulty.",ref:"Al-Hajj 22:78"},
+    {ar:"يُرِيدُ اللَّهُ أَن يُخَفِّفَ عَنكُمْ",en:"Allah wants to lighten your burdens.",ref:"An-Nisa 4:28"},
+    {ar:"وَعَلَى اللَّهِ فَتَوَكَّلُوا إِن كُنتُم مُّؤْمِنِينَ",en:"And in Allah put your trust, if you are truly believers.",ref:"Al-Maidah 5:23"},
+    {ar:"حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",en:"Allah is sufficient for us — He is the best Disposer of affairs.",ref:"Aal-e-Imran 3:173"},
+    {ar:"وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",en:"Whoever places their trust in Allah — He is sufficient for them.",ref:"At-Talaq 65:3"},
+    {ar:"رَبَّنَا لَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ",en:"Our Lord, do not burden us with that which we have no ability to bear.",ref:"Al-Baqarah 2:286"},
+    {ar:"وَمَا أَصَابَكُم مِّن مُّصِيبَةٍ فَبِمَا كَسَبَتْ أَيْدِيكُمْ وَيَعْفُو عَن كَثِيرٍ",en:"Whatever strikes you of misfortune is for what your hands have earned — and He pardons much.",ref:"Ash-Shura 42:30"},
+    {ar:"وَلَا تُلْقُوا بِأَيْدِيكُمْ إِلَى التَّهْلُكَةِ",en:"And do not throw yourselves into destruction.",ref:"Al-Baqarah 2:195"},
+    {ar:"فَإِذَا فَرَغْتَ فَانصَبْ",en:"So when you have finished, devote yourself to worship.",ref:"Al-Sharh 94:7"},
+    {ar:"أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",en:"Truly, it is in the remembrance of Allah that hearts find rest.",ref:"Ar-Ra'd 13:28"},
+    {ar:"إِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ",en:"Indeed, Allah does not allow the reward of those who do good to be lost.",ref:"Hud 11:115"},
+  ]);
+
+  add('confusion', [
+    {ar:"إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ",en:"Indeed, this Quran guides to that which is most upright.",ref:"Al-Isra 17:9"},
+    {ar:"وَمَن يُؤْمِن بِاللَّهِ يَهْدِ قَلْبَهُ",en:"And whoever believes in Allah — He will guide their heart.",ref:"At-Taghabun 64:11"},
+    {ar:"أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ",en:"Do they not contemplate the Quran?",ref:"Muhammad 47:24"},
+    {ar:"قُلْ إِنَّ الْهُدَىٰ هُدَى اللَّهِ",en:"Say: Indeed, guidance is the guidance of Allah.",ref:"Al-Baqarah 2:120"},
+    {ar:"وَمَا تَشَاءُونَ إِلَّا أَن يَشَاءَ اللَّهُ",en:"And you do not will except that Allah wills.",ref:"At-Takwir 81:29"},
+    {ar:"ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ",en:"This is the Book about which there is no doubt — a guidance for those mindful of Allah.",ref:"Al-Baqarah 2:2"},
+    {ar:"رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا",en:"Our Lord, do not let our hearts deviate after You have guided us.",ref:"Aal-e-Imran 3:8"},
+    {ar:"وَاللَّهُ يَهْدِي مَن يَشَاءُ إِلَىٰ صِرَاطٍ مُّسْتَقِيمٍ",en:"And Allah guides whom He wills to a straight path.",ref:"Al-Baqarah 2:213"},
+    {ar:"وَمَن يَعْتَصِم بِاللَّهِ فَقَدْ هُدِيَ إِلَىٰ صِرَاطٍ مُّسْتَقِيمٍ",en:"And whoever holds firmly to Allah has been guided to a straight path.",ref:"Aal-e-Imran 3:101"},
+    {ar:"سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنفُسِهِمْ",en:"We will show them Our signs in the horizons and within themselves.",ref:"Fussilat 41:53"},
+    {ar:"وَقُل رَّبِّ زِدْنِي عِلْمًا",en:"And say: My Lord, increase me in knowledge.",ref:"Ta-Ha 20:114"},
+  ]);
+
+  add('doubt', [
+    {ar:"إِنَّ فِي خَلْقِ السَّمَاوَاتِ وَالْأَرْضِ لَآيَاتٍ لِّأُولِي الْأَلْبَابِ",en:"Indeed, in the creation of the heavens and the earth are signs for those of understanding.",ref:"Aal-e-Imran 3:190"},
+    {ar:"سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنفُسِهِمْ",en:"We will show them Our signs in the horizons and within themselves.",ref:"Fussilat 41:53"},
+    {ar:"وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",en:"I did not create the jinn and mankind except to worship Me.",ref:"Adh-Dhariyat 51:56"},
+    {ar:"رَبُّنَا الَّذِي أَعْطَىٰ كُلَّ شَيْءٍ خَلْقَهُ ثُمَّ هَدَىٰ",en:"Our Lord is He who gave each thing its form and then guided it.",ref:"Ta-Ha 20:50"},
+    {ar:"أَوَلَمْ يَكْفِ بِرَبِّكَ أَنَّهُ عَلَىٰ كُلِّ شَيْءٍ شَهِيدٌ",en:"Is it not sufficient that your Lord is, over all things, a Witness?",ref:"Fussilat 41:53"},
+    {ar:"فَأَيْنَ تَذْهَبُونَ",en:"Then where are you going?",ref:"At-Takwir 81:26"},
+    {ar:"وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ",en:"We have made the Quran easy to remember — so is there anyone who will reflect?",ref:"Al-Qamar 54:17"},
+    {ar:"اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ",en:"Allah is the Light of the heavens and the earth.",ref:"An-Nur 24:35"},
+    {ar:"قُلْ هُوَ اللَّهُ أَحَدٌ",en:"Say: He is Allah, One.",ref:"Al-Ikhlas 112:1"},
+    {ar:"وَإِن تَعُدُّوا نِعْمَةَ اللَّهِ لَا تُحْصُوهَا",en:"If you were to count the blessings of Allah, you could never enumerate them.",ref:"Ibrahim 14:34"},
+    {ar:"أَفَحَسِبْتُمْ أَنَّمَا خَلَقْنَاكُمْ عَبَثًا",en:"Did you think that We created you in vain?",ref:"Al-Mu'minun 23:115"},
+  ]);
+
+  add('love', [
+    {ar:"وَهُوَ الْغَفُورُ الْوَدُودُ",en:"He is the Oft-Forgiving, the Most Loving.",ref:"Al-Buruj 85:14"},
+    {ar:"قُلْ إِن كُنتُمْ تُحِبُّونَ اللَّهَ فَاتَّبِعُونِي يُحْبِبْكُمُ اللَّهُ",en:"Say: If you love Allah, follow me — Allah will love you.",ref:"Aal-e-Imran 3:31"},
+    {ar:"إِنَّ اللَّهَ يُحِبُّ الصَّابِرِينَ",en:"Indeed, Allah loves those who are patient.",ref:"Aal-e-Imran 3:146"},
+    {ar:"وَاللَّهُ يُحِبُّ الْمُطَّهِّرِينَ",en:"And Allah loves those who purify themselves.",ref:"At-Tawbah 9:108"},
+    {ar:"وَأَحْسِنُوا إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ",en:"And do good — indeed, Allah loves those who do good.",ref:"Al-Baqarah 2:195"},
+    {ar:"وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ",en:"And live with them in kindness.",ref:"An-Nisa 4:19"},
+    {ar:"وَلَا تَنسَوُا الْفَضْلَ بَيْنَكُمْ",en:"And do not forget generosity between one another.",ref:"Al-Baqarah 2:237"},
+    {ar:"يَا أَيُّهَا الَّذِينَ آمَنُوا ادْخُلُوا فِي السِّلْمِ كَافَّةً",en:"O you who believe — enter into peace fully.",ref:"Al-Baqarah 2:208"},
+    {ar:"إِنَّ اللَّهَ يُحِبُّ الْمُقْسِطِينَ",en:"Indeed, Allah loves those who act justly.",ref:"Al-Mumtahana 60:8"},
+    {ar:"وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ",en:"And My mercy encompasses all things.",ref:"Al-A'raf 7:156"},
+    {ar:"إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ",en:"The believers are but brothers.",ref:"Al-Hujurat 49:10"},
+    {ar:"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",en:"Among His signs is that He created for you spouses and placed between you love and mercy.",ref:"Ar-Rum 30:21"},
+  ]);
+
+  add('hope', [
+    {ar:"وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ",en:"Do not despair of the mercy of Allah.",ref:"Yusuf 12:87"},
+    {ar:"غَافِرِ الذَّنبِ وَقَابِلِ التَّوْبِ",en:"The Forgiver of sin and the Accepter of repentance.",ref:"Ghafir 40:3"},
+    {ar:"فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ",en:"So whoever does an atom's weight of good will see it.",ref:"Az-Zalzalah 99:7"},
+    {ar:"إِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ",en:"Indeed, Allah does not allow the reward of those who do good to be lost.",ref:"Hud 11:115"},
+    {ar:"وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ",en:"And the Hereafter is better for you than the first life.",ref:"Ad-Duha 93:4"},
+    {ar:"كَانَ اللَّهُ غَفُورًا رَّحِيمًا",en:"Allah is ever Forgiving and Merciful.",ref:"Al-Ahzab 33:5"},
+    {ar:"إِنَّ اللَّهَ لَا يَخْلُفُ الْمِيعَادَ",en:"Indeed, Allah does not fail in His promise.",ref:"Aal-e-Imran 3:9"},
+    {ar:"وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ",en:"And your Lord will give to you, and you will be satisfied.",ref:"Ad-Duha 93:5"},
+    {ar:"وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا",en:"Those who strive for Us — We will surely guide them to Our paths.",ref:"Al-Ankabut 29:69"},
+    {ar:"إِنَّ مَعَ الْعُسْرِ يُسْرًا",en:"Indeed, with hardship will come ease.",ref:"Al-Sharh 94:6"},
+    {ar:"عَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ",en:"Perhaps you dislike something and it is good for you.",ref:"Al-Baqarah 2:216"},
+    {ar:"وَبَشِّرِ الصَّابِرِينَ",en:"And give glad tidings to those who endure with patience.",ref:"Al-Baqarah 2:155"},
+  ]);
+
+  add('gratitude', [
+    {ar:"وَإِن تَشْكُرُوا يَرْضَهُ لَكُمْ",en:"And if you are grateful, He is pleased with it for you.",ref:"Az-Zumar 39:7"},
+    {ar:"وَمَا بِكُم مِّن نِّعْمَةٍ فَمِنَ اللَّهِ",en:"And whatever blessing you have — it is from Allah.",ref:"An-Nahl 16:53"},
+    {ar:"رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ",en:"My Lord, enable me to be grateful for Your favor.",ref:"An-Naml 27:19"},
+    {ar:"الْحَمْدُ لِلَّهِ الَّذِي هَدَانَا لِهَٰذَا",en:"Praise be to Allah, who guided us to this.",ref:"Al-A'raf 7:43"},
+    {ar:"اعْمَلُوا آلَ دَاوُودَ شُكْرًا وَقَلِيلٌ مِّنْ عِبَادِيَ الشَّكُورُ",en:"Work in gratitude — and few of My servants are truly grateful.",ref:"Saba 34:13"},
+    {ar:"وَسَيَجْزِي اللَّهُ الشَّاكِرِينَ",en:"And Allah will reward those who are grateful.",ref:"Aal-e-Imran 3:144"},
+    {ar:"فَكُلُوا مِمَّا رَزَقَكُمُ اللَّهُ حَلَالًا طَيِّبًا وَاشْكُرُوا نِعْمَتَ اللَّهِ",en:"Eat from what Allah has provided for you and be grateful for His blessing.",ref:"An-Nahl 16:114"},
+    {ar:"وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ",en:"And of the blessing of your Lord — speak of it.",ref:"Ad-Duha 93:11"},
+    {ar:"لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",en:"If you are grateful, I will surely increase you in favor.",ref:"Ibrahim 14:7"},
+    {ar:"الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",en:"All praise is due to Allah, Lord of all the worlds.",ref:"Al-Fatiha 1:2"},
+    {ar:"وَإِن تَعُدُّوا نِعْمَةَ اللَّهِ لَا تُحْصُوهَا",en:"If you were to count the blessings of Allah, you could never enumerate them.",ref:"Ibrahim 14:34"},
+  ]);
+
+  add('peace', [
+    {ar:"يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً",en:"O tranquil soul — return to your Lord, well-pleased and well-pleasing.",ref:"Al-Fajr 89:27–28"},
+    {ar:"هُوَ الَّذِي أَنزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ",en:"It is He who sent down tranquility into the hearts of the believers.",ref:"Al-Fath 48:4"},
+    {ar:"وَاللَّهُ يَدْعُو إِلَىٰ دَارِ السَّلَامِ",en:"And Allah invites to the home of peace.",ref:"Yunus 10:25"},
+    {ar:"تَتَنَزَّلُ عَلَيْهِمُ الْمَلَائِكَةُ أَلَّا تَخَافُوا وَلَا تَحْزَنُوا",en:"The angels descend upon them: Fear not, nor grieve.",ref:"Fussilat 41:30"},
+    {ar:"وَعِبَادُ الرَّحْمَٰنِ الَّذِينَ يَمْشُونَ عَلَى الْأَرْضِ هَوْنًا",en:"The servants of the Most Merciful are those who walk upon the earth with humility.",ref:"Al-Furqan 25:63"},
+    {ar:"السَّلَامُ الْمُؤْمِنُ الْمُهَيْمِنُ",en:"He is the Source of Peace, the Granter of Security, the Guardian.",ref:"Al-Hashr 59:23"},
+    {ar:"لَهُمْ دَارُ السَّلَامِ عِندَ رَبِّهِمْ",en:"For them is the home of peace with their Lord.",ref:"Al-An'am 6:127"},
+    {ar:"وَالسَّلَامُ عَلَيَّ يَوْمَ وُلِدتُّ",en:"And peace is on me the day I was born, the day I will die, and the day I am raised alive.",ref:"Maryam 19:33"},
+    {ar:"وَإِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلَامًا",en:"And when the ignorant address them, they say: Peace.",ref:"Al-Furqan 25:63"},
+    {ar:"لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا",en:"Do not grieve — indeed, Allah is with us.",ref:"At-Tawbah 9:40"},
+    {ar:"إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ",en:"Indeed, Allah loves those who place their trust in Him.",ref:"Aal-e-Imran 3:159"},
+  ]);
+
+  add('strength', [
+    {ar:"وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ",en:"Do not weaken and do not grieve — you are the highest.",ref:"Aal-e-Imran 3:139"},
+    {ar:"إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ",en:"Indeed, the patient will be given their reward without measure.",ref:"Az-Zumar 39:10"},
+    {ar:"إِنَّ اللَّهَ يُحِبُّ الصَّابِرِينَ",en:"Indeed, Allah loves those who are patient.",ref:"Aal-e-Imran 3:146"},
+    {ar:"وَلَنَبْلُوَنَّكُمْ حَتَّىٰ نَعْلَمَ الْمُجَاهِدِينَ مِنكُمْ وَالصَّابِرِينَ",en:"We will test you until We make evident those who strive and are patient.",ref:"Muhammad 47:31"},
+    {ar:"وَإِن تَصْبِرُوا وَتَتَّقُوا فَإِنَّ ذَٰلِكَ مِنْ عَزْمِ الْأُمُورِ",en:"If you are patient and mindful — that is of the matters requiring determination.",ref:"Aal-e-Imran 3:186"},
+    {ar:"فَاصْبِرْ كَمَا صَبَرَ أُولُو الْعَزْمِ مِنَ الرُّسُلِ",en:"So be patient, as were the resolute of the messengers.",ref:"Al-Ahqaf 46:35"},
+    {ar:"بَلِ اللَّهُ مَوْلَاكُمْ وَهُوَ خَيْرُ النَّاصِرِينَ",en:"But Allah is your protector, and He is the best of helpers.",ref:"Aal-e-Imran 3:150"},
+    {ar:"وَاصْبِرْ لِحُكْمِ رَبِّكَ فَإِنَّكَ بِأَعْيُنِنَا",en:"Be patient for the decision of your Lord — for you are in Our sight.",ref:"At-Tur 52:48"},
+    {ar:"كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ",en:"You are the best nation produced for mankind.",ref:"Aal-e-Imran 3:110"},
+    {ar:"وَعَلَى اللَّهِ فَلْيَتَوَكَّلِ الْمُؤْمِنُونَ",en:"And upon Allah let the believers rely.",ref:"Aal-e-Imran 3:122"},
+  ]);
+
+  add('forgiveness', [
+    {ar:"إِنَّ اللَّهَ غَفُورٌ رَّحِيمٌ",en:"Indeed, Allah is Forgiving and Merciful.",ref:"Al-Baqarah 2:173"},
+    {ar:"وَهُوَ الَّذِي يَقْبَلُ التَّوْبَةَ عَنْ عِبَادِهِ",en:"And it is He who accepts repentance from His servants.",ref:"Ash-Shura 42:25"},
+    {ar:"وَإِنِّي لَغَفَّارٌ لِّمَن تَابَ وَآمَنَ وَعَمِلَ صَالِحًا",en:"And indeed, I am Forgiving to whoever repents, believes, and does righteousness.",ref:"Ta-Ha 20:82"},
+    {ar:"إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِّنَ الْمُحْسِنِينَ",en:"Indeed, the mercy of Allah is near to those who do good.",ref:"Al-A'raf 7:56"},
+    {ar:"رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",en:"Our Lord, we have wronged ourselves — if You do not forgive us and have mercy, we will be of the losers.",ref:"Al-A'raf 7:23"},
+    {ar:"وَلَمَن صَبَرَ وَغَفَرَ إِنَّ ذَٰلِكَ لَمِنْ عَزْمِ الْأُمُورِ",en:"And whoever is patient and forgives — that is among the matters of determination.",ref:"Ash-Shura 42:43"},
+    {ar:"فَإِنَّ اللَّهَ كَانَ عَفُوًّا غَفُورًا",en:"Indeed, Allah is ever Pardoning and Forgiving.",ref:"An-Nisa 4:43"},
+    {ar:"أَلَمْ يَعْلَمُوا أَنَّ اللَّهَ هُوَ يَقْبَلُ التَّوْبَةَ",en:"Do they not know that Allah accepts repentance from His servants?",ref:"At-Tawbah 9:104"},
+    {ar:"وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ",en:"And My mercy encompasses all things.",ref:"Al-A'raf 7:156"},
+    {ar:"غَافِرِ الذَّنبِ وَقَابِلِ التَّوْبِ",en:"The Forgiver of sin and the Accepter of repentance.",ref:"Ghafir 40:3"},
+    {ar:"وَتُوبُوا إِلَى اللَّهِ جَمِيعًا أَيُّهَ الْمُؤْمِنُونَ",en:"And turn to Allah in repentance, all of you, O believers.",ref:"An-Nur 24:31"},
+    {ar:"إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا",en:"Indeed, Allah forgives all sins.",ref:"Az-Zumar 39:53"},
+  ]);
+
+  add('guidance', [
+    {ar:"اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",en:"Guide us to the straight path.",ref:"Al-Fatiha 1:6"},
+    {ar:"إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ",en:"Indeed, this Quran guides to that which is most upright.",ref:"Al-Isra 17:9"},
+    {ar:"وَمَن يُؤْمِن بِاللَّهِ يَهْدِ قَلْبَهُ",en:"And whoever believes in Allah — He will guide their heart.",ref:"At-Taghabun 64:11"},
+    {ar:"رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا",en:"Our Lord, do not let our hearts deviate after You have guided us.",ref:"Aal-e-Imran 3:8"},
+    {ar:"هَٰذَا بَيَانٌ لِّلنَّاسِ وَهُدًى وَمَوْعِظَةٌ لِّلْمُتَّقِينَ",en:"This is a clear statement for all people, and guidance for those mindful of Allah.",ref:"Aal-e-Imran 3:138"},
+    {ar:"قُلْ إِنَّ الْهُدَىٰ هُدَى اللَّهِ",en:"Say: Indeed, guidance is the guidance of Allah.",ref:"Al-Baqarah 2:120"},
+    {ar:"وَاتَّبِعُوا أَحْسَنَ مَا أُنزِلَ إِلَيْكُم",en:"And follow the best of what has been revealed to you from your Lord.",ref:"Az-Zumar 39:55"},
+    {ar:"وَاللَّهُ يَهْدِي مَن يَشَاءُ إِلَىٰ صِرَاطٍ مُّسْتَقِيمٍ",en:"And Allah guides whom He wills to a straight path.",ref:"Al-Baqarah 2:213"},
+    {ar:"ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ",en:"This is the Book about which there is no doubt — a guidance for those mindful of Allah.",ref:"Al-Baqarah 2:2"},
+    {ar:"وَمَن يَعْتَصِم بِاللَّهِ فَقَدْ هُدِيَ إِلَىٰ صِرَاطٍ مُّسْتَقِيمٍ",en:"And whoever holds firmly to Allah has been guided to a straight path.",ref:"Aal-e-Imran 3:101"},
+    {ar:"وَيُعَلِّمُهُمُ الْكِتَابَ وَالْحِكْمَةَ",en:"And He teaches them the Book and wisdom.",ref:"Al-Baqarah 2:129"},
+    {ar:"فَمَنِ اتَّبَعَ هُدَايَ فَلَا يَضِلُّ وَلَا يَشْقَىٰ",en:"Whoever follows My guidance will neither go astray nor suffer.",ref:"Ta-Ha 20:123"},
+  ]);
+
+  add('healing', [
+    {ar:"وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ",en:"And when I am ill, it is He who cures me.",ref:"Ash-Shu'ara 26:80"},
+    {ar:"وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ",en:"We send down of the Quran that which is healing and mercy for the believers.",ref:"Al-Isra 17:82"},
+    {ar:"يَا أَيُّهَا النَّاسُ قَدْ جَاءَتْكُم مَّوْعِظَةٌ مِّن رَّبِّكُمْ وَشِفَاءٌ لِّمَا فِي الصُّدُورِ",en:"O mankind, there has come to you guidance from your Lord and a healing for what is in the hearts.",ref:"Yunus 10:57"},
+    {ar:"قُلْ هُوَ لِلَّذِينَ آمَنُوا هُدًى وَشِفَاءٌ",en:"Say: It is, for those who believe, a guidance and a healing.",ref:"Fussilat 41:44"},
+    {ar:"وَيَشْفِ صُدُورَ قَوْمٍ مُّؤْمِنِينَ",en:"And He will heal the hearts of a believing people.",ref:"At-Tawbah 9:14"},
+    {ar:"مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",en:"Your Lord has not abandoned you, nor has He detested you.",ref:"Ad-Duha 93:3"},
+    {ar:"وَلَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",en:"And do not despair of the mercy of Allah.",ref:"Az-Zumar 39:53"},
+    {ar:"إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ وَيُحِبُّ الْمُتَطَهِّرِينَ",en:"Indeed, Allah loves those who repent and those who purify themselves.",ref:"Al-Baqarah 2:222"},
+    {ar:"فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",en:"For indeed, with hardship comes ease.",ref:"Al-Sharh 94:5"},
+    {ar:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",en:"Indeed, Allah is with those who are patient.",ref:"Al-Baqarah 2:153"},
+    {ar:"وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ",en:"And My mercy encompasses all things.",ref:"Al-A'raf 7:156"},
+    {ar:"أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",en:"Truly, it is in the remembrance of Allah that hearts find rest.",ref:"Ar-Ra'd 13:28"},
+    {ar:"رَبِّ إِنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ",en:"My Lord, adversity has touched me, and You are the Most Merciful of the merciful.",ref:"Al-Anbiya 21:83"},
+  ]);
+
+  add('abundance', [
+    {ar:"وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا",en:"There is no creature on earth but that upon Allah is its provision.",ref:"Hud 11:6"},
+    {ar:"وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ",en:"Whoever is mindful of Allah — He will make a way out and provide from where they do not expect.",ref:"At-Talaq 65:2–3"},
+    {ar:"وَاللَّهُ يَرْزُقُ مَن يَشَاءُ بِغَيْرِ حِسَابٍ",en:"And Allah provides for whom He wills without account.",ref:"Al-Baqarah 2:212"},
+    {ar:"إِنَّ اللَّهَ هُوَ الرَّزَّاقُ ذُو الْقُوَّةِ الْمَتِينُ",en:"Indeed, it is Allah who is the Sustainer, the firm possessor of strength.",ref:"Adh-Dhariyat 51:58"},
+    {ar:"وَمَا أَنفَقْتُم مِّن شَيْءٍ فَهُوَ يُخْلِفُهُ",en:"And whatever you spend — He will replace it.",ref:"Saba 34:39"},
+    {ar:"وَفِي السَّمَاءِ رِزْقُكُمْ وَمَا تُوعَدُونَ",en:"And in the heaven is your provision and whatever you are promised.",ref:"Adh-Dhariyat 51:22"},
+    {ar:"رَبِّ إِنِّي لِمَا أَنزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ",en:"My Lord, I am in need of whatever good You send down to me.",ref:"Al-Qasas 28:24"},
+    {ar:"وَاسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبُوا إِلَيْهِ",en:"Seek forgiveness of your Lord and repent to Him.",ref:"Hud 11:52"},
+    {ar:"إِنَّ اللَّهَ وَاسِعٌ عَلِيمٌ",en:"Indeed, Allah is all-Encompassing and Knowing.",ref:"Al-Baqarah 2:115"},
+    {ar:"لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",en:"If you are grateful, I will surely increase you in favor.",ref:"Ibrahim 14:7"},
+    {ar:"وَأَنفِقُوا فِي سَبِيلِ اللَّهِ",en:"And spend in the way of Allah.",ref:"Al-Baqarah 2:195"},
+    {ar:"وَهُوَ خَيْرُ الرَّازِقِينَ",en:"And He is the best of providers.",ref:"Al-Ma'ida 5:114"},
+    {ar:"وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ",en:"And do good as Allah has done good to you.",ref:"Al-Qasas 28:77"},
+  ]);
+
+  add('patience', [
+    {ar:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",en:"Indeed, Allah is with those who are patient.",ref:"Al-Baqarah 2:153"},
+    {ar:"وَبَشِّرِ الصَّابِرِينَ",en:"And give glad tidings to those who endure with patience.",ref:"Al-Baqarah 2:155"},
+    {ar:"فَاصْبِرْ صَبْرًا جَمِيلًا",en:"So be patient with gracious patience.",ref:"Al-Ma'arij 70:5"},
+    {ar:"إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ",en:"Indeed, the patient will be given their reward without measure.",ref:"Az-Zumar 39:10"},
+    {ar:"وَاصْبِرْ لِحُكْمِ رَبِّكَ فَإِنَّكَ بِأَعْيُنِنَا",en:"And be patient for the decision of your Lord — for you are in Our sight.",ref:"At-Tur 52:48"},
+    {ar:"إِنَّ اللَّهَ يُحِبُّ الصَّابِرِينَ",en:"Indeed, Allah loves those who are patient.",ref:"Aal-e-Imran 3:146"},
+    {ar:"وَلَنَبْلُوَنَّكُمْ حَتَّىٰ نَعْلَمَ الْمُجَاهِدِينَ مِنكُمْ وَالصَّابِرِينَ",en:"We will test you until We make evident those who strive and are patient.",ref:"Muhammad 47:31"},
+    {ar:"وَلَمَن صَبَرَ وَغَفَرَ إِنَّ ذَٰلِكَ لَمِنْ عَزْمِ الْأُمُورِ",en:"And whoever is patient and forgives — that is among the matters of determination.",ref:"Ash-Shura 42:43"},
+    {ar:"وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ",en:"Be patient — and your patience is only through Allah.",ref:"An-Nahl 16:127"},
+    {ar:"إِنَّ اللَّهَ مَعَ الَّذِينَ اتَّقَوْا",en:"Indeed, Allah is with those who fear Him.",ref:"An-Nahl 16:128"},
+    {ar:"فَاصْبِرْ كَمَا صَبَرَ أُولُو الْعَزْمِ مِنَ الرُّسُلِ",en:"So be patient, as were the resolute of the messengers.",ref:"Al-Ahqaf 46:35"},
+    {ar:"وَإِن تَصْبِرُوا وَتَتَّقُوا فَإِنَّ ذَٰلِكَ مِنْ عَزْمِ الْأُمُورِ",en:"And if you are patient and mindful — that is of the matters requiring determination.",ref:"Aal-e-Imran 3:186"},
+  ]);
+
+  add('purpose', [
+    {ar:"وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",en:"I did not create the jinn and mankind except to worship Me.",ref:"Adh-Dhariyat 51:56"},
+    {ar:"وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ",en:"We have certainly honored the children of Adam.",ref:"Al-Isra 17:70"},
+    {ar:"أَفَحَسِبْتُمْ أَنَّمَا خَلَقْنَاكُمْ عَبَثًا",en:"Did you think that We created you in vain?",ref:"Al-Mu'minun 23:115"},
+    {ar:"إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ",en:"Indeed, the most noble of you in the sight of Allah is the most righteous.",ref:"Al-Hujurat 49:13"},
+    {ar:"وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ",en:"And the Hereafter is better for you than the first life.",ref:"Ad-Duha 93:4"},
+    {ar:"كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ",en:"You are the best nation produced for mankind.",ref:"Aal-e-Imran 3:110"},
+    {ar:"إِنِّي جَاعِلٌ فِي الْأَرْضِ خَلِيفَةً",en:"Indeed, I will make upon the earth a vicegerent.",ref:"Al-Baqarah 2:30"},
+    {ar:"وَكَذَٰلِكَ جَعَلْنَاكُمْ أُمَّةً وَسَطًا",en:"And thus We have made you a moderate nation.",ref:"Al-Baqarah 2:143"},
+    {ar:"وَهُوَ الَّذِي جَعَلَكُمْ خَلَائِفَ الْأَرْضِ",en:"And it is He who made you successors upon the earth.",ref:"Al-An'am 6:165"},
+    {ar:"لَقَدْ خَلَقْنَا الْإِنسَانَ فِي أَحْسَنِ تَقْوِيمٍ",en:"We have certainly created man in the best of stature.",ref:"At-Tin 95:4"},
+    {ar:"وَمَا خَلَقْنَا السَّمَاءَ وَالْأَرْضَ وَمَا بَيْنَهُمَا لَاعِبِينَ",en:"And We did not create the heaven and earth and what is between them in play.",ref:"Al-Anbiya 21:16"},
+    {ar:"فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ",en:"So whoever does an atom's weight of good will see it.",ref:"Az-Zalzalah 99:7"},
+  ]);
+
+  add('anxiety', [
+    {ar:"أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",en:"Truly, it is in the remembrance of Allah that hearts find rest.",ref:"Ar-Ra'd 13:28"},
+    {ar:"لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",en:"Allah does not burden a soul beyond that it can bear.",ref:"Al-Baqarah 2:286"},
+    {ar:"وَتَوَكَّلْ عَلَى اللَّهِ وَكَفَىٰ بِاللَّهِ وَكِيلًا",en:"And rely upon Allah — sufficient is Allah as Disposer of affairs.",ref:"Al-Ahzab 33:3"},
+    {ar:"اللَّهُ لَطِيفٌ بِعِبَادِهِ",en:"Allah is gentle with His servants.",ref:"Ash-Shura 42:19"},
+    {ar:"سَيَجْعَلُ اللَّهُ بَعْدَ عُسْرٍ يُسْرًا",en:"Allah will bring about ease after difficulty.",ref:"At-Talaq 65:7"},
+    {ar:"وَإِن يَمْسَسْكَ اللَّهُ بِضُرٍّ فَلَا كَاشِفَ لَهُ إِلَّا هُوَ",en:"And if Allah should touch you with adversity — there is no remover of it except Him.",ref:"Al-An'am 6:17"},
+    {ar:"فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",en:"For indeed, with every hardship comes ease.",ref:"Al-Sharh 94:5"},
+    {ar:"وَلَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",en:"And do not despair of the mercy of Allah.",ref:"Az-Zumar 39:53"},
+    {ar:"حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",en:"Allah is sufficient for us — He is the best Disposer of affairs.",ref:"Aal-e-Imran 3:173"},
+    {ar:"هُوَ الَّذِي أَنزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ",en:"It is He who sent down tranquility into the hearts of the believers.",ref:"Al-Fath 48:4"},
+    {ar:"وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",en:"Seek help through patience and prayer.",ref:"Al-Baqarah 2:45"},
+    {ar:"رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا",en:"Our Lord, do not impose blame upon us if we forget or make a mistake.",ref:"Al-Baqarah 2:286"},
+  ]);
+
+  add('revert', [
+    {ar:"فَمَن يُرِدِ اللَّهُ أَن يَهْدِيَهُ يَشْرَحْ صَدْرَهُ لِلْإِسْلَامِ",en:"So whoever Allah wants to guide — He expands their chest to Islam.",ref:"Al-An'am 6:125"},
+    {ar:"إِنَّ الدِّينَ عِندَ اللَّهِ الْإِسْلَامُ",en:"Indeed, the religion in the sight of Allah is Islam.",ref:"Aal-e-Imran 3:19"},
+    {ar:"وَمَن يُسْلِمْ وَجْهَهُ إِلَى اللَّهِ وَهُوَ مُحْسِنٌ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقَىٰ",en:"Whoever submits their face to Allah while doing good has grasped the firmest handhold.",ref:"Luqman 31:22"},
+    {ar:"يَا أَيُّهَا الَّذِينَ آمَنُوا ادْخُلُوا فِي السِّلْمِ كَافَّةً",en:"O you who believe — enter into peace fully.",ref:"Al-Baqarah 2:208"},
+    {ar:"فَمَنِ اتَّبَعَ هُدَايَ فَلَا يَضِلُّ وَلَا يَشْقَىٰ",en:"Whoever follows My guidance will neither go astray nor suffer.",ref:"Ta-Ha 20:123"},
+    {ar:"وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا",en:"Hold firmly to the rope of Allah, all together.",ref:"Aal-e-Imran 3:103"},
+    {ar:"سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنفُسِهِمْ",en:"We will show them Our signs in the horizons and within themselves.",ref:"Fussilat 41:53"},
+    {ar:"وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ",en:"He is with you wherever you are.",ref:"Al-Hadid 57:4"},
+    {ar:"إِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ",en:"Indeed, Allah does not allow the reward of those who do good to be lost.",ref:"Hud 11:115"},
+    {ar:"وَإِنَّكَ لَتَهْدِي إِلَىٰ صِرَاطٍ مُّسْتَقِيمٍ",en:"And indeed, you guide to a straight path.",ref:"Ash-Shura 42:52"},
+    {ar:"وَمَن يَبْتَغِ غَيْرَ الْإِسْلَامِ دِينًا فَلَن يُقْبَلَ مِنْهُ",en:"And whoever desires other than Islam as religion — never will it be accepted from him.",ref:"Aal-e-Imran 3:85"},
+    {ar:"كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ثُمَّ إِلَيْنَا تُرْجَعُونَ",en:"Every soul will taste death, then to Us you will be returned.",ref:"Al-Ankabut 29:57"},
+    {ar:"وَبَشِّرِ الْمُؤْمِنِينَ بِأَنَّ لَهُم مِّنَ اللَّهِ فَضْلًا كَبِيرًا",en:"And give good tidings to the believers that they will have great bounty from Allah.",ref:"Al-Ahzab 33:47"},
+  ]);
+
+  add('prayer', [
+    {ar:"وَأَقِمِ الصَّلَاةَ إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ",en:"Establish prayer — indeed, prayer prohibits immorality and wrongdoing.",ref:"Al-Ankabut 29:45"},
+    {ar:"وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",en:"Seek help through patience and prayer.",ref:"Al-Baqarah 2:45"},
+    {ar:"إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا",en:"Indeed, prayer has been decreed upon the believers at specified times.",ref:"An-Nisa 4:103"},
+    {ar:"فَاذْكُرُونِي أَذْكُرْكُمْ",en:"Remember Me, and I will remember you.",ref:"Al-Baqarah 2:152"},
+    {ar:"قَدْ أَفْلَحَ الْمُؤْمِنُونَ الَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ",en:"Certainly the believers have succeeded — those who are humbly submissive in their prayers.",ref:"Al-Mu'minun 23:1–2"},
+    {ar:"حَافِظُوا عَلَى الصَّلَوَاتِ وَالصَّلَاةِ الْوُسْطَىٰ",en:"Maintain with care the obligatory prayers and the middle prayer.",ref:"Al-Baqarah 2:238"},
+    {ar:"وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ",en:"And establish prayer and give zakah.",ref:"Al-Baqarah 2:43"},
+    {ar:"إِنَّ الْإِنسَانَ خُلِقَ هَلُوعًا",en:"Indeed, mankind was created anxious — except those who pray.",ref:"Al-Ma'arij 70:19"},
+    {ar:"وَمِنَ اللَّيْلِ فَتَهَجَّدْ بِهِ نَافِلَةً لَّكَ",en:"And in part of the night, pray as an additional offering for you.",ref:"Al-Isra 17:79"},
+    {ar:"إِذَا قُمْتُمْ إِلَى الصَّلَاةِ فَاغْسِلُوا وُجُوهَكُمْ",en:"When you rise to pray, wash your faces.",ref:"Al-Ma'ida 5:6"},
+    {ar:"وَأَقِمِ الصَّلَاةَ لِذِكْرِي",en:"And establish prayer for My remembrance.",ref:"Ta-Ha 20:14"},
+    {ar:"وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ",en:"And remember Allah much that you may succeed.",ref:"Al-Jumu'ah 62:10"},
+    {ar:"وَسَبِّحْ بِحَمْدِ رَبِّكَ قَبْلَ طُلُوعِ الشَّمْسِ وَقَبْلَ غُرُوبِهَا",en:"And exalt with praise of your Lord before the rising of the sun and before its setting.",ref:"Ta-Ha 20:130"},
+  ]);
+
+  add('family', [
+    {ar:"وَوَصَّيْنَا الْإِنسَانَ بِوَالِدَيْهِ حُسْنًا",en:"And We have enjoined upon man to be good to his parents.",ref:"Al-Ankabut 29:8"},
+    {ar:"وَاخْفِضْ لَهُمَا جَنَاحَ الذُّلِّ مِنَ الرَّحْمَةِ",en:"Lower to them the wing of humility out of mercy.",ref:"Al-Isra 17:24"},
+    {ar:"وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ",en:"And live with them in kindness.",ref:"An-Nisa 4:19"},
+    {ar:"وَلَا تَنسَوُا الْفَضْلَ بَيْنَكُمْ",en:"And do not forget generosity between one another.",ref:"Al-Baqarah 2:237"},
+    {ar:"إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَىٰ",en:"Indeed, Allah commands justice, kindness, and giving to relatives.",ref:"An-Nahl 16:90"},
+    {ar:"رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ",en:"Our Lord, grant us comfort in our spouses and offspring.",ref:"Al-Furqan 25:74"},
+    {ar:"إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ",en:"The believers are but brothers.",ref:"Al-Hujurat 49:10"},
+    {ar:"وَبِالْوَالِدَيْنِ إِحْسَانًا",en:"And be good to parents.",ref:"Al-Baqarah 2:83"},
+    {ar:"وَأُولُو الْأَرْحَامِ بَعْضُهُمْ أَوْلَىٰ بِبَعْضٍ",en:"And those of kinship are more entitled to one another.",ref:"Al-Anfal 8:75"},
+    {ar:"وَقُلْ رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",en:"And say: My Lord, have mercy upon them as they brought me up small.",ref:"Al-Isra 17:24"},
+    {ar:"وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",en:"And cooperate in righteousness and piety.",ref:"Al-Ma'ida 5:2"},
+    {ar:"وَقُولُوا لِلنَّاسِ حُسْنًا",en:"And speak to people good words.",ref:"Al-Baqarah 2:83"},
+    {ar:"وَاتَّقُوا اللَّهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْأَرْحَامَ",en:"And fear Allah, through whom you ask one another, and maintain family ties.",ref:"An-Nisa 4:1"},
+  ]);
+
+  add('injustice', [
+    {ar:"إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ",en:"Indeed, Allah commands justice and kindness.",ref:"An-Nahl 16:90"},
+    {ar:"وَلَا تَحْسَبَنَّ اللَّهَ غَافِلًا عَمَّا يَعْمَلُ الظَّالِمُونَ",en:"Never think that Allah is unaware of what the wrongdoers do.",ref:"Ibrahim 14:42"},
+    {ar:"إِنَّ اللَّهَ لَا يَظْلِمُ النَّاسَ شَيْئًا",en:"Indeed, Allah does not wrong people at all.",ref:"Yunus 10:44"},
+    {ar:"وَلَمَنِ انتَصَرَ بَعْدَ ظُلْمِهِ فَأُولَٰئِكَ مَا عَلَيْهِم مِّن سَبِيلٍ",en:"Indeed, whoever defends themselves after being wronged — there is no blame upon them.",ref:"Ash-Shura 42:41"},
+    {ar:"إِنَّ اللَّهَ يُدَافِعُ عَنِ الَّذِينَ آمَنُوا",en:"Indeed, Allah defends those who have believed.",ref:"Al-Hajj 22:38"},
+    {ar:"وَسَيَعْلَمُ الَّذِينَ ظَلَمُوا أَيَّ مُنقَلَبٍ يَنقَلِبُونَ",en:"And those who have wronged will come to know what kind of return they will have.",ref:"Ash-Shu'ara 26:227"},
+    {ar:"وَقُلِ الْحَقُّ مِن رَّبِّكُمْ",en:"And say: The truth is from your Lord.",ref:"Al-Kahf 18:29"},
+    {ar:"إِنَّ اللَّهَ لَا يُحِبُّ الْفَسَادَ",en:"Indeed, Allah does not love corruption.",ref:"Al-Baqarah 2:205"},
+    {ar:"بَلِ اللَّهُ مَوْلَاكُمْ وَهُوَ خَيْرُ النَّاصِرِينَ",en:"But Allah is your protector, and He is the best of helpers.",ref:"Aal-e-Imran 3:150"},
+    {ar:"يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ",en:"O you who believe — be persistently standing firm in justice.",ref:"An-Nisa 4:135"},
+    {ar:"وَلَا يَجْرِمَنَّكُمْ شَنَآنُ قَوْمٍ عَلَىٰ أَلَّا تَعْدِلُوا",en:"And do not let hatred of a people prevent you from being just.",ref:"Al-Ma'ida 5:8"},
+    {ar:"إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا",en:"Indeed, Allah commands you to deliver trusts to their rightful owners.",ref:"An-Nisa 4:58"},
+    {ar:"وَإِذَا حَكَمْتُم بَيْنَ النَّاسِ أَن تَحْكُمُوا بِالْعَدْلِ",en:"And when you judge between people, judge with justice.",ref:"An-Nisa 4:58"},
+  ]);
+
+})();
+
 const MOODS = [
   { key:"grief",       label:"Grief",        labelAr:"الحزن",      g:"𖤓", glow:"#7c5fb0" },  // broken circle — loss
   { key:"fear",        label:"Fear",         labelAr:"الخوف",      g:"⌁", glow:"#4a8ab0" },  // electric — nervous energy
@@ -1895,16 +2227,16 @@ function initVOTD() {
   document.getElementById('votdLabel').innerHTML = lang==='ar'
     ? '☽ &nbsp; آية اليوم'
     : '☽ &nbsp; Verse of the Day';
-  // clicking the banner opens that verse as a full card
   document.getElementById('votd-banner').addEventListener('click', () => {
     renderVerse({ar: verse.ar, en: verse.en, ref: verse.ref},
       lang==='ar' ? 'آية اليوم' : 'Verse of the Day', 'peace');
   }, {once: false});
 }
-initVOTD();
+// initVOTD called after lang is initialized below
 let currentMood = null;
 let currentIndex = 0;
 let lang = 'en';
+initVOTD();
 
 const UI_TEXT = {
   en: { sub:'Light from the Quran, for every moment of need.', feelings:'What brought you here today?', situations:'What are you going through?', or:'or speak your heart', placeholder:'Tell me what\'s on your heart…', pull:'✦  Pull a verse  ✦', another:'✦  Another verse', share:'Share', copy:'Copy', save:'Save', back:'← Back', favsTitle:'Your Saved Verses', favsLink:'♡ Saved', swipe:'← swipe for next verse →', pwaTitle:'Save to Your Home Screen', pwaBody:'In Safari, tap the Share icon ↑ then choose "Add to Home Screen." Opens like a native app — no App Store needed.', saved:'Verse image saved ✦', copied:'Verse copied ✦', footer:'Always Free ☽ assalamualaykum.app', pwaLink:'Save as App ↗', close:'Close', meaning:'Peace Be Upon You', translit:'Assalamu Alaykum' },
