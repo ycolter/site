@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+
+<html lang="en" style="color-scheme: dark;">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#080e1a" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="AssalamuAlaykum" />
+<title>ٱلسَّلَامُ عَلَيْكُمْ · Light from the Quran</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Naskh+Arabic:wght@400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  /* ── FORCE DARK MODE — never inherit system light mode ── */
+  :root { color-scheme: dark; }
+  html, body {
+    background: #080e1a !important;
+    color: #f0e8d0 !important;
+  }
+  @media (prefers-color-scheme: light) {
+    html, body { background: #080e1a !important; color: #f0e8d0 !important; }
+    input, button, textarea, select { background-color: transparent; color: #f0e8d0; }
+  }
+
+:root {
+–night: #080e1a;
+–deep: #0d1629;
+–cobalt: #1a2d5a;
+–cobalt-light: #2a4480;
+–cobalt-mid: #1e3668;
+–gold: #c9a84c;
+–gold-light: #e2c47a;
+–gold-dim: #8a6f30;
+–olive: #5a6b3a;
+–olive-light: #7a8f52;
+–cream: #f0e8d0;
+–cream-dim: #b8a888;
+–star: #f7f0e0;
+–muted: #5a6880;
+
+```
+/* mood colors */
+--grief: #3d2d5a;
+--grief-glow: #7c5fb0;
+--fear: #1a3550;
+--fear-glow: #4a8ab0;
+--gratitude: #3a5a2a;
+--gratitude-glow: #7ab05a;
+--hope: #4a3820;
+--hope-glow: #c9a84c;
+--loneliness: #2a2a4a;
+--loneliness-glow: #6a6ab0;
+--overwhelm: #4a2020;
+--overwhelm-glow: #b05a5a;
+--love: #5a2a3a;
+--love-glow: #c06080;
+--confusion: #1a3a3a;
+--confusion-glow: #40a0a0;
+--peace: #1a3a4a;
+--peace-glow: #50a0c0;
+--doubt: #3a2a1a;
+--doubt-glow: #906040;
+```
+
+}
+
+- { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+height: 100%;
+background: var(–night);
+color: var(–cream);
+font-family: ‘Cormorant Garamond’, Georgia, serif;
+overflow-x: hidden;
+}
+
+/* ─── STARFIELD ─── */
+#stars {
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 0;
+}
+.star {
+position: absolute;
+border-radius: 50%;
+background: var(–star);
+animation: twinkle var(–dur, 3s) var(–del, 0s) infinite ease-in-out;
+opacity: 0;
+}
+@keyframes twinkle {
+0%, 100% { opacity: 0; }
+50% { opacity: var(–peak, 0.6); }
+}
+
+/* ─── AMBIENT GLOW ─── */
+.ambient {
+position: fixed;
+border-radius: 50%;
+filter: blur(80px);
+pointer-events: none;
+z-index: 0;
+opacity: 0.12;
+transition: background 1.5s ease, opacity 1.5s ease;
+}
+#amb1 { width: 600px; height: 600px; top: -200px; right: -100px; background: var(–cobalt-light); }
+#amb2 { width: 400px; height: 400px; bottom: -100px; left: -100px; background: var(–gold-dim); opacity: 0.08; }
+#amb3 { width: 300px; height: 300px; top: 40%; left: 40%; background: var(–cobalt); opacity: 0.06; transform: translate(-50%,-50%); }
+
+/* ─── LAYOUT ─── */
+#app {
+position: relative;
+z-index: 1;
+min-height: 100dvh;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+/* ─── HEADER ─── */
+header {
+width: 100%;
+text-align: center;
+padding: 48px 20px 20px;
+}
+.logo-arabic {
+font-family: ‘Noto Naskh Arabic’, serif;
+font-size: 3.2rem;
+font-weight: 600;
+color: var(–gold-light);
+letter-spacing: 0.02em;
+line-height: 1;
+text-shadow: 0 0 30px rgba(201,168,76,0.4);
+display: block;
+animation: fadeUp 1.2s ease both;
+}
+.logo-english {
+font-family: ‘Cinzel’, serif;
+font-size: 0.85rem;
+font-weight: 400;
+color: var(–cream-dim);
+letter-spacing: 0.35em;
+text-transform: uppercase;
+margin-top: 8px;
+display: block;
+animation: fadeUp 1.4s ease both;
+}
+.tagline {
+font-size: 1.05rem;
+font-style: italic;
+color: var(–muted);
+margin-top: 14px;
+font-weight: 300;
+animation: fadeUp 1.6s ease both;
+}
+
+/* ─── DIVIDER ─── */
+.divider {
+width: 120px;
+height: 1px;
+background: linear-gradient(90deg, transparent, var(–gold-dim), transparent);
+margin: 20px auto;
+animation: fadeUp 1.8s ease both;
+}
+
+/* ─── SCREEN: HOME ─── */
+#screen-home {
+width: 100%;
+max-width: 720px;
+padding: 0 20px 60px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.prompt-label {
+font-family: ‘Cinzel’, serif;
+font-size: 0.75rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–gold-dim);
+margin-bottom: 28px;
+animation: fadeUp 2s ease both;
+}
+
+/* ─── MOOD GRID ─── */
+.mood-grid {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+justify-content: center;
+width: 100%;
+animation: fadeUp 2.2s ease both;
+}
+
+.mood-bubble {
+position: relative;
+cursor: pointer;
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 50px;
+padding: 13px 22px;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.05rem;
+font-style: italic;
+color: var(–cream-dim);
+background: rgba(255,255,255,0.04);
+backdrop-filter: blur(10px);
+transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+overflow: hidden;
+user-select: none;
+-webkit-tap-highlight-color: transparent;
+}
+.mood-bubble::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: radial-gradient(circle at center, var(–glow-color, var(–cobalt-light)) 0%, transparent 70%);
+opacity: 0;
+transition: opacity 0.4s ease;
+border-radius: inherit;
+}
+.mood-bubble:hover::before, .mood-bubble:active::before { opacity: 0.25; }
+.mood-bubble:hover {
+border-color: rgba(255,255,255,0.25);
+color: var(–cream);
+transform: translateY(-3px) scale(1.04);
+box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.08);
+}
+.mood-bubble:active { transform: scale(0.97); }
+.mood-bubble .emoji { margin-right: 7px; font-style: normal; }
+
+/* ─── OR DIVIDER ─── */
+.or-row {
+display: flex;
+align-items: center;
+gap: 16px;
+width: 100%;
+max-width: 400px;
+margin: 32px 0;
+animation: fadeUp 2.4s ease both;
+}
+.or-row span { color: var(–muted); font-size: 0.85rem; letter-spacing: 0.15em; }
+.or-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(–cobalt-mid), transparent); }
+
+/* ─── AI INPUT ─── */
+.ai-input-wrap {
+width: 100%;
+max-width: 480px;
+position: relative;
+animation: fadeUp 2.6s ease both;
+}
+.ai-input {
+width: 100%;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.12);
+border-radius: 50px;
+padding: 14px 55px 14px 22px;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.05rem;
+font-style: italic;
+color: var(–cream);
+outline: none;
+transition: border-color 0.3s, box-shadow 0.3s;
+backdrop-filter: blur(10px);
+}
+.ai-input::placeholder { color: var(–muted); }
+.ai-input:focus {
+border-color: rgba(201,168,76,0.4);
+box-shadow: 0 0 0 3px rgba(201,168,76,0.08), 0 0 20px rgba(201,168,76,0.1);
+}
+.ai-send-btn {
+position: absolute;
+right: 8px;
+top: 50%;
+transform: translateY(-50%);
+width: 38px; height: 38px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(–gold-dim), var(–gold));
+border: none;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+.ai-send-btn:hover { transform: translateY(-50%) scale(1.1); box-shadow: 0 0 15px rgba(201,168,76,0.4); }
+.ai-send-btn svg { width: 16px; height: 16px; fill: var(–night); }
+
+/* ─── RANDOM PULL ─── */
+.random-btn {
+margin-top: 36px;
+font-family: ‘Cinzel’, serif;
+font-size: 0.78rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–muted);
+background: none;
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 4px;
+padding: 10px 20px;
+cursor: pointer;
+transition: all 0.3s;
+animation: fadeUp 2.8s ease both;
+}
+.random-btn:hover { color: var(–gold-light); border-color: rgba(201,168,76,0.3); }
+
+/* ─── SCREEN: VERSE ─── */
+#screen-verse {
+display: none;
+width: 100%;
+max-width: 680px;
+padding: 0 20px 80px;
+flex-direction: column;
+align-items: center;
+}
+#screen-verse.visible {
+display: flex;
+animation: fadeUp 0.8s ease both;
+}
+
+.verse-card {
+width: 100%;
+background: linear-gradient(145deg, rgba(26,45,90,0.6), rgba(13,22,41,0.8));
+border: 1px solid rgba(201,168,76,0.2);
+border-radius: 20px;
+padding: 48px 40px;
+text-align: center;
+position: relative;
+backdrop-filter: blur(20px);
+box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(201,168,76,0.1);
+overflow: hidden;
+}
+.verse-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 50%; transform: translateX(-50%);
+width: 200px; height: 1px;
+background: linear-gradient(90deg, transparent, var(–gold), transparent);
+}
+.verse-card::after {
+content: ‘’;
+position: absolute;
+bottom: 0; left: 50%; transform: translateX(-50%);
+width: 200px; height: 1px;
+background: linear-gradient(90deg, transparent, var(–gold-dim), transparent);
+}
+
+.verse-mood-tag {
+font-family: ‘Cinzel’, serif;
+font-size: 0.65rem;
+letter-spacing: 0.35em;
+text-transform: uppercase;
+color: var(–gold-dim);
+margin-bottom: 32px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+}
+.verse-mood-tag::before, .verse-mood-tag::after {
+content: ‘◆’;
+font-size: 0.4em;
+opacity: 0.5;
+}
+
+.verse-arabic {
+font-family: ‘Noto Naskh Arabic’, serif;
+font-size: 1.9rem;
+font-weight: 500;
+line-height: 1.9;
+color: var(–gold-light);
+direction: rtl;
+text-align: right;
+margin-bottom: 28px;
+text-shadow: 0 0 20px rgba(201,168,76,0.2);
+}
+
+.verse-divider {
+width: 60px; height: 1px;
+background: linear-gradient(90deg, transparent, var(–gold-dim), transparent);
+margin: 0 auto 28px;
+}
+
+.verse-english {
+font-size: 1.35rem;
+font-weight: 300;
+font-style: italic;
+line-height: 1.75;
+color: var(–cream);
+margin-bottom: 24px;
+}
+
+.verse-ref {
+font-family: ‘Cinzel’, serif;
+font-size: 0.72rem;
+letter-spacing: 0.25em;
+color: var(–muted);
+}
+
+/* ─── CARD ACTIONS ─── */
+.card-actions {
+display: flex;
+gap: 12px;
+margin-top: 28px;
+flex-wrap: wrap;
+justify-content: center;
+}
+.btn-pull {
+font-family: ‘Cinzel’, serif;
+font-size: 0.75rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–night);
+background: linear-gradient(135deg, var(–gold-dim), var(–gold));
+border: none;
+border-radius: 50px;
+padding: 13px 28px;
+cursor: pointer;
+transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn-pull:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(201,168,76,0.35); }
+
+.btn-back {
+font-family: ‘Cinzel’, serif;
+font-size: 0.75rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–muted);
+background: none;
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 50px;
+padding: 13px 28px;
+cursor: pointer;
+transition: all 0.3s;
+}
+.btn-back:hover { color: var(–cream); border-color: rgba(255,255,255,0.25); }
+
+/* ─── FOOTER ─── */
+footer {
+position: fixed;
+bottom: 0; left: 0; right: 0;
+padding: 12px 20px 20px;
+text-align: center;
+font-size: 0.72rem;
+color: var(–muted);
+letter-spacing: 0.1em;
+background: linear-gradient(to top, var(–night) 60%, transparent);
+z-index: 10;
+}
+footer a {
+color: var(–gold-dim);
+text-decoration: none;
+font-family: ‘Cinzel’, serif;
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+margin-left: 12px;
+opacity: 0.8;
+transition: opacity 0.2s;
+}
+footer a:hover { opacity: 1; }
+
+/* ─── PWA BANNER ─── */
+#pwa-tip {
+display: none;
+position: fixed;
+bottom: 50px;
+left: 50%;
+transform: translateX(-50%);
+background: var(–deep);
+border: 1px solid rgba(201,168,76,0.25);
+border-radius: 14px;
+padding: 18px 24px;
+max-width: 340px;
+width: calc(100% - 40px);
+text-align: center;
+z-index: 100;
+box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+animation: fadeUp 0.4s ease;
+}
+#pwa-tip.show { display: block; }
+#pwa-tip h3 {
+font-family: ‘Cinzel’, serif;
+font-size: 0.8rem;
+letter-spacing: 0.2em;
+color: var(–gold);
+margin-bottom: 10px;
+}
+#pwa-tip p { font-size: 0.9rem; color: var(–cream-dim); line-height: 1.6; font-style: italic; }
+#pwa-tip .close-tip {
+margin-top: 12px;
+font-family: ‘Cinzel’, serif;
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+color: var(–muted);
+background: none;
+border: none;
+cursor: pointer;
+}
+
+/* ─── LOADING ─── */
+.loading-ring {
+display: none;
+width: 36px; height: 36px;
+border-radius: 50%;
+border: 2px solid rgba(201,168,76,0.15);
+border-top-color: var(–gold);
+animation: spin 0.8s linear infinite;
+margin: 20px auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-ring.active { display: block; }
+
+/* ─── AI RESULT BOX ─── */
+#ai-result {
+display: none;
+margin-top: 12px;
+padding: 12px 18px;
+border-radius: 10px;
+background: rgba(201,168,76,0.08);
+border: 1px solid rgba(201,168,76,0.15);
+font-size: 0.9rem;
+font-style: italic;
+color: var(–cream-dim);
+text-align: center;
+max-width: 480px;
+width: 100%;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse { 0%,100%{opacity:.35} 50%{opacity:.85} }
+
+@keyframes cardReveal {
+0% { opacity: 0; transform: translateY(30px) scale(0.96); }
+100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.card-reveal { animation: cardReveal 0.7s cubic-bezier(0.34, 1.3, 0.64, 1) both; }
+
+@keyframes shimmer {
+0% { background-position: -200% center; }
+100% { background-position: 200% center; }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 480px) {
+.logo-arabic { font-size: 2.4rem; }
+.verse-card { padding: 36px 24px; }
+.verse-arabic { font-size: 1.5rem; }
+.verse-english { font-size: 1.15rem; }
+/* ── SPLASH SCREEN ── */
+#splash {
+position: fixed;
+top: 0; left: 0; right: 0; bottom: 0;
+width: 100%; height: 100%;
+z-index: 1000;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: column;
+flex-direction: column;
+-webkit-align-items: center;
+align-items: center;
+-webkit-justify-content: center;
+justify-content: center;
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+overflow: hidden;
+/* static warm dawn — works on all devices, no animation dependency */
+background:
+radial-gradient(ellipse 90% 50% at 50% 100%, rgba(160,60,10,.6) 0%, rgba(80,25,5,.3) 45%, transparent 70%),
+linear-gradient(180deg, #080e1a 0%, #0d1020 20%, #1a0c0a 50%, #2a1005 75%, #1a0808 100%);
+}
+
+/* dismissed state */
+#splash.dismissed {
+pointer-events: none;
+animation: splashOut 1.6s ease .3s forwards;
+}
+@keyframes splashOut {
+0%   { opacity: 1; }
+100% { opacity: 0; }
+}
+
+/* dawn horizon glow — using a div instead of pseudo for iPad compat */
+#splashGlow {
+position: absolute;
+bottom: 0; left: 0; right: 0;
+height: 50%;
+background: radial-gradient(ellipse 80% 70% at 50% 100%, rgba(160,60,10,.5) 0%, rgba(100,35,8,.25) 40%, transparent 70%);
+pointer-events: none;
+z-index: 2;
+}
+
+/* top dark overlay */
+#splashTop {
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 45%;
+background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(6,10,20,.9) 0%, transparent 100%);
+pointer-events: none;
+z-index: 2;
+}
+
+/* mist cloud panels */
+.mist-left, .mist-right {
+position: absolute;
+top: 0; bottom: 0;
+width: 65%;
+pointer-events: none;
+z-index: 3;
+-webkit-transition: -webkit-transform 1.4s cubic-bezier(.76,0,.24,1), opacity 1.2s ease;
+transition: transform 1.4s cubic-bezier(.76,0,.24,1), opacity 1.2s ease;
+}
+.mist-left {
+left: 0;
+background: radial-gradient(ellipse 130% 100% at 0% 50%, rgba(35,15,8,.95) 0%, rgba(20,10,5,.65) 45%, transparent 75%);
+-webkit-filter: blur(16px); filter: blur(16px);
+}
+.mist-right {
+right: 0;
+background: radial-gradient(ellipse 130% 100% at 100% 50%, rgba(35,15,8,.95) 0%, rgba(20,10,5,.65) 45%, transparent 75%);
+-webkit-filter: blur(16px); filter: blur(16px);
+}
+.mist-top {
+position: absolute;
+top: 0; left: 0; right: 0; height: 55%;
+background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(25,10,6,.9) 0%, rgba(12,5,3,.45) 55%, transparent 80%);
+-webkit-filter: blur(20px); filter: blur(20px);
+pointer-events: none; z-index: 3;
+-webkit-transition: -webkit-transform 1.6s cubic-bezier(.76,0,.24,1), opacity 1.3s ease;
+transition: transform 1.6s cubic-bezier(.76,0,.24,1), opacity 1.3s ease;
+}
+.mist-bottom {
+position: absolute;
+bottom: 0; left: 0; right: 0; height: 50%;
+background: radial-gradient(ellipse 100% 100% at 50% 100%, rgba(55,20,5,.8) 0%, rgba(28,10,3,.4) 50%, transparent 80%);
+-webkit-filter: blur(18px); filter: blur(18px);
+pointer-events: none; z-index: 3;
+-webkit-transition: -webkit-transform 1.5s cubic-bezier(.76,0,.24,1), opacity 1.2s ease;
+transition: transform 1.5s cubic-bezier(.76,0,.24,1), opacity 1.2s ease;
+}
+
+/* dismissed — clouds part */
+#splash.dismissed .mist-left   { -webkit-transform: translateX(-110%); transform: translateX(-110%); opacity: 0; }
+#splash.dismissed .mist-right  { -webkit-transform: translateX(110%);  transform: translateX(110%);  opacity: 0; }
+#splash.dismissed .mist-top    { -webkit-transform: translateY(-110%); transform: translateY(-110%); opacity: 0; }
+#splash.dismissed .mist-bottom { -webkit-transform: translateY(110%);  transform: translateY(110%);  opacity: 0; }
+#splash.dismissed .splash-content {
+opacity: 0;
+-webkit-transform: translateY(-10px); transform: translateY(-10px);
+-webkit-transition: opacity .5s ease, -webkit-transform .5s ease;
+transition: opacity .5s ease, transform .5s ease;
+}
+
+.splash-content {
+position: relative;
+z-index: 10;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: column;
+flex-direction: column;
+-webkit-align-items: center;
+align-items: center;
+text-align: center;
+padding: 0 32px;
+-webkit-transition: opacity .5s ease, -webkit-transform .5s ease;
+transition: opacity .5s ease, transform .5s ease;
+visibility: hidden;
+}
+
+/* faint dawn stars appear in splash */
+.splash-stars {
+position: absolute;
+inset: 0;
+pointer-events: none;
+z-index: 1;
+opacity: .5;
+}
+
+.splash-arabic {
+font-family: ‘Noto Naskh Arabic’, serif;
+font-size: clamp(3.4rem, 13vw, 6.5rem);
+font-weight: 600;
+color: var(–gold-light);
+text-shadow: 0 0 50px rgba(201,168,76,.55), 0 0 100px rgba(201,168,76,.2), 0 2px 4px rgba(0,0,0,.5);
+direction: rtl;
+line-height: 1.2;
+animation: splashIn 1.4s cubic-bezier(.16,1,.3,1) both;
+}
+.splash-transliteration {
+font-family: ‘Cinzel’, serif;
+font-size: clamp(1.1rem, 4vw, 1.7rem);
+letter-spacing: .22em;
+color: var(–cream-dim);
+margin-top: 20px;
+animation: splashIn 1.7s cubic-bezier(.16,1,.3,1) both;
+}
+.splash-meaning {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(1.15rem, 3.5vw, 1.5rem);
+font-style: italic;
+font-weight: 300;
+color: rgba(176,160,128,.75);
+margin-top: 10px;
+animation: splashIn 2s cubic-bezier(.16,1,.3,1) both;
+}
+.splash-divider {
+width: 0;
+height: 1px;
+background: linear-gradient(90deg, transparent, var(–gold-dim), transparent);
+margin: 28px auto;
+animation: expandLine 1s ease 1.8s both;
+}
+@keyframes expandLine {
+from { width: 0; opacity: 0; }
+to   { width: 120px; opacity: 1; }
+}
+.splash-enter {
+font-family: ‘Cinzel’, serif;
+font-size: .6rem;
+letter-spacing: .4em;
+text-transform: uppercase;
+color: var(–muted);
+animation: splashIn 2.2s ease both, pulse 2.5s ease 2.5s infinite;
+}
+@keyframes splashIn {
+from { opacity: 0; transform: translateY(20px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+/* app starts invisible, revealed after splash clears */
+#app { opacity: 0; transition: opacity 1s ease; }
+#app.revealed { opacity: 1; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- SPLASH -->
+
+<div id="splash">
+  <canvas class="splash-stars" id="splashStars"></canvas>
+  <div id="splashGlow"></div>
+  <div id="splashTop"></div>
+  <div class="mist-left"></div>
+  <div class="mist-right"></div>
+  <div class="mist-top"></div>
+  <div class="mist-bottom"></div>
+  <div class="splash-content">
+    <p class="splash-arabic">ٱلسَّلَامُ عَلَيْكُمْ</p>
+    <p class="splash-transliteration">Assalamu Alaykum</p>
+    <p class="splash-meaning">PEACE BE UPON YOU</p>
+    <div class="splash-divider"></div>
+    <p class="splash-enter">✦ &nbsp; enter &nbsp; ✦</p>
+  </div>
+</div>
+
+<!-- STARS -->
+
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<!-- AMBIENT -->
+
+<div class="ambient" id="amb1"></div>
+<div class="ambient" id="amb2"></div>
+<div class="ambient" id="amb3"></div>
+
+<div id="app">
+
+  <header style="position:relative;">
+    <button id="langBtn" style="position:absolute;top:0;right:20px;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.22em;color:#607090;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:40px;padding:7px 14px;cursor:pointer;transition:all .3s;backdrop-filter:blur(10px);">عربي</button>
+
+```
+<!-- greeting — animates in after splash clears, feels like it landed here -->
+<p id="headerArabic" style="font-family:'Noto Naskh Arabic',serif;font-size:clamp(2rem,7vw,3rem);font-weight:600;color:var(--gold-light);text-shadow:0 0 30px rgba(201,168,76,.35);direction:rtl;line-height:1.2;opacity:0;transform:translateY(10px);transition:opacity 1s ease .2s, transform 1s ease .2s;">ٱلسَّلَامُ عَلَيْكُمْ</p>
+<p id="headerTranslit" style="font-family:'Cinzel',serif;font-size:clamp(.7rem,2.5vw,.88rem);letter-spacing:.28em;color:var(--cream-dim);margin-top:8px;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:opacity 1s ease .4s, transform 1s ease .4s;">Assalamu Alaykum</p>
+<p id="headerMeaning" style="font-family:'Cormorant Garamond',serif;font-size:clamp(.85rem,2.5vw,1rem);font-style:italic;font-weight:300;color:var(--muted-light);margin-top:4px;opacity:0;transform:translateY(8px);transition:opacity 1s ease .55s, transform 1s ease .55s;">PEACE BE UPON YOU</p>
+
+<div class="divider" style="margin-top:18px;opacity:0;transition:opacity 1s ease .7s;" id="headerDiv"></div>
+
+<p id="taglineSub" style="font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;font-weight:300;color:var(--muted-light);margin-top:12px;opacity:0;transform:translateY(6px);transition:opacity 1s ease .85s, transform 1s ease .85s;">Light from the Quran, for every moment of need</p>
+```
+
+  </header>
+
+  <!-- HOME SCREEN -->
+
+  <section id="screen-home">
+    <p class="prompt-label" id="labelFeelings">What are you feeling?</p>
+    <div class="mood-grid" id="moodGrid"></div>
+
+```
+<div style="height:28px;"></div>
+<p class="prompt-label" id="labelSituations">What are you going through?</p>
+<div class="mood-grid" id="sitGrid" style="animation-delay:.2s;"></div>
+
+<div class="or-row">
+  <div class="or-line"></div>
+  <span id="orText">or speak your heart</span>
+  <div class="or-line"></div>
+</div>
+
+<div class="ai-input-wrap">
+  <input
+    class="ai-input"
+    id="aiInput"
+    type="text"
+    placeholder="Tell me what's on your heart…"
+    autocomplete="off"
+    autocorrect="off"
+    spellcheck="false"
+  />
+  <button class="ai-send-btn" id="aiSendBtn" aria-label="Search">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 12L22 2L14 22L11 13L2 12Z"/>
+    </svg>
+  </button>
+</div>
+<div id="ai-result"></div>
+<div class="loading-ring" id="loadingRing"></div>
+
+<button class="random-btn" id="randomBtn">✦ &nbsp; Pull a verse &nbsp; ✦</button>
+```
+
+  </section>
+
+  <!-- VERSE SCREEN -->
+
+  <section id="screen-verse">
+    <div class="verse-card card-reveal" id="verseCard">
+      <span style="position:absolute;top:14px;left:18px;font-size:1.1rem;color:#8a6f30;opacity:.5;pointer-events:none;">❧</span>
+      <span style="position:absolute;top:14px;right:18px;font-size:1.1rem;color:#8a6f30;opacity:.5;pointer-events:none;">❧</span>
+      <span style="position:absolute;bottom:14px;left:18px;font-size:1.1rem;color:#8a6f30;opacity:.5;pointer-events:none;">❧</span>
+      <span style="position:absolute;bottom:14px;right:18px;font-size:1.1rem;color:#8a6f30;opacity:.5;pointer-events:none;">❧</span>
+      <div class="verse-mood-tag" id="verseMoodTag">Peace</div>
+      <div class="verse-arabic" id="verseArabic"></div>
+      <div class="verse-divider"></div>
+      <div class="verse-english" id="verseEnglish"></div>
+      <div class="verse-ref" id="verseRef"></div>
+    </div>
+
+```
+<div class="card-actions">
+  <button class="btn-pull" id="pullAgainBtn">✦ &nbsp; Another verse</button>
+  <button class="btn-pull" id="shareBtn" style="background:none;color:#8a6f30;border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;gap:8px;">
+    <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor;"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+    <span id="shareLabel">Share</span>
+  </button>
+  <button class="btn-back" id="backBtn">← &nbsp; Back</button>
+</div>
+```
+
+  </section>
+
+</div>
+
+<footer>
+  <span>Free · Always · سكينة</span>
+  <a href="#" id="pwaLink">Save as App ↗</a>
+</footer>
+
+<!-- PWA TIP -->
+
+<div id="pwa-tip">
+  <h3>Save to Your Home Screen</h3>
+  <p>In Safari, tap the <strong>Share</strong> icon ↑ then choose <strong>"Add to Home Screen."</strong> AssalamuAlaykum opens like a native app — no App Store needed.</p>
+  <button class="close-tip" id="closeTip">Close</button>
+</div>
+
+<div id="share-toast" style="position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:#0a1220;border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:13px 22px;font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.16em;color:#e2c47a;white-space:nowrap;z-index:200;opacity:0;transition:opacity .4s;pointer-events:none;">Verse image saved ✦</div>
+<canvas id="shareCanvas" style="display:none;"></canvas>
+
+<script>
+// ═══════════════════════════════
+// VERSE DATA
+// ═══════════════════════════════
+const VERSES = {
+  grief: [
+    {
+      arabic: "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ",
+      english: "Indeed, to Allah we belong, and to Him we shall return.",
+      ref: "Surah Al-Baqarah 2:156"
+    },
+    {
+      arabic: "وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ",
+      english: "Do not weaken, do not grieve — you are the highest, if you are believers.",
+      ref: "Surah Aal-e-Imran 3:139"
+    },
+    {
+      arabic: "وَبَشِّرِ الصَّابِرِينَ",
+      english: "And give glad tidings to those who endure with patience.",
+      ref: "Surah Al-Baqarah 2:155"
+    },
+    {
+      arabic: "أَلَا إِنَّ أَوْلِيَاءَ اللَّهِ لَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ",
+      english: "Truly, the friends of Allah have nothing to fear, nor shall they grieve.",
+      ref: "Surah Yunus 10:62"
+    },
+    {
+      arabic: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا",
+      english: "For indeed, with every hardship comes ease.",
+      ref: "Surah Al-Sharh 94:5"
+    }
+  ],
+  fear: [
+    {
+      arabic: "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
+      english: "Truly, it is in the remembrance of Allah that hearts find rest.",
+      ref: "Surah Ar-Ra'd 13:28"
+    },
+    {
+      arabic: "وَلَا تَخَافُوا وَلَا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ",
+      english: "Fear not, nor grieve — and receive the glad tidings of Paradise.",
+      ref: "Surah Fussilat 41:30"
+    },
+    {
+      arabic: "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+      english: "Allah is sufficient for us, and He is the best Disposer of affairs.",
+      ref: "Surah Aal-e-Imran 3:173"
+    },
+    {
+      arabic: "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
+      english: "Whoever places their trust in Allah — He is sufficient for them.",
+      ref: "Surah At-Talaq 65:3"
+    }
+  ],
+  gratitude: [
+    {
+      arabic: "لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",
+      english: "If you are grateful, I will surely increase you in favor.",
+      ref: "Surah Ibrahim 14:7"
+    },
+    {
+      arabic: "وَإِن تَعُدُّوا نِعْمَةَ اللَّهِ لَا تُحْصُوهَا",
+      english: "If you were to count the blessings of Allah, you could never enumerate them.",
+      ref: "Surah Ibrahim 14:34"
+    },
+    {
+      arabic: "فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ",
+      english: "Remember Me, and I will remember you. Give thanks to Me, and do not be ungrateful.",
+      ref: "Surah Al-Baqarah 2:152"
+    },
+    {
+      arabic: "وَسَيَجْزِي اللَّهُ الشَّاكِرِينَ",
+      english: "And Allah will reward those who are grateful.",
+      ref: "Surah Aal-e-Imran 3:144"
+    }
+  ],
+  hope: [
+    {
+      arabic: "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+      english: "Indeed, with hardship will come ease.",
+      ref: "Surah Al-Sharh 94:6"
+    },
+    {
+      arabic: "وَلَا تَيْأَسُوا مِن رَّوْحِ اللَّهِ ۖ إِنَّهُ لَا يَيْأَسُ مِن رَّوْحِ اللَّهِ إِلَّا الْقَوْمُ الْكَافِرُونَ",
+      english: "Do not despair of the mercy of Allah. Only the disbelieving people despair of Allah's mercy.",
+      ref: "Surah Yusuf 12:87"
+    },
+    {
+      arabic: "وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا",
+      english: "Those who strive for Us — We will surely guide them to Our paths.",
+      ref: "Surah Al-Ankabut 29:69"
+    },
+    {
+      arabic: "قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",
+      english: "Say: O My servants who have exceeded limits against themselves — do not despair of the mercy of Allah.",
+      ref: "Surah Az-Zumar 39:53"
+    }
+  ],
+  loneliness: [
+    {
+      arabic: "وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ",
+      english: "He is with you wherever you are.",
+      ref: "Surah Al-Hadid 57:4"
+    },
+    {
+      arabic: "وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ",
+      english: "We are nearer to him than his jugular vein.",
+      ref: "Surah Qaf 50:16"
+    },
+    {
+      arabic: "فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ",
+      english: "For I am near. I answer the call of the one who calls upon Me.",
+      ref: "Surah Al-Baqarah 2:186"
+    },
+    {
+      arabic: "لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا",
+      english: "Do not grieve — indeed, Allah is with us.",
+      ref: "Surah At-Tawbah 9:40"
+    }
+  ],
+  overwhelm: [
+    {
+      arabic: "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",
+      english: "Allah does not burden a soul beyond that it can bear.",
+      ref: "Surah Al-Baqarah 2:286"
+    },
+    {
+      arabic: "وَعَلَى اللَّهِ فَتَوَكَّلُوا إِن كُنتُم مُّؤْمِنِينَ",
+      english: "And in Allah put your trust, if you are truly believers.",
+      ref: "Surah Al-Maidah 5:23"
+    },
+    {
+      arabic: "يُرِيدُ اللَّهُ بِكُمُ الْيُسْرَ وَلَا يُرِيدُ بِكُمُ الْعُسْرَ",
+      english: "Allah intends ease for you, and He does not want to put you in difficulty.",
+      ref: "Surah Al-Baqarah 2:185"
+    },
+    {
+      arabic: "وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
+      english: "Seek help through patience and prayer.",
+      ref: "Surah Al-Baqarah 2:45"
+    }
+  ],
+  love: [
+    {
+      arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
+      english: "Among His signs is that He created for you spouses from yourselves, and placed between you love and mercy.",
+      ref: "Surah Ar-Rum 30:21"
+    },
+    {
+      arabic: "وَهُوَ الْغَفُورُ الْوَدُودُ",
+      english: "He is the Oft-Forgiving, the Most Loving.",
+      ref: "Surah Al-Buruj 85:14"
+    },
+    {
+      arabic: "إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ",
+      english: "Indeed, Allah loves those who place their trust in Him.",
+      ref: "Surah Aal-e-Imran 3:159"
+    }
+  ],
+  confusion: [
+    {
+      arabic: "رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي",
+      english: "My Lord, expand my heart for me and ease my task for me.",
+      ref: "Surah Ta-Ha 20:25–26"
+    },
+    {
+      arabic: "وَقُل رَّبِّ زِدْنِي عِلْمًا",
+      english: "And say: My Lord, increase me in knowledge.",
+      ref: "Surah Ta-Ha 20:114"
+    },
+    {
+      arabic: "وَاللَّهُ يَعْلَمُ وَأَنتُمْ لَا تَعْلَمُونَ",
+      english: "Allah knows, and you do not know.",
+      ref: "Surah Al-Baqarah 2:216"
+    },
+    {
+      arabic: "قُلْ كُلٌّ يَعْمَلُ عَلَىٰ شَاكِلَتِهِ فَرَبُّكُمْ أَعْلَمُ",
+      english: "Say: Each acts according to their own nature — and your Lord knows best.",
+      ref: "Surah Al-Isra 17:84"
+    }
+  ],
+  peace: [
+    {
+      arabic: "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
+      english: "Truly, it is in the remembrance of Allah that hearts find rest.",
+      ref: "Surah Ar-Ra'd 13:28"
+    },
+    {
+      arabic: "هُوَ الَّذِي أَنزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ",
+      english: "It is He who sent down tranquility into the hearts of the believers.",
+      ref: "Surah Al-Fath 48:4"
+    },
+    {
+      arabic: "يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً",
+      english: "O tranquil soul — return to your Lord, well-pleased and well-pleasing.",
+      ref: "Surah Al-Fajr 89:27–28"
+    },
+    {
+      arabic: "السَّلَامُ الْمُؤْمِنُ الْمُهَيْمِنُ",
+      english: "He is the Source of Peace, the Granter of Security, the Guardian.",
+      ref: "Surah Al-Hashr 59:23"
+    }
+  ],
+  doubt: [
+    {
+      arabic: "وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ",
+      english: "When My servants ask you about Me — I am near.",
+      ref: "Surah Al-Baqarah 2:186"
+    },
+    {
+      arabic: "أَفَلَا يَتَدَبَّرُونَ الْقُرْآنَ",
+      english: "Do they not contemplate the Quran?",
+      ref: "Surah Muhammad 47:24"
+    },
+    {
+      arabic: "إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنفُسِهِمْ",
+      english: "Allah does not change the condition of a people until they change what is within themselves.",
+      ref: "Surah Ar-Ra'd 13:11"
+    }
+  ]
+};
+
+// Additional verse sets — new mood & situation categories
+Object.assign(VERSES, {
+  strength:[
+    {arabic:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",english:"Indeed, Allah is with those who are patient.",ref:"Al-Baqarah 2:153"},
+    {arabic:"وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ",english:"Be patient — and your patience is only through Allah.",ref:"An-Nahl 16:127"},
+    {arabic:"فَاصْبِرْ كَمَا صَبَرَ أُولُو الْعَزْمِ مِنَ الرُّسُلِ",english:"So be patient, as were the resolute of the messengers.",ref:"Al-Ahqaf 46:35"},
+    {arabic:"بَلِ اللَّهُ مَوْلَاكُمْ وَهُوَ خَيْرُ النَّاصِرِينَ",english:"But Allah is your protector, and He is the best of helpers.",ref:"Aal-e-Imran 3:150"},
+    {arabic:"وَإِن تَصْبِرُوا وَتَتَّقُوا فَإِنَّ ذَٰلِكَ مِنْ عَزْمِ الْأُمُورِ",english:"If you are patient and mindful — that is of the matters requiring determination.",ref:"Aal-e-Imran 3:186"},
+    {arabic:"إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ",english:"Indeed, the patient will be given their reward without measure.",ref:"Az-Zumar 39:10"},
+    {arabic:"وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا",english:"Those who strive for Our cause — We will guide them to Our paths.",ref:"Al-Ankabut 29:69"},
+    {arabic:"وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ",english:"Do not weaken and do not grieve — you are the highest.",ref:"Aal-e-Imran 3:139"},
+  ],
+  forgiveness:[
+    {arabic:"إِنَّ اللَّهَ غَفُورٌ رَّحِيمٌ",english:"Indeed, Allah is Forgiving and Merciful.",ref:"Al-Baqarah 2:173"},
+    {arabic:"وَهُوَ الَّذِي يَقْبَلُ التَّوْبَةَ عَنْ عِبَادِهِ",english:"And it is He who accepts repentance from His servants.",ref:"Ash-Shura 42:25"},
+    {arabic:"وَإِنِّي لَغَفَّارٌ لِّمَن تَابَ وَآمَنَ وَعَمِلَ صَالِحًا",english:"And indeed, I am Forgiving to whoever repents, believes, and does righteousness.",ref:"Ta-Ha 20:82"},
+    {arabic:"إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِّنَ الْمُحْسِنِينَ",english:"Indeed, the mercy of Allah is near to those who do good.",ref:"Al-A'raf 7:56"},
+    {arabic:"قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",english:"Say: O My servants who have transgressed — do not despair of Allah's mercy.",ref:"Az-Zumar 39:53"},
+    {arabic:"فَإِنَّ اللَّهَ كَانَ عَفُوًّا غَفُورًا",english:"Indeed, Allah is ever Pardoning and Forgiving.",ref:"An-Nisa 4:43"},
+    {arabic:"وَلَمَن صَبَرَ وَغَفَرَ إِنَّ ذَٰلِكَ لَمِنْ عَزْمِ الْأُمُورِ",english:"And whoever is patient and forgives — that is among the matters of determination.",ref:"Ash-Shura 42:43"},
+  ],
+  guidance:[
+    {arabic:"اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",english:"Guide us to the straight path.",ref:"Al-Fatiha 1:6"},
+    {arabic:"إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ",english:"Indeed, this Quran guides to that which is most upright.",ref:"Al-Isra 17:9"},
+    {arabic:"وَمَن يُؤْمِن بِاللَّهِ يَهْدِ قَلْبَهُ",english:"And whoever believes in Allah — He will guide their heart.",ref:"At-Taghabun 64:11"},
+    {arabic:"رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا",english:"Our Lord, do not let our hearts deviate after You have guided us.",ref:"Aal-e-Imran 3:8"},
+    {arabic:"وَاللَّهُ يَهْدِي مَن يَشَاءُ إِلَىٰ صِرَاطٍ مُّسْتَقِيمٍ",english:"And Allah guides whom He wills to a straight path.",ref:"Al-Baqarah 2:213"},
+    {arabic:"وَمَن يَعْتَصِم بِاللَّهِ فَقَدْ هُدِيَ إِلَىٰ صِرَاطٍ مُّسْتَقِيمٍ",english:"And whoever holds firmly to Allah has been guided to a straight path.",ref:"Aal-e-Imran 3:101"},
+    {arabic:"ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ",english:"This is the Book about which there is no doubt — a guidance for those mindful of Allah.",ref:"Al-Baqarah 2:2"},
+  ],
+  healing:[
+    {arabic:"وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ",english:"And when I am ill, it is He who cures me.",ref:"Ash-Shu'ara 26:80"},
+    {arabic:"وَنُنَزِّلُ مِنَ الْقُرْآنِ مَا هُوَ شِفَاءٌ وَرَحْمَةٌ لِّلْمُؤْمِنِينَ",english:"And We send down of the Quran that which is healing and mercy for the believers.",ref:"Al-Isra 17:82"},
+    {arabic:"يَا أَيُّهَا النَّاسُ قَدْ جَاءَتْكُم مَّوْعِظَةٌ مِّن رَّبِّكُمْ وَشِفَاءٌ لِّمَا فِي الصُّدُورِ",english:"O mankind, there has come to you guidance from your Lord and a healing for what is in the hearts.",ref:"Yunus 10:57"},
+    {arabic:"قُلْ هُوَ لِلَّذِينَ آمَنُوا هُدًى وَشِفَاءٌ",english:"Say: It is, for those who believe, a guidance and a healing.",ref:"Fussilat 41:44"},
+    {arabic:"مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",english:"Your Lord has not abandoned you, nor has He detested you.",ref:"Ad-Duha 93:3"},
+    {arabic:"وَلَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",english:"And do not despair of the mercy of Allah.",ref:"Az-Zumar 39:53"},
+  ],
+  abundance:[
+    {arabic:"وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا",english:"There is no creature on earth but that upon Allah is its provision.",ref:"Hud 11:6"},
+    {arabic:"وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ",english:"Whoever is mindful of Allah — He will make a way out, and provide from where they do not expect.",ref:"At-Talaq 65:2–3"},
+    {arabic:"وَاللَّهُ يَرْزُقُ مَن يَشَاءُ بِغَيْرِ حِسَابٍ",english:"And Allah provides for whom He wills without account.",ref:"Al-Baqarah 2:212"},
+    {arabic:"إِنَّ اللَّهَ هُوَ الرَّزَّاقُ ذُو الْقُوَّةِ الْمَتِينُ",english:"Indeed, it is Allah who is the Sustainer, the firm possessor of strength.",ref:"Adh-Dhariyat 51:58"},
+    {arabic:"وَمَا أَنفَقْتُم مِّن شَيْءٍ فَهُوَ يُخْلِفُهُ",english:"And whatever you spend — He will replace it.",ref:"Saba 34:39"},
+    {arabic:"وَفِي السَّمَاءِ رِزْقُكُمْ وَمَا تُوعَدُونَ",english:"And in the heaven is your provision and whatever you are promised.",ref:"Adh-Dhariyat 51:22"},
+  ],
+  patience:[
+    {arabic:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",english:"Indeed, Allah is with those who are patient.",ref:"Al-Baqarah 2:153"},
+    {arabic:"وَبَشِّرِ الصَّابِرِينَ",english:"And give glad tidings to those who endure with patience.",ref:"Al-Baqarah 2:155"},
+    {arabic:"فَاصْبِرْ صَبْرًا جَمِيلًا",english:"So be patient with gracious patience.",ref:"Al-Ma'arij 70:5"},
+    {arabic:"إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ",english:"Indeed, the patient will be given their reward without measure.",ref:"Az-Zumar 39:10"},
+    {arabic:"وَاصْبِرْ لِحُكْمِ رَبِّكَ فَإِنَّكَ بِأَعْيُنِنَا",english:"And be patient for the decision of your Lord — for you are in Our sight.",ref:"At-Tur 52:48"},
+    {arabic:"إِنَّ اللَّهَ يُحِبُّ الصَّابِرِينَ",english:"Indeed, Allah loves those who are patient.",ref:"Aal-e-Imran 3:146"},
+  ],
+  purpose:[
+    {arabic:"وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ",english:"I did not create the jinn and mankind except to worship Me.",ref:"Adh-Dhariyat 51:56"},
+    {arabic:"وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ",english:"We have certainly honored the children of Adam.",ref:"Al-Isra 17:70"},
+    {arabic:"أَفَحَسِبْتُمْ أَنَّمَا خَلَقْنَاكُمْ عَبَثًا",english:"Did you think that We created you in vain?",ref:"Al-Mu'minun 23:115"},
+    {arabic:"إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ",english:"Indeed, the most noble of you in the sight of Allah is the most righteous of you.",ref:"Al-Hujurat 49:13"},
+    {arabic:"وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ",english:"And the Hereafter is better for you than the first life.",ref:"Ad-Duha 93:4"},
+    {arabic:"كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ",english:"You are the best nation produced for mankind.",ref:"Aal-e-Imran 3:110"},
+  ],
+  anxiety:[
+    {arabic:"أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",english:"Truly, it is in the remembrance of Allah that hearts find rest.",ref:"Ar-Ra'd 13:28"},
+    {arabic:"لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",english:"Allah does not burden a soul beyond that it can bear.",ref:"Al-Baqarah 2:286"},
+    {arabic:"وَتَوَكَّلْ عَلَى اللَّهِ وَكَفَىٰ بِاللَّهِ وَكِيلًا",english:"And rely upon Allah — sufficient is Allah as Disposer of affairs.",ref:"Al-Ahzab 33:3"},
+    {arabic:"اللَّهُ لَطِيفٌ بِعِبَادِهِ",english:"Allah is gentle with His servants.",ref:"Ash-Shura 42:19"},
+    {arabic:"سَيَجْعَلُ اللَّهُ بَعْدَ عُسْرٍ يُسْرًا",english:"Allah will bring about ease after difficulty.",ref:"At-Talaq 65:7"},
+    {arabic:"وَإِن يَمْسَسْكَ اللَّهُ بِضُرٍّ فَلَا كَاشِفَ لَهُ إِلَّا هُوَ",english:"And if Allah should touch you with adversity — there is no remover of it except Him.",ref:"Al-An'am 6:17"},
+  ],
+  // Situation aliases & unique sets
+  revert:[
+    {arabic:"فَمَن يُرِدِ اللَّهُ أَن يَهْدِيَهُ يَشْرَحْ صَدْرَهُ لِلْإِسْلَامِ",english:"So whoever Allah wants to guide — He expands their chest to Islam.",ref:"Al-An'am 6:125"},
+    {arabic:"يَا أَيُّهَا الَّذِينَ آمَنُوا ادْخُلُوا فِي السِّلْمِ كَافَّةً",english:"O you who believe — enter into peace fully.",ref:"Al-Baqarah 2:208"},
+    {arabic:"فَمَنِ اتَّبَعَ هُدَايَ فَلَا يَضِلُّ وَلَا يَشْقَىٰ",english:"Whoever follows My guidance will neither go astray nor suffer.",ref:"Ta-Ha 20:123"},
+    {arabic:"وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا",english:"Hold firmly to the rope of Allah, all together.",ref:"Aal-e-Imran 3:103"},
+    {arabic:"سَنُرِيهِمْ آيَاتِنَا فِي الْآفَاقِ وَفِي أَنفُسِهِمْ",english:"We will show them Our signs in the horizons and within themselves.",ref:"Fussilat 41:53"},
+    {arabic:"وَمَن يُسْلِمْ وَجْهَهُ إِلَى اللَّهِ وَهُوَ مُحْسِنٌ فَقَدِ اسْتَمْسَكَ بِالْعُرْوَةِ الْوُثْقَىٰ",english:"Whoever submits their face to Allah while doing good has grasped the firmest handhold.",ref:"Luqman 31:22"},
+  ],
+  prayer:[
+    {arabic:"وَأَقِمِ الصَّلَاةَ إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ",english:"Establish prayer — indeed, prayer prohibits immorality and wrongdoing.",ref:"Al-Ankabut 29:45"},
+    {arabic:"وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",english:"Seek help through patience and prayer.",ref:"Al-Baqarah 2:45"},
+    {arabic:"فَاذْكُرُونِي أَذْكُرْكُمْ",english:"Remember Me, and I will remember you.",ref:"Al-Baqarah 2:152"},
+    {arabic:"قَدْ أَفْلَحَ الْمُؤْمِنُونَ الَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ",english:"Certainly will the believers have succeeded — those who are humbly submissive in their prayers.",ref:"Al-Mu'minun 23:1–2"},
+    {arabic:"إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا",english:"Indeed, prayer has been decreed upon the believers at specified times.",ref:"An-Nisa 4:103"},
+  ],
+  family:[
+    {arabic:"وَوَصَّيْنَا الْإِنسَانَ بِوَالِدَيْهِ حُسْنًا",english:"And We have enjoined upon man to be good to his parents.",ref:"Al-Ankabut 29:8"},
+    {arabic:"وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ",english:"And live with them in kindness.",ref:"An-Nisa 4:19"},
+    {arabic:"إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَىٰ",english:"Indeed, Allah commands justice, kindness, and giving to relatives.",ref:"An-Nahl 16:90"},
+    {arabic:"رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ",english:"Our Lord, grant us comfort in our spouses and offspring.",ref:"Al-Furqan 25:74"},
+    {arabic:"إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ",english:"The believers are but brothers.",ref:"Al-Hujurat 49:10"},
+  ],
+  injustice:[
+    {arabic:"إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ",english:"Indeed, Allah commands justice and kindness.",ref:"An-Nahl 16:90"},
+    {arabic:"وَلَا تَحْسَبَنَّ اللَّهَ غَافِلًا عَمَّا يَعْمَلُ الظَّالِمُونَ",english:"And never think that Allah is unaware of what the wrongdoers do.",ref:"Ibrahim 14:42"},
+    {arabic:"إِنَّ اللَّهَ لَا يَظْلِمُ النَّاسَ شَيْئًا",english:"Indeed, Allah does not wrong people at all.",ref:"Yunus 10:44"},
+    {arabic:"إِنَّ اللَّهَ يُدَافِعُ عَنِ الَّذِينَ آمَنُوا",english:"Indeed, Allah defends those who have believed.",ref:"Al-Hajj 22:38"},
+    {arabic:"وَسَيَعْلَمُ الَّذِينَ ظَلَمُوا أَيَّ مُنقَلَبٍ يَنقَلِبُونَ",english:"And those who have wronged will come to know what kind of return they will have.",ref:"Ash-Shu'ara 26:227"},
+  ],
+  loss:"grief", sickness:"healing", financial:"abundance", identity:"purpose", sin:"forgiveness", tested:"patience", marriage:"love", seeking:"guidance"
+});
+
+const MOODS = [
+  { key:"grief",       label:"Grief",        labelAr:"الحزن",      g:"𖤓", glow:"#7c5fb0" },  // broken circle — loss
+  { key:"fear",        label:"Fear",         labelAr:"الخوف",      g:"⌁", glow:"#4a8ab0" },  // electric — nervous energy
+  { key:"loneliness",  label:"Loneliness",   labelAr:"الوحدة",     g:"◌", glow:"#6a6ab0" },  // hollow circle — empty
+  { key:"overwhelm",   label:"Overwhelmed",  labelAr:"الإرهاق",    g:"≋", glow:"#b05a5a" },  // triple wave — chaos
+  { key:"confusion",   label:"Confusion",    labelAr:"الحيرة",     g:"⁂", glow:"#40a0a0" },  // asterism — scattered
+  { key:"doubt",       label:"Doubt",        labelAr:"الشك",       g:"⌀", glow:"#906040" },  // diameter — questioning
+  { key:"love",        label:"Love",         labelAr:"الحب",       g:"♡", glow:"#c06080" },  // open heart
+  { key:"hope",        label:"Hope",         labelAr:"الأمل",      g:"☼", glow:"#c9a84c" },  // sun with rays — dawn
+  { key:"gratitude",   label:"Gratitude",    labelAr:"الامتنان",   g:"✾", glow:"#7ab05a" },  // 6-petal flower
+  { key:"peace",       label:"Peace",        labelAr:"السلام",     g:"◌̈", glow:"#50a0c0" },  // softness
+  { key:"strength",    label:"Strength",     labelAr:"القوة",      g:"⬡", glow:"#c08050" },  // hexagon — structure
+  { key:"forgiveness", label:"Forgiveness",  labelAr:"المغفرة",    g:"༄", glow:"#a070c0" },  // ornate wind — release
+  { key:"guidance",    label:"Guidance",     labelAr:"الهداية",    g:"⟡", glow:"#50b080" },  // compass diamond
+  { key:"healing",     label:"Healing",      labelAr:"الشفاء",     g:"✿", glow:"#80b070" },  // full bloom
+  { key:"abundance",   label:"Abundance",    labelAr:"الرزق",      g:"⸙", glow:"#b0902a" },  // fleuron — flourishing
+  { key:"patience",    label:"Patience",     labelAr:"الصبر",      g:"∿", glow:"#a09060" },  // sine wave — steady rhythm
+  { key:"purpose",     label:"Purpose",      labelAr:"الغاية",     g:"✦", glow:"#7070b0" },  // 4-point star — direction
+  { key:"anxiety",     label:"Anxiety",      labelAr:"القلق",      g:"⌇", glow:"#6090b0" },  // wavy lines — restless
+];
+
+const SITUATIONS = [
+  { key:"revert",    label:"New to Islam",           labelAr:"جديد في الإسلام",        g:"✧", glow:"#c9a84c" },  // hollow star — new light
+  { key:"prayer",    label:"Struggling with prayer",  labelAr:"صعوبة في الصلاة",        g:"☽", glow:"#50a0c0" },  // crescent — prayer times
+  { key:"family",    label:"Family conflict",         labelAr:"خلاف عائلي",             g:"⌂", glow:"#c06080" },  // house — home
+  { key:"injustice", label:"Facing injustice",        labelAr:"مواجهة الظلم",           g:"⚖", glow:"#b05a5a" },  // scales — justice
+  { key:"loss",      label:"Loss of a loved one",     labelAr:"فقدان أحد عزيز",        g:"◦", glow:"#7c5fb0" },  // small hollow — absence
+  { key:"sickness",  label:"Illness",                 labelAr:"المرض",                  g:"❋", glow:"#80b070" },  // snowflake flower — fragility
+  { key:"financial", label:"Financial hardship",      labelAr:"الضائقة المالية",        g:"❀", glow:"#b0902a" },  // full bloom open — provision
+  { key:"identity",  label:"Finding my identity",     labelAr:"البحث عن هويتي",         g:"◉", glow:"#7070b0" },  // target — finding center
+  { key:"sin",       label:"Feeling far from Allah",  labelAr:"الشعور بالبعد عن الله", g:"⊙", glow:"#906040" },  // circled dot — longing to return
+  { key:"tested",    label:"Feeling tested",          labelAr:"الشعور بالابتلاء",       g:"△", glow:"#c08050" },  // triangle — trial
+  { key:"marriage",  label:"Marriage & relationships", labelAr:"الزواج والعلاقات",      g:"∞", glow:"#c06080" },  // infinity — union
+  { key:"seeking",   label:"Seeking the truth",       labelAr:"البحث عن الحقيقة",       g:"⟳", glow:"#50b080" },  // circular arrow — searching
+];
+
+// Keyword → mood mapping
+const KEYWORD_MAP = {
+  grief:["grief","grieve","grieving","sad","sadness","loss","lost","death","died","miss","missing","mourning","heartbreak","heartbroken","cry","crying","tears","hurt","pain","devastated","shattered","broken"],
+  fear:["fear","afraid","scared","anxious","anxiety","worry","worried","nervous","terrified","panic","dread","dreading","unsafe","threat","danger"],
+  loneliness:["alone","lonely","loneliness","isolated","no one","nobody","empty","disconnected","left out","abandoned","unwanted","invisible","forgotten","unseen"],
+  overwhelm:["overwhelmed","too much","burnout","exhausted","exhaustion","tired","can't cope","drowning","swamped","stressed","stress","pressure","heavy","weight"],
+  confusion:["confused","confusion","lost","don't know","unsure","uncertain","unclear","which way","decision","decide","can't figure","what to do","direction"],
+  doubt:["doubt","doubting","questioning","faith","belief","believe","unsure about","testing","test","why","why me","losing faith","wavering","leaving islam"],
+  love:["love","heart","relationship","marriage","family","partner","together","miss someone","connection","romance","warmth","care","compassion","beloved"],
+  hope:["hope","hopeful","hoping","waiting","future","better","change","healing","recover","new start","fresh start","light","tomorrow","forward"],
+  gratitude:["grateful","gratitude","thankful","blessed","blessing","alhamdulillah","thank","appreciate","appreciation","abundance","gift","shukr"],
+  peace:["peace","peaceful","calm","tranquil","stillness","quiet","rest","serenity","serene","acceptance","content","okay","alright","stable","sakina"],
+  strength:["strong","strength","courage","brave","bravery","fight","overcome","persevere","endure","resilience","determined","keep going","warrior"],
+  forgiveness:["forgive","forgiveness","guilt","shame","mistake","regret","sin","wrong","repent","repentance","tawbah","tawba","sorry","apologize","sinned","messed up"],
+  guidance:["guide","guidance","direction","hidayah","hidaya","purpose","meaning","path","right way","truth","signs","lost my way"],
+  healing:["heal","healing","healed","recovery","recover","mend","broken heart","wounded","trauma","getting better"],
+  abundance:["rizq","provision","money","financial","job","work","sustenance","provide","enough","lack","poor","need more"],
+  patience:["patient","patience","sabr","waiting","slow","endure","long","not yet","when will","trial","tribulation"],
+  purpose:["purpose","meaning","why am i here","point of life","reason","calling","destiny","future","what am i doing","goal"],
+  anxiety:["anxiety","anxious","panic","panic attack","racing thoughts","overthinking","restless","uneasy","tension","worried sick"],
+  revert:["revert","new muslim","new to islam","converted","convert","shahadah","just converted","learning islam","recently converted"],
+  prayer:["prayer","salah","salat","namaz","praying","pray","fajr","dhuhr","asr","maghrib","isha","can't pray","missed prayers","not praying"],
+  family:["family","parents","mother","father","mom","dad","siblings","husband","wife","children","kids","home","in-laws","relatives"],
+  injustice:["injustice","oppression","unfair","wronged","treated badly","discrimination","racism","abuse","silenced","powerless"],
+  loss:["loss","lost someone","death","died","passed away","funeral","grieving someone","bereavement"],
+  sickness:["sick","illness","disease","hospital","diagnosis","chronic","pain","disability","health","suffering","medical"],
+  financial:["money","debt","bills","broke","poor","unemployed","job","struggling financially","can't pay","need money"],
+  identity:["identity","who am i","belonging","culture","background","mixed","western muslim","identity crisis","fitting in"],
+  sin:["sin","sinned","haram","far from allah","disconnected from allah","bad deeds","guilty","shame","fallen","not enough","unworthy"],
+  tested:["tested","trial","tribulation","test from allah","why is this happening","hardship","struggle","challenge","iman"],
+  marriage:["marriage","married","divorce","nikah","spouse","proposal","longing","single","want to marry"],
+  seeking:["seeking","searching","truth","is islam true","questions about islam","proof","evidence","sign","curious","exploring"],
+};
+
+// ═══════════════════════════════
+// STATE & LANG
+// ═══════════════════════════════
+let currentMood = null;
+let currentIndex = 0;
+let lang = 'en';
+
+const UI_TEXT = {
+  en: { sub:'Light from the Quran, for every moment of need', feelings:'What are you feeling?', situations:'What are you going through?', or:'or speak your heart', placeholder:'Tell me what\'s on your heart…', pull:'✦  Pull a verse  ✦', another:'✦  Another verse', share:'Share', back:'← Back', pwaTitle:'Save to Your Home Screen', pwaBody:'In Safari, tap the Share icon ↑ then choose "Add to Home Screen." Opens like a native app — no App Store needed.', saved:'Verse image saved ✦', footer:'Free · Always · assalamualaykum.app', pwaLink:'Save as App ↗', close:'Close', meaning:'PEACE BE UPON YOU', translit:'Assalamu Alaykum' },
+  ar: { sub:'نور من القرآن الكريم، في كل لحظة تحتاج فيها', feelings:'ما الذي تشعر به؟', situations:'ما الذي تمر به؟', or:'أو تحدث من قلبك', placeholder:'أخبرني ما يشغل قلبك…', pull:'✦  اسحب آية  ✦', another:'✦  آية أخرى', share:'مشاركة', back:'رجوع →', pwaTitle:'احفظ على شاشتك الرئيسية', pwaBody:'في Safari، اضغط على أيقونة المشاركة ↑ ثم اختر "إضافة إلى الشاشة الرئيسية".', saved:'تم حفظ الصورة ✦', footer:'مجاني · دائمًا · assalamualaykum.app', pwaLink:'احفظ كتطبيق ↗', close:'إغلاق', meaning:'وعليكم السلام', translit:'Wa Alaykum Assalam' }
+};
+
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.getElementById('langBtn').textContent = lang === 'en' ? 'عربي' : 'English';
+  const t = UI_TEXT[lang];
+  const sub = document.getElementById('taglineSub'); if(sub) sub.textContent = t.sub;
+  const hm = document.getElementById('headerMeaning'); if(hm) hm.textContent = t.meaning;
+  const ht = document.getElementById('headerTranslit'); if(ht) ht.textContent = t.translit;
+  document.getElementById('labelFeelings').textContent = t.feelings;
+  document.getElementById('labelSituations').textContent = t.situations;
+  document.getElementById('orText').textContent = t.or;
+  document.getElementById('aiInput').placeholder = t.placeholder;
+  document.getElementById('randomBtn').textContent = t.pull;
+  document.getElementById('pullAgainBtn').textContent = t.another;
+  document.getElementById('shareLabel').textContent = t.share;
+  document.getElementById('backBtn').textContent = t.back;
+  document.querySelector('#pwa-tip h3').textContent = t.pwaTitle;
+  document.querySelector('#pwa-tip p').textContent = t.pwaBody;
+  document.getElementById('closeTip').textContent = t.close;
+  document.querySelector('footer span').textContent = t.footer;
+  document.getElementById('pwaLink').textContent = t.pwaLink;
+  buildGrids();
+}
+
+document.getElementById('langBtn').addEventListener('click', () => {
+  lang = lang === 'en' ? 'ar' : 'en';
+  applyLang();
+});
+
+// ═══════════════════════════════
+// BUILD GRIDS
+// ═══════════════════════════════
+function buildGrids() {
+  // mood bubbles
+  const mg = document.getElementById('moodGrid');
+  mg.innerHTML = '';
+  MOODS.forEach(m => {
+    const btn = document.createElement('button');
+    btn.className = 'mood-bubble';
+    btn.style.setProperty('--glow-color', m.glow);
+    btn.innerHTML = `<span style="font-style:normal;font-size:.9rem;color:#8a6f30;opacity:.85;transition:all .3s;line-height:1;margin-right:6px;">${m.g}</span>${lang==='ar'?m.labelAr:m.label}`;
+    btn.addEventListener('click', () => showVerseForMood(m.key, lang==='ar'?m.labelAr:m.label));
+    mg.appendChild(btn);
+  });
+  // situation chips
+  const sg = document.getElementById('sitGrid');
+  sg.innerHTML = '';
+  SITUATIONS.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'mood-bubble';
+    btn.style.setProperty('--glow-color', s.glow);
+    btn.style.borderRadius = '8px';
+    btn.style.fontSize = '.88rem';
+    btn.style.padding = '10px 16px';
+    btn.innerHTML = `<span style="font-style:normal;font-size:.82rem;color:#8a6f30;opacity:.8;margin-right:6px;">${s.g}</span>${lang==='ar'?s.labelAr:s.label}`;
+    btn.addEventListener('click', () => showVerseForMood(s.key, lang==='ar'?s.labelAr:s.label));
+    sg.appendChild(btn);
+  });
+}
+buildGrids();
+
+// ═══════════════════════════════
+// STARS
+// ═══════════════════════════════
+(function initStars() {
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function createStars(n) { stars = []; for (let i=0;i<n;i++) stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.4+.2,peak:Math.random()*.5+.1,phase:Math.random()*Math.PI*2,speed:Math.random()*.008+.003}); }
+  function draw(t) { ctx.clearRect(0,0,canvas.width,canvas.height); for (const s of stars){const op=s.peak*(.5+.5*Math.sin(s.phase+t*s.speed));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(247,240,224,${op})`;ctx.fill();} requestAnimationFrame(draw); }
+  resize(); createStars(180);
+  window.addEventListener('resize', () => { resize(); createStars(180); });
+  requestAnimationFrame(draw);
+})();
+
+// ═══════════════════════════════
+// VERSE DISPLAY
+// ═══════════════════════════════
+function getPool(k) {
+  const v = VERSES[k];
+  if (!v) return VERSES.peace;
+  if (typeof v === 'string') return VERSES[v] || VERSES.peace;
+  return v;
+}
+
+function showVerseForMood(moodKey, moodLabel, pullNext = false) {
+  currentMood = moodKey;
+  const pool = getPool(moodKey);
+  currentIndex = pullNext ? (currentIndex + 1) % pool.length : Math.floor(Math.random() * pool.length);
+  const v = pool[currentIndex];
+  renderVerse(v, moodLabel || capitalize(moodKey));
+}
+
+function renderVerse(v, label) {
+  document.getElementById('verseMoodTag').textContent = label;
+  document.getElementById('verseArabic').textContent = v.arabic || v.ar;
+  document.getElementById('verseEnglish').textContent = v.english || v.en;
+  document.getElementById('verseRef').textContent = v.ref;
+  const card = document.getElementById('verseCard');
+  card.classList.remove('card-reveal'); void card.offsetWidth; card.classList.add('card-reveal');
+  document.getElementById('screen-home').style.display = 'none';
+  document.getElementById('screen-verse').classList.add('visible');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showRandomVerse() {
+  const keys = Object.keys(VERSES).filter(k => Array.isArray(VERSES[k]));
+  const k = keys[Math.floor(Math.random() * keys.length)];
+  const m = MOODS.find(x => x.key === k) || SITUATIONS.find(x => x.key === k);
+  showVerseForMood(k, m ? (lang==='ar'?m.labelAr:m.label) : capitalize(k));
+}
+
+function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+// ═══════════════════════════════
+// AI INPUT
+// ═══════════════════════════════
+document.getElementById('aiSendBtn').addEventListener('click', handleAISearch);
+document.getElementById('aiInput').addEventListener('keydown', e => { if (e.key === 'Enter') handleAISearch(); });
+
+function handleAISearch() {
+  const input = document.getElementById('aiInput').value.trim().toLowerCase();
+  if (!input) return;
+  const ring = document.getElementById('loadingRing');
+  const result = document.getElementById('ai-result');
+  ring.classList.add('active'); result.style.display = 'none';
+  setTimeout(() => {
+    ring.classList.remove('active');
+    const matched = matchMoodFromText(input);
+    const m = MOODS.find(x=>x.key===matched) || SITUATIONS.find(x=>x.key===matched);
+    if (matched) {
+      result.style.display = 'block';
+      result.textContent = lang==='ar' ? `يعكس "${m?m.labelAr:matched}"…` : `Reflecting on "${m?m.label:matched}" — opening a verse.`;
+      setTimeout(() => showVerseForMood(matched, m?(lang==='ar'?m.labelAr:m.label):capitalize(matched)), 900);
+    } else {
+      result.style.display = 'block';
+      result.textContent = lang==='ar' ? 'نسحب لك آية…' : 'Pulling a verse for you…';
+      setTimeout(showRandomVerse, 900);
+    }
+  }, 800);
+}
+
+function matchMoodFromText(text) {
+  const scores = {};
+  for (const [mood, kws] of Object.entries(KEYWORD_MAP)) { scores[mood]=0; for (const kw of kws) if (text.includes(kw)) scores[mood]++; }
+  const best = Object.entries(scores).sort((a,b) => b[1]-a[1])[0];
+  return best[1] === 0 ? null : best[0];
+}
+
+// ═══════════════════════════════
+// BUTTONS
+// ═══════════════════════════════
+document.getElementById('randomBtn').addEventListener('click', showRandomVerse);
+
+document.getElementById('pullAgainBtn').addEventListener('click', () => {
+  if (currentMood) { const m=MOODS.find(x=>x.key===currentMood)||SITUATIONS.find(x=>x.key===currentMood); showVerseForMood(currentMood, m?(lang==='ar'?m.labelAr:m.label):capitalize(currentMood), true); }
+});
+
+document.getElementById('backBtn').addEventListener('click', () => {
+  document.getElementById('screen-verse').classList.remove('visible');
+  document.getElementById('screen-home').style.display = 'flex';
+  document.getElementById('aiInput').value = '';
+  document.getElementById('ai-result').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ═══════════════════════════════
+// SHARE AS IMAGE
+// ═══════════════════════════════
+document.getElementById('shareBtn').addEventListener('click', shareVerse);
+
+async function shareVerse() {
+  const ar = document.getElementById('verseArabic').textContent;
+  const en = document.getElementById('verseEnglish').textContent;
+  const ref = document.getElementById('verseRef').textContent;
+  const tag = document.getElementById('verseMoodTag').textContent;
+  const W=1080, H=1920, canvas=document.getElementById('shareCanvas');
+  canvas.width=W; canvas.height=H;
+  const ctx=canvas.getContext('2d');
+  // background gradient
+  const bg=ctx.createLinearGradient(0,0,W,H); bg.addColorStop(0,'#0e1d40'); bg.addColorStop(.5,'#080f1e'); bg.addColorStop(1,'#060c18');
+  ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+  // stars — more of them for the taller canvas
+  for(let i=0;i<220;i++){const x=Math.random()*W,y=Math.random()*H,r=Math.random()*1.8+.3;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=`rgba(247,240,224,${Math.random()*.35+.04})`;ctx.fill();}
+  // two ambient glows for the taller format
+  const g1=ctx.createRadialGradient(W*.75,H*.2,0,W*.75,H*.2,500); g1.addColorStop(0,'rgba(34,56,112,.28)'); g1.addColorStop(1,'transparent'); ctx.fillStyle=g1; ctx.fillRect(0,0,W,H);
+  const g2=ctx.createRadialGradient(W*.25,H*.75,0,W*.25,H*.75,400); g2.addColorStop(0,'rgba(138,111,48,.12)'); g2.addColorStop(1,'transparent'); ctx.fillStyle=g2; ctx.fillRect(0,0,W,H);
+  // card area — vertically centered with breathing room
+  const padX=72, padYTop=220, padYBot=220;
+  const cardX=padX, cardY=padYTop, cardW=W-padX*2, cardH=H-padYTop-padYBot;
+  // card background
+  const cardBg=ctx.createLinearGradient(cardX,cardY,cardX,cardY+cardH);
+  cardBg.addColorStop(0,'rgba(22,36,72,.55)'); cardBg.addColorStop(1,'rgba(10,18,32,.75)');
+  ctx.fillStyle=cardBg; roundRect(ctx,cardX,cardY,cardW,cardH,28); ctx.fill();
+  // card border
+  ctx.strokeStyle='rgba(201,168,76,.22)'; ctx.lineWidth=1.5; roundRect(ctx,cardX,cardY,cardW,cardH,28); ctx.stroke();
+  const cx=W/2;
+  // top gold line on card
+  const tl=ctx.createLinearGradient(cx-200,0,cx+200,0); tl.addColorStop(0,'transparent'); tl.addColorStop(.5,'rgba(201,168,76,.7)'); tl.addColorStop(1,'transparent');
+  ctx.fillStyle=tl; ctx.fillRect(cx-200,cardY,400,1.5);
+  // bottom gold line on card
+  const bl=ctx.createLinearGradient(cx-200,0,cx+200,0); bl.addColorStop(0,'transparent'); bl.addColorStop(.5,'rgba(201,168,76,.35)'); bl.addColorStop(1,'transparent');
+  ctx.fillStyle=bl; ctx.fillRect(cx-200,cardY+cardH-1,400,1.5);
+  // corner ornaments
+  ctx.font='48px serif'; ctx.fillStyle='rgba(138,111,48,.42)';
+  ctx.textAlign='left';  ctx.fillText('❧', cardX+28, cardY+62);
+  ctx.textAlign='right'; ctx.fillText('❧', cardX+cardW-28, cardY+62);
+  ctx.textAlign='left';  ctx.fillText('❧', cardX+28, cardY+cardH-20);
+  ctx.textAlign='right'; ctx.fillText('❧', cardX+cardW-28, cardY+cardH-20);
+  // app name top — above card
+  ctx.font='500 38px "Noto Naskh Arabic",serif'; ctx.fillStyle='rgba(226,196,122,.5)'; ctx.textAlign='center';
+  ctx.fillText('سكينة', cx, cardY-60);
+  // mood tag
+  let y = cardY + 130;
+  ctx.font='600 30px Cinzel,serif'; ctx.fillStyle='rgba(138,111,48,.9)'; ctx.textAlign='center';
+  ctx.fillText(tag.toUpperCase(), cx, y); y += 70;
+  // top ornamental divider
+  const od=ctx.createLinearGradient(cx-120,0,cx+120,0); od.addColorStop(0,'transparent'); od.addColorStop(.5,'rgba(138,111,48,.5)'); od.addColorStop(1,'transparent');
+  ctx.fillStyle=od; ctx.fillRect(cx-120,y,240,1); y += 80;
+  // arabic text
+  ctx.font='500 58px "Noto Naskh Arabic",serif'; ctx.fillStyle='rgba(226,196,122,.92)'; ctx.textAlign='right';
+  const arLines=wrapText(ctx,ar,cardW-120);
+  for(const l of arLines){ ctx.fillText(l, cardX+cardW-60, y); y+=92; }
+  y += 50;
+  // mid divider
+  const md=ctx.createLinearGradient(cx-80,0,cx+80,0); md.addColorStop(0,'transparent'); md.addColorStop(.5,'rgba(138,111,48,.45)'); md.addColorStop(1,'transparent');
+  ctx.fillStyle=md; ctx.fillRect(cx-80,y,160,1); y += 70;
+  // english text
+  ctx.font='300 italic 44px "Cormorant Garamond",serif'; ctx.fillStyle='rgba(237,228,204,.9)'; ctx.textAlign='center';
+  const enLines=wrapText(ctx,en,cardW-160);
+  for(const l of enLines){ ctx.fillText(l, cx, y); y+=66; }
+  y += 55;
+  // surah ref
+  ctx.font='400 26px Cinzel,serif'; ctx.fillStyle='rgba(96,112,144,.85)'; ctx.textAlign='center';
+  ctx.fillText(ref.toUpperCase(), cx, y);
+  // watermark — bottom of card
+  ctx.font='400 24px "Noto Naskh Arabic",serif'; ctx.fillStyle='rgba(138,111,48,.35)'; ctx.textAlign='center';
+  ctx.fillText('سكينة · sakina', cx, cardY+cardH-45);
+  // domain hint below card
+  ctx.font='400 22px Cinzel,serif'; ctx.fillStyle='rgba(72,88,112,.6)'; ctx.textAlign='center';
+  ctx.fillText('assalamualaykum.app', cx, H-padYBot+70);
+  // share / download
+  canvas.toBlob(async blob => {
+    const file = new File([blob],'assalamualaykum-verse.png',{type:'image/png'});
+    if (navigator.share && navigator.canShare && navigator.canShare({files:[file]})) {
+      try { await navigator.share({files:[file],title:'ٱلسَّلَامُ عَلَيْكُمْ',text:`${en} — ${ref}`}); }
+      catch(e) { fallbackDownload(canvas); }
+    } else { fallbackDownload(canvas); }
+  },'image/png');
+}
+
+function fallbackDownload(canvas) {
+  const a=document.createElement('a'); a.download='assalamualaykum-verse.png'; a.href=canvas.toDataURL('image/png'); a.click();
+  showToast(UI_TEXT[lang].saved);
+}
+function showToast(msg) { const t=document.getElementById('share-toast'); t.textContent=msg; t.style.opacity='1'; setTimeout(()=>t.style.opacity='0',2800); }
+function wrapText(ctx,text,maxW) { const words=text.split(' '),lines=[];let line='';for(const w of words){const test=line?line+' '+w:w;if(ctx.measureText(test).width>maxW&&line){lines.push(line);line=w;}else line=test;}if(line)lines.push(line);return lines; }
+function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+
+
+
+// ═══════════════════════════════
+// SPLASH SCREEN
+// ═══════════════════════════════
+(function() {
+  const splash = document.getElementById('splash');
+  const app    = document.getElementById('app');
+
+  // draw faint dawn stars on splash canvas
+  const sc   = document.getElementById('splashStars');
+  const sctx = sc.getContext('2d');
+  sc.width   = window.innerWidth;
+  sc.height  = window.innerHeight;
+  for (let i = 0; i < 160; i++) {
+    const x  = Math.random() * sc.width;
+    const y  = Math.random() * sc.height * .7;
+    const r  = Math.random() * 1.2 + .2;
+    const op = Math.random() * .4 + .05;
+    sctx.beginPath();
+    sctx.arc(x, y, r, 0, Math.PI * 2);
+    sctx.fillStyle = `rgba(247,240,224,${op})`;
+    sctx.fill();
+  }
+
+  let dismissed = false;
+
+  function revealHeader() {
+    const els = ['headerArabic','headerTranslit','headerMeaning','headerDiv','taglineSub'];
+    els.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }
+    });
+  }
+
+  // wait for fonts before showing splash text — fixes iPad blank splash
+  document.fonts.ready.then(() => {
+    const content = document.querySelector('.splash-content');
+    if (content) content.style.visibility = 'visible';
+  });
+
+  function dismiss() {
+    if (dismissed) return;
+    dismissed = true;
+    splash.classList.add('dismissed');
+    setTimeout(() => {
+      app.classList.add('revealed');
+      revealHeader();
+    }, 500);
+    setTimeout(() => splash.style.display = 'none', 2400);
+  }
+
+  splash.addEventListener('click', dismiss);
+  splash.addEventListener('touchend', e => { e.preventDefault(); dismiss(); });
+  setTimeout(dismiss, 7000);
+})();
+
+// ═══════════════════════════════
+// PWA TIP
+// ═══════════════════════════════
+document.getElementById('pwaLink').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('pwa-tip').classList.add('show');
+});
+document.getElementById('closeTip').addEventListener('click', () => {
+  document.getElementById('pwa-tip').classList.remove('show');
+});
+</script>
+
+</body>
+</html>
