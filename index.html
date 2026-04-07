@@ -8,8 +8,9 @@
 <meta name="theme-color" content="#080e1a" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="AssalamuAlaykum" />
-<title>ٱلسَّلَامُ عَلَيْكُمْ ☽ Assalamu Alaykum</title>
+<title>Assalamu Alaykum ☽ ٱلسَّلَامُ عَلَيْكُمْ</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>" />
+<meta name="apple-mobile-web-app-title" content="Assalamu Alaykum" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Naskh+Arabic:wght@400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
@@ -257,9 +258,9 @@ width: 100%;
 background: rgba(255,255,255,0.04);
 border: 1px solid rgba(255,255,255,0.12);
 border-radius: 50px;
-padding: 14px 55px 14px 22px;
+padding: clamp(10px, 2.5vw, 14px) 55px clamp(10px, 2.5vw, 14px) 20px;
 font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.05rem;
+font-size: clamp(.92rem, 3vw, 1.05rem);
 font-style: italic;
 color: var(–cream);
 outline: none;
@@ -655,11 +656,11 @@ to { opacity: 1; transform: translateY(0); }
 #votd-banner {
 width: 100%;
 max-width: 680px;
-margin: 0 20px 20px;
+margin: 0 20px 14px;
 background: linear-gradient(135deg, rgba(22,36,72,.5), rgba(10,18,32,.7));
 border: 1px solid rgba(201,168,76,.2);
-border-radius: 14px;
-padding: clamp(12px, 3vw, 18px) clamp(14px, 4vw, 22px);
+border-radius: 12px;
+padding: clamp(10px, 2.5vw, 16px) clamp(12px, 3.5vw, 20px);
 cursor: pointer;
 transition: border-color .3s, box-shadow .3s;
 position: relative;
@@ -675,11 +676,11 @@ background: linear-gradient(90deg, transparent, rgba(201,168,76,.5), transparent
 #votd-banner:hover { border-color: rgba(201,168,76,.38); box-shadow: 0 8px 30px rgba(0,0,0,.35); }
 .votd-label {
 font-family: ‘Cinzel’, serif;
-font-size: .58rem;
-letter-spacing: .32em;
+font-size: .55rem;
+letter-spacing: .28em;
 text-transform: uppercase;
 color: var(–gold-dim);
-margin-bottom: 10px;
+margin-bottom: 7px;
 display: flex;
 align-items: center;
 gap: 8px;
@@ -687,27 +688,27 @@ gap: 8px;
 .votd-label::after { content: ‘’; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(138,111,48,.3), transparent); }
 .votd-arabic {
 font-family: ‘Noto Naskh Arabic’, serif;
-font-size: clamp(.9rem, 3.5vw, 1.15rem);
+font-size: clamp(.82rem, 3vw, 1.1rem);
 font-weight: 500;
 color: var(–gold-light);
 direction: rtl;
 text-align: right;
-line-height: 1.7;
-margin-bottom: 6px;
+line-height: 1.6;
+margin-bottom: 5px;
 }
 .votd-english {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(.78rem, 2.8vw, .92rem);
+font-size: clamp(.72rem, 2.5vw, .88rem);
 font-style: italic;
 font-weight: 300;
 color: var(–cream-dim);
-line-height: 1.5;
-margin-bottom: 5px;
+line-height: 1.45;
+margin-bottom: 4px;
 }
 .votd-ref {
 font-family: ‘Cinzel’, serif;
-font-size: .55rem;
-letter-spacing: .18em;
+font-size: .52rem;
+letter-spacing: .16em;
 color: var(–muted-light);
 }
 
@@ -930,13 +931,12 @@ to   { opacity: 1; transform: translateY(0); }
 <!-- TOP NAV -->
 
 <div id="top-nav">
-  <a href="https://www.instagram.com/assalamualaykum.app" target="_blank" rel="noopener" aria-label="Instagram">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <a href="https://www.instagram.com/assalamualaykum.app" target="_blank" rel="noopener" aria-label="Instagram" style="padding:8px 12px;">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
       <circle cx="12" cy="12" r="4.5"/>
       <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>
     </svg>
-    <span>Instagram</span>
   </a>
   <button id="langBtn">عربي</button>
 </div>
@@ -1057,7 +1057,7 @@ to   { opacity: 1; transform: translateY(0); }
 </div>
 
 <footer>
-  <span id="footerText">Free Forever ☽ assalamualaykum.app ☽ </span><a href="#" id="pwaLink">Save as App ↗</a><a href="#" id="privacyLink" style="margin-left:8px;opacity:.6;font-size:.58rem;letter-spacing:.15em;">Privacy & Terms</a>
+  <a href="#" id="pwaLink">Save as an App</a><span style="color:#3a5080;margin:0 7px;">☽</span><span id="footerText">Free Forever</span><span style="color:#3a5080;margin:0 7px;">☽</span><a href="#" id="privacyLink" style="opacity:.6;font-size:.58rem;letter-spacing:.15em;">Privacy & Terms</a>
 </footer>
 
 <!-- PWA TIP -->
@@ -1065,10 +1065,10 @@ to   { opacity: 1; transform: translateY(0); }
 <div id="pwa-tip">
   <h3>Save to Your Home Screen</h3>
   <div style="text-align:left;margin:14px 0;font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--cream-dim);line-height:1.9;font-style:italic;">
-    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">1 &nbsp;</strong> Open this site in <strong>Safari</strong> (not Chrome)</div>
-    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">2 &nbsp;</strong> Tap the <strong>Share</strong> button <span style="font-style:normal;">⎋</span> at the bottom of Safari</div>
-    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">3 &nbsp;</strong> Scroll down and tap <strong>"Add to Home Screen"</strong></div>
-    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">4 &nbsp;</strong> Tap <strong>Add</strong> — done. Opens like an app.</div>
+    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">1 &nbsp;</strong> Open in <strong>Safari</strong> (not Chrome)</div>
+    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">2 &nbsp;</strong> Tap <strong>···</strong> bottom right of Safari</div>
+    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">3 &nbsp;</strong> Tap <strong>Share</strong> <span style="font-style:normal;">⎋</span> then <strong>View More</strong></div>
+    <div><strong style="font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.15em;color:var(--gold-dim);font-style:normal;">4 &nbsp;</strong> Tap <strong>Add to Home Screen</strong> → <strong>Add</strong></div>
   </div>
   <button class="close-tip" id="closeTip">Got it ✦</button>
 </div>
@@ -1866,7 +1866,107 @@ Object.assign(VERSES, {
   ]);
 
 
-// ── Final fill — every category to exactly 20 ──
+})();
+
+// ── New categories: Anger, Death & Afterlife, Emptiness, Envy ──
+(function newCategories() {
+  const add = (cat, verses) => { VERSES[cat] = (VERSES[cat] || []).concat(verses); };
+
+  add('anger', [
+    {ar:"وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ",en:"Those who restrain their anger and pardon people — Allah loves those who do good.",ref:"Aal-e-Imran 3:134"},
+    {ar:"وَلَمَن صَبَرَ وَغَفَرَ إِنَّ ذَٰلِكَ لَمِنْ عَزْمِ الْأُمُورِ",en:"And whoever is patient and forgives — that is of the matters requiring determination.",ref:"Ash-Shura 42:43"},
+    {ar:"ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ",en:"Repel evil with what is better — then the one who was your enemy becomes like a devoted friend.",ref:"Fussilat 41:34"},
+    {ar:"وَإِذَا مَا غَضِبُوا هُمْ يَغْفِرُونَ",en:"And when they are angry, they forgive.",ref:"Ash-Shura 42:37"},
+    {ar:"خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ وَأَعْرِضْ عَنِ الْجَاهِلِينَ",en:"Take what is given freely, enjoin what is right, and turn away from the ignorant.",ref:"Al-A'raf 7:199"},
+    {ar:"وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ",en:"Good and evil are not equal — repel evil with what is better.",ref:"Fussilat 41:34"},
+    {ar:"إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَىٰ",en:"Indeed, Allah commands justice, kindness, and giving to relatives.",ref:"An-Nahl 16:90"},
+    {ar:"وَلَا يَجْرِمَنَّكُمْ شَنَآنُ قَوْمٍ عَلَىٰ أَلَّا تَعْدِلُوا",en:"Do not let hatred of a people cause you to act unjustly.",ref:"Al-Ma'ida 5:8"},
+    {ar:"وَاصْبِرْ وَمَا صَبْرُكَ إِلَّا بِاللَّهِ",en:"Be patient — and your patience is only through Allah.",ref:"An-Nahl 16:127"},
+    {ar:"وَالَّذِينَ يَجْتَنِبُونَ كَبَائِرَ الْإِثْمِ وَالْفَوَاحِشَ وَإِذَا مَا غَضِبُوا هُمْ يَغْفِرُونَ",en:"Those who avoid great sins and indecencies — and when they are angry, they forgive.",ref:"Ash-Shura 42:37"},
+    {ar:"وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِّن رَّبِّكُمْ",en:"And hasten toward forgiveness from your Lord.",ref:"Aal-e-Imran 3:133"},
+    {ar:"فَاعْفُ عَنْهُمْ وَاصْفَحْ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ",en:"So pardon them and overlook — indeed, Allah loves those who do good.",ref:"Al-Ma'ida 5:13"},
+    {ar:"إِنَّ اللَّهَ يُحِبُّ الَّذِينَ يُقَاتِلُونَ فِي سَبِيلِهِ صَفًّا كَأَنَّهُم بُنْيَانٌ مَّرْصُوصٌ",en:"Indeed, Allah loves those who stand firm like a solid wall.",ref:"As-Saff 61:4"},
+    {ar:"وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنتَ مَوْلَانَا",en:"Pardon us, forgive us, and have mercy on us — You are our Protector.",ref:"Al-Baqarah 2:286"},
+    {ar:"وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ",en:"Good and evil are not equal.",ref:"Fussilat 41:34"},
+    {ar:"وَأَن تَعْفُوا أَقْرَبُ لِلتَّقْوَىٰ",en:"And to pardon is nearer to righteousness.",ref:"Al-Baqarah 2:237"},
+    {ar:"رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ",en:"Our Lord, forgive us and our brothers who preceded us in faith.",ref:"Al-Hashr 59:10"},
+    {ar:"وَلَا تَتَّبِعُوا خُطُوَاتِ الشَّيْطَانِ إِنَّهُ لَكُمْ عَدُوٌّ مُّبِينٌ",en:"And do not follow the footsteps of Satan — he is a clear enemy to you.",ref:"Al-Baqarah 2:168"},
+    {ar:"إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",en:"Indeed, Allah is with those who are patient.",ref:"Al-Baqarah 2:153"},
+    {ar:"أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",en:"Truly, it is in the remembrance of Allah that hearts find rest.",ref:"Ar-Ra'd 13:28"},
+  ]);
+
+  add('emptiness', [
+    {ar:"أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ",en:"Did We not expand for you your chest?",ref:"Al-Sharh 94:1"},
+    {ar:"وَوَضَعْنَا عَنكَ وِزْرَكَ الَّذِي أَنقَضَ ظَهْرَكَ",en:"And We removed from you your burden which had weighed upon your back.",ref:"Al-Sharh 94:2–3"},
+    {ar:"فَإِنَّ مَعَ الْعُسْرِ يُسْرًا إِنَّ مَعَ الْعُسْرِ يُسْرًا",en:"For indeed, with every hardship comes ease — indeed, with every hardship comes ease.",ref:"Al-Sharh 94:5–6"},
+    {ar:"مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",en:"Your Lord has not abandoned you, nor has He detested you.",ref:"Ad-Duha 93:3"},
+    {ar:"وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ",en:"And your Lord will give to you, and you will be satisfied.",ref:"Ad-Duha 93:5"},
+    {ar:"هُوَ الَّذِي أَنزَلَ السَّكِينَةَ فِي قُلُوبِ الْمُؤْمِنِينَ",en:"It is He who sent down tranquility into the hearts of the believers.",ref:"Al-Fath 48:4"},
+    {ar:"أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",en:"Truly, it is in the remembrance of Allah that hearts find rest.",ref:"Ar-Ra'd 13:28"},
+    {ar:"لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",en:"Allah does not burden a soul beyond that it can bear.",ref:"Al-Baqarah 2:286"},
+    {ar:"وَلَقَدْ كَرَّمْنَا بَنِي آدَمَ",en:"We have certainly honored the children of Adam.",ref:"Al-Isra 17:70"},
+    {ar:"لَقَدْ خَلَقْنَا الْإِنسَانَ فِي أَحْسَنِ تَقْوِيمٍ",en:"We have certainly created man in the best of stature.",ref:"At-Tin 95:4"},
+    {ar:"وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ",en:"We are nearer to him than his jugular vein.",ref:"Qaf 50:16"},
+    {ar:"فَإِنِّي قَرِيبٌ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ",en:"For I am near — I answer the call of the one who calls upon Me.",ref:"Al-Baqarah 2:186"},
+    {ar:"يَا أَيُّهَا الَّذِينَ آمَنُوا اسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",en:"O you who believe — seek help through patience and prayer.",ref:"Al-Baqarah 2:153"},
+    {ar:"وَلَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا",en:"Do not despair of the mercy of Allah — indeed, Allah forgives all sins.",ref:"Az-Zumar 39:53"},
+    {ar:"وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ",en:"He is with you wherever you are.",ref:"Al-Hadid 57:4"},
+    {ar:"وَاللَّهُ يُحِبُّ الصَّابِرِينَ",en:"And Allah loves those who are patient.",ref:"Aal-e-Imran 3:146"},
+    {ar:"إِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ",en:"Indeed, Allah does not allow the reward of those who do good to be lost.",ref:"Hud 11:115"},
+    {ar:"عَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ",en:"Perhaps you dislike something and it is good for you.",ref:"Al-Baqarah 2:216"},
+    {ar:"وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",en:"Whoever places their trust in Allah — He is sufficient for them.",ref:"At-Talaq 65:3"},
+    {ar:"إِنَّ مَعَ الْعُسْرِ يُسْرًا",en:"Indeed, with hardship will come ease.",ref:"Al-Sharh 94:6"},
+  ]);
+
+  add('envy', [
+    {ar:"قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ مِن شَرِّ مَا خَلَقَ",en:"Say: I seek refuge in the Lord of daybreak from the evil of what He created.",ref:"Al-Falaq 113:1–2"},
+    {ar:"وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",en:"And from the evil of an envier when they envy.",ref:"Al-Falaq 113:5"},
+    {ar:"أَمْ يَحْسُدُونَ النَّاسَ عَلَىٰ مَا آتَاهُمُ اللَّهُ مِن فَضْلِهِ",en:"Or do they envy people for what Allah has given them of His bounty?",ref:"An-Nisa 4:54"},
+    {ar:"وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللَّهُ بِهِ بَعْضَكُمْ عَلَىٰ بَعْضٍ",en:"And do not wish for that by which Allah has made some of you exceed others.",ref:"An-Nisa 4:32"},
+    {ar:"لِّلرِّجَالِ نَصِيبٌ مِّمَّا اكْتَسَبُوا وَلِلنِّسَاءِ نَصِيبٌ مِّمَّا اكْتَسَبْنَ",en:"For men is a share of what they have earned, and for women a share of what they have earned.",ref:"An-Nisa 4:32"},
+    {ar:"وَاسْأَلُوا اللَّهَ مِن فَضْلِهِ",en:"And ask Allah of His bounty.",ref:"An-Nisa 4:32"},
+    {ar:"نَحْنُ قَسَمْنَا بَيْنَهُم مَّعِيشَتَهُمْ فِي الْحَيَاةِ الدُّنْيَا",en:"It is We who have apportioned among them their livelihood in the life of this world.",ref:"Az-Zukhruf 43:32"},
+    {ar:"وَرَفَعْنَا بَعْضَهُمْ فَوْقَ بَعْضٍ دَرَجَاتٍ لِّيَتَّخِذَ بَعْضُهُم بَعْضًا سُخْرِيًّا",en:"And We have raised some of them above others in degrees that they may use one another for service.",ref:"Az-Zukhruf 43:32"},
+    {ar:"وَرَحْمَتُ رَبِّكَ خَيْرٌ مِّمَّا يَجْمَعُونَ",en:"And the mercy of your Lord is better than what they accumulate.",ref:"Az-Zukhruf 43:32"},
+    {ar:"إِنَّ أَكْرَمَكُمْ عِندَ اللَّهِ أَتْقَاكُمْ",en:"Indeed, the most noble of you in the sight of Allah is the most righteous.",ref:"Al-Hujurat 49:13"},
+    {ar:"فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ",en:"Whoever does an atom's weight of good will see it.",ref:"Az-Zalzalah 99:7"},
+    {ar:"وَاللَّهُ يَرْزُقُ مَن يَشَاءُ بِغَيْرِ حِسَابٍ",en:"And Allah provides for whom He wills without account.",ref:"Al-Baqarah 2:212"},
+    {ar:"وَلَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ",en:"If you are grateful, I will surely increase you in favor.",ref:"Ibrahim 14:7"},
+    {ar:"وَمَا بِكُم مِّن نِّعْمَةٍ فَمِنَ اللَّهِ",en:"And whatever blessing you have — it is from Allah.",ref:"An-Nahl 16:53"},
+    {ar:"لَّيْسَ بِأَمَانِيِّكُمْ وَلَا أَمَانِيِّ أَهْلِ الْكِتَابِ مَن يَعْمَلْ سُوءًا يُجْزَ بِهِ",en:"It is not by your wishes nor those of others — whoever does evil will be recompensed for it.",ref:"An-Nisa 4:123"},
+    {ar:"الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",en:"All praise is due to Allah, Lord of all the worlds.",ref:"Al-Fatiha 1:2"},
+    {ar:"وَأَن تَعْفُوا أَقْرَبُ لِلتَّقْوَىٰ",en:"And to pardon is nearer to righteousness.",ref:"Al-Baqarah 2:237"},
+    {ar:"إِنَّ اللَّهَ لَا يُحِبُّ كُلَّ مُخْتَالٍ فَخُورٍ",en:"Indeed, Allah does not love every self-conceited boaster.",ref:"Luqman 31:18"},
+    {ar:"وَلَا تَمْشِ فِي الْأَرْضِ مَرَحًا",en:"And do not walk upon the earth exultantly.",ref:"Al-Isra 17:37"},
+    {ar:"وَاللَّهُ خَيْرُ الرَّازِقِينَ",en:"And He is the best of providers.",ref:"Al-Ma'ida 5:114"},
+  ]);
+
+  add('death', [
+    {ar:"كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ وَإِنَّمَا تُوَفَّوْنَ أُجُورَكُمْ يَوْمَ الْقِيَامَةِ",en:"Every soul will taste death, and you will be given your reward in full on the Day of Resurrection.",ref:"Aal-e-Imran 3:185"},
+    {ar:"وَمَا تَدْرِي نَفْسٌ مَّاذَا تَكْسِبُ غَدًا وَمَا تَدْرِي نَفْسٌ بِأَيِّ أَرْضٍ تَمُوتُ",en:"No soul knows what it will earn tomorrow, and no soul knows in what land it will die.",ref:"Luqman 31:34"},
+    {ar:"إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ",en:"Indeed, to Allah we belong, and to Him we shall return.",ref:"Al-Baqarah 2:156"},
+    {ar:"يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَّرْضِيَّةً",en:"O tranquil soul — return to your Lord, well-pleased and well-pleasing.",ref:"Al-Fajr 89:27–28"},
+    {ar:"فَادْخُلِي فِي عِبَادِي وَادْخُلِي جَنَّتِي",en:"Enter among My servants and enter My Paradise.",ref:"Al-Fajr 89:29–30"},
+    {ar:"إِنَّ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ لَهُمْ جَنَّاتُ النَّعِيمِ",en:"Indeed, those who believe and do righteous deeds — for them are the gardens of pleasure.",ref:"Luqman 31:8"},
+    {ar:"وَلَا تَحْسَبَنَّ الَّذِينَ قُتِلُوا فِي سَبِيلِ اللَّهِ أَمْوَاتًا بَلْ أَحْيَاءٌ عِندَ رَبِّهِمْ يُرْزَقُونَ",en:"Never think of those who were killed in the cause of Allah as dead — they are alive with their Lord, being provided for.",ref:"Aal-e-Imran 3:169"},
+    {ar:"فَمَن زُحْزِحَ عَنِ النَّارِ وَأُدْخِلَ الْجَنَّةَ فَقَدْ فَازَ",en:"Whoever is removed from the Fire and admitted to Paradise has indeed attained success.",ref:"Aal-e-Imran 3:185"},
+    {ar:"الَّذِي خَلَقَ الْمَوْتَ وَالْحَيَاةَ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًا",en:"He who created death and life to test you as to which of you is best in deed.",ref:"Al-Mulk 67:2"},
+    {ar:"وَمَا هَٰذِهِ الْحَيَاةُ الدُّنْيَا إِلَّا لَهْوٌ وَلَعِبٌ وَإِنَّ الدَّارَ الْآخِرَةَ لَهِيَ الْحَيَوَانُ",en:"The life of this world is nothing but play and amusement — and indeed the home of the Hereafter is the true life.",ref:"Al-Ankabut 29:64"},
+    {ar:"وَلَلْآخِرَةُ خَيْرٌ لَّكَ مِنَ الْأُولَىٰ",en:"And the Hereafter is better for you than the first life.",ref:"Ad-Duha 93:4"},
+    {ar:"تِلْكَ الدَّارُ الْآخِرَةُ نَجْعَلُهَا لِلَّذِينَ لَا يُرِيدُونَ عُلُوًّا فِي الْأَرْضِ وَلَا فَسَادًا",en:"That home of the Hereafter — We assign it to those who do not desire exaltation in the earth or corruption.",ref:"Al-Qasas 28:83"},
+    {ar:"إِنَّ الْمُتَّقِينَ فِي مَقَامٍ أَمِينٍ",en:"Indeed, the righteous will be in a secure place.",ref:"Ad-Dukhan 44:51"},
+    {ar:"فِي مَقْعَدِ صِدْقٍ عِندَ مَلِيكٍ مُّقْتَدِرٍ",en:"In a seat of honor near a Sovereign, Perfect in Ability.",ref:"Al-Qamar 54:55"},
+    {ar:"وَبَشِّرِ الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ أَنَّ لَهُمْ جَنَّاتٍ تَجْرِي مِن تَحْتِهَا الْأَنْهَارُ",en:"Give glad tidings to those who believe and do righteous deeds that for them are gardens beneath which rivers flow.",ref:"Al-Baqarah 2:25"},
+    {ar:"رَبَّنَا وَآتِنَا مَا وَعَدتَّنَا عَلَىٰ رُسُلِكَ وَلَا تُخْزِنَا يَوْمَ الْقِيَامَةِ",en:"Our Lord, give us what You promised us through Your messengers and do not disgrace us on the Day of Resurrection.",ref:"Aal-e-Imran 3:194"},
+    {ar:"رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ",en:"Our Lord, forgive me and my parents and the believers on the Day the account is established.",ref:"Ibrahim 14:41"},
+    {ar:"كُلُّ شَيْءٍ هَالِكٌ إِلَّا وَجْهَهُ لَهُ الْحُكْمُ وَإِلَيْهِ تُرْجَعُونَ",en:"Everything will perish except His Face. His is the judgment, and to Him you will be returned.",ref:"Al-Qasas 28:88"},
+    {ar:"اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ",en:"Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence.",ref:"Al-Baqarah 2:255"},
+    {ar:"سَلَامٌ قَوْلًا مِّن رَّبٍّ رَّحِيمٍ",en:"Peace — a word from a Merciful Lord.",ref:"Ya-Sin 36:58"},
+  ]);
+
+})();
+
+// ── New categories: Anger, Death & Afterlife, Emptiness, Envy ──
 (function finalFill() {
   const add = (cat, verses) => { if (!VERSES[cat]) VERSES[cat] = []; VERSES[cat].push(...verses); };
   add('strength', [{ar:"إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ",en:"Indeed, Allah loves those who place their trust in Him.",ref:"Aal-e-Imran 3:159"},{ar:"وَلَا تَهِنُوا فِي ابْتِغَاءِ الْقَوْمِ",en:"Do not weaken in pursuit of your goal.",ref:"An-Nisa 4:104"}]);
@@ -1876,48 +1976,69 @@ Object.assign(VERSES, {
   add('prayer', [{ar:"وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا",en:"Whoever is mindful of Allah — He will make for them a way out.",ref:"At-Talaq 65:2"},{ar:"وَاذْكُر رَّبَّكَ فِي نَفْسِكَ تَضَرُّعًا وَخِيفَةً",en:"Remember your Lord within yourself in humility and fear.",ref:"Al-A'raf 7:205"}]);
   add('family', [{ar:"وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ",en:"Cooperate in righteousness and piety.",ref:"Al-Ma'ida 5:2"},{ar:"وَقُولُوا لِلنَّاسِ حُسْنًا",en:"And speak to people good words.",ref:"Al-Baqarah 2:83"}]);
   add('injustice', [{ar:"وَالَّذِينَ إِذَا أَصَابَهُمُ الْبَغْيُ هُمْ يَنتَصِرُونَ",en:"Those who, when tyranny strikes them, defend themselves.",ref:"Ash-Shura 42:39"},{ar:"وَجَزَاءُ سَيِّئَةٍ سَيِّئَةٌ مِّثْلُهَا فَمَنْ عَفَا وَأَصْلَحَ فَأَجْرُهُ عَلَى اللَّهِ",en:"The repayment of an evil is one like it — but whoever pardons, their reward is with Allah.",ref:"Ash-Shura 42:40"}]);
-  add('forgiveness', [{ar:"وَلْيَعْفُوا وَلْيَصْفَحُوا أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ لَكُمْ",en:"Let them pardon and overlook — would you not like that Allah should forgive you?",ref:"An-Nur 24:22"}]);
-  add('guidance', [{ar:"يَهْدِي اللَّهُ لِنُورِهِ مَن يَشَاءُ",en:"Allah guides to His light whom He wills.",ref:"An-Nur 24:35"}]);
-  add('healing', [{ar:"وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ",en:"And when My servants ask about Me — indeed I am near.",ref:"Al-Baqarah 2:186"}]);
-  add('abundance', [{ar:"وَمَا تُنفِقُوا مِنْ خَيْرٍ فَلِأَنفُسِكُمْ",en:"And whatever good you spend — it is for yourselves.",ref:"Al-Baqarah 2:272"}]);
-  add('revert', [{ar:"وَمَن يُطِعِ اللَّهَ وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا",en:"Whoever obeys Allah and His Messenger has certainly attained a great attainment.",ref:"Al-Ahzab 33:71"}]);
-})();
+  add('forgiveness', [
+    {ar:"وَلْيَعْفُوا وَلْيَصْفَحُوا أَلَا تُحِبُّونَ أَن يَغْفِرَ اللَّهُ لَكُمْ",en:"Let them pardon and overlook — would you not like that Allah should forgive you?",ref:"An-Nur 24:22"}
+  ]);
+  add('guidance', [
+    {ar:"يَهْدِي اللَّهُ لِنُورِهِ مَن يَشَاءُ",en:"Allah guides to His light whom He wills.",ref:"An-Nur 24:35"}
+  ]);
+  add('healing', [
+    {ar:"وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ",en:"And when My servants ask about Me — indeed I am near.",ref:"Al-Baqarah 2:186"}
+  ]);
+  add('abundance', [
+    {ar:"وَمَا تُنفِقُوا مِنْ خَيْرٍ فَلِأَنفُسِكُمْ",en:"And whatever good you spend — it is for yourselves.",ref:"Al-Baqarah 2:272"}
+  ]);
+  add('revert', [
+    {ar:"وَمَن يُطِعِ اللَّهَ وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا",en:"Whoever obeys Allah and His Messenger has certainly attained a great attainment.",ref:"Al-Ahzab 33:71"}
+  ]);
+  // bring remaining 18s to 20
+  add('anxiety',   [{ar:"رَبِّ اشْرَحْ لِي صَدْرِي",en:"My Lord, expand for me my chest.",ref:"Ta-Ha 20:25"},{ar:"إِنَّ اللَّهَ بَالِغُ أَمْرِهِ قَدْ جَعَلَ اللَّهُ لِكُلِّ شَيْءٍ قَدْرًا",en:"Indeed, Allah will accomplish His purpose — He has made for everything a decreed extent.",ref:"At-Talaq 65:3"}]);
+  add('family',    [{ar:"وَاتَّقُوا اللَّهَ الَّذِي تَسَاءَلُونَ بِهِ وَالْأَرْحَامَ",en:"Fear Allah, through whom you ask one another, and maintain family ties.",ref:"An-Nisa 4:1"},{ar:"لَّيْسَ الْبِرَّ أَن تُوَلُّوا وُجُوهَكُمْ قِبَلَ الْمَشْرِقِ وَالْمَغْرِبِ",en:"Righteousness is not that you turn your faces toward the east or west, but true righteousness is in the heart.",ref:"Al-Baqarah 2:177"}]);
+  add('injustice', [{ar:"وَمَا اللَّهُ بِغَافِلٍ عَمَّا تَعْمَلُونَ",en:"And Allah is not unaware of what you do.",ref:"Al-Baqarah 2:74"},{ar:"إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا",en:"Indeed, Allah commands you to deliver trusts to their rightful owners.",ref:"An-Nisa 4:58"}]);
+  add('patience',  [{ar:"وَبَشِّرِ الصَّابِرِينَ الَّذِينَ إِذَا أَصَابَتْهُم مُّصِيبَةٌ قَالُوا إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ",en:"And give good tidings to the patient — those who, when struck by adversity, say: Indeed, to Allah we belong and to Him we return.",ref:"Al-Baqarah 2:155–156"},{ar:"وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ وَإِنَّهَا لَكَبِيرَةٌ إِلَّا عَلَى الْخَاشِعِينَ",en:"Seek help through patience and prayer — though it is difficult except for the humble.",ref:"Al-Baqarah 2:45"}]);
+  add('prayer',    [{ar:"أَقِمِ الصَّلَاةَ لِدُلُوكِ الشَّمْسِ إِلَىٰ غَسَقِ اللَّيْلِ وَقُرْآنَ الْفَجْرِ",en:"Establish prayer at the decline of the sun until the darkness of the night and the Quran of dawn.",ref:"Al-Isra 17:78"},{ar:"فَسُبْحَانَ اللَّهِ حِينَ تُمْسُونَ وَحِينَ تُصْبِحُونَ",en:"So exalt Allah when you reach the evening and when you reach the morning.",ref:"Ar-Rum 30:17"}]);
+  add('purpose',   [{ar:"أَوَلَمْ يَتَفَكَّرُوا فِي أَنفُسِهِمْ",en:"Have they not reflected within themselves?",ref:"Ar-Rum 30:8"},{ar:"وَمَا خَلَقْنَا السَّمَاوَاتِ وَالْأَرْضَ وَمَا بَيْنَهُمَا إِلَّا بِالْحَقِّ",en:"We did not create the heavens and earth and what is between them except in truth.",ref:"Al-Hijr 15:85"}]);
+  add('strength',  [{ar:"وَقُل رَّبِّ زِدْنِي عِلْمًا",en:"And say: My Lord, increase me in knowledge.",ref:"Ta-Ha 20:114"},{ar:"إِنَّ اللَّهَ قَوِيٌّ عَزِيزٌ",en:"Indeed, Allah is Powerful and Exalted in Might.",ref:"Al-Mujadila 58:21"}]);
 })();
 
 const MOODS = [
-  { key:"grief",       label:"Grief",        labelAr:"الحزن",      g:"𖤓", glow:"#7c5fb0" },  // broken circle — loss
-  { key:"fear",        label:"Fear",         labelAr:"الخوف",      g:"⌁", glow:"#4a8ab0" },  // electric — nervous energy
-  { key:"loneliness",  label:"Loneliness",   labelAr:"الوحدة",     g:"◌", glow:"#6a6ab0" },  // hollow circle — empty
-  { key:"overwhelm",   label:"Overwhelmed",  labelAr:"الإرهاق",    g:"≋", glow:"#b05a5a" },  // triple wave — chaos
-  { key:"confusion",   label:"Confusion",    labelAr:"الحيرة",     g:"⁂", glow:"#40a0a0" },  // asterism — scattered
-  { key:"doubt",       label:"Doubt",        labelAr:"الشك",       g:"⌀", glow:"#906040" },  // diameter — questioning
-  { key:"love",        label:"Love",         labelAr:"الحب",       g:"♡", glow:"#c06080" },  // open heart
-  { key:"hope",        label:"Hope",         labelAr:"الأمل",      g:"☼", glow:"#c9a84c" },  // sun with rays — dawn
-  { key:"gratitude",   label:"Gratitude",    labelAr:"الامتنان",   g:"✾", glow:"#7ab05a" },  // 6-petal flower
-  { key:"peace",       label:"Peace",        labelAr:"السلام",     g:"◌̈", glow:"#50a0c0" },  // softness
-  { key:"strength",    label:"Strength",     labelAr:"القوة",      g:"⬡", glow:"#c08050" },  // hexagon — structure
-  { key:"forgiveness", label:"Forgiveness",  labelAr:"المغفرة",    g:"༄", glow:"#a070c0" },  // ornate wind — release
-  { key:"guidance",    label:"Guidance",     labelAr:"الهداية",    g:"⟡", glow:"#50b080" },  // compass diamond
-  { key:"healing",     label:"Healing",      labelAr:"الشفاء",     g:"✿", glow:"#80b070" },  // full bloom
-  { key:"abundance",   label:"Abundance",    labelAr:"الرزق",      g:"⸙", glow:"#b0902a" },  // fleuron — flourishing
-  { key:"patience",    label:"Patience",     labelAr:"الصبر",      g:"∿", glow:"#a09060" },  // sine wave — steady rhythm
-  { key:"purpose",     label:"Purpose",      labelAr:"الغاية",     g:"✦", glow:"#7070b0" },  // 4-point star — direction
-  { key:"anxiety",     label:"Anxiety",      labelAr:"القلق",      g:"⌇", glow:"#6090b0" },  // wavy lines — restless
+  { key:"abundance",   label:"Abundance",        labelAr:"الرزق",          g:"⸙", glow:"#b0902a" },
+  { key:"anger",       label:"Anger",             labelAr:"الغضب",          g:"⌑", glow:"#b04030" },
+  { key:"anxiety",     label:"Anxiety",           labelAr:"القلق",          g:"⌇", glow:"#6090b0" },
+  { key:"confusion",   label:"Confusion",         labelAr:"الحيرة",         g:"⁂", glow:"#40a0a0" },
+  { key:"death",       label:"Death & Afterlife", labelAr:"الموت والآخرة",  g:"☾", glow:"#5060a0" },
+  { key:"doubt",       label:"Doubt",             labelAr:"الشك",           g:"⌀", glow:"#906040" },
+  { key:"emptiness",   label:"Emptiness",         labelAr:"الفراغ",         g:"○", glow:"#607090" },
+  { key:"envy",        label:"Envy",              labelAr:"الحسد",          g:"◬", glow:"#508060" },
+  { key:"fear",        label:"Fear",              labelAr:"الخوف",          g:"⌁", glow:"#4a8ab0" },
+  { key:"forgiveness", label:"Forgiveness",       labelAr:"المغفرة",        g:"༄", glow:"#a070c0" },
+  { key:"gratitude",   label:"Gratitude",         labelAr:"الامتنان",       g:"✾", glow:"#7ab05a" },
+  { key:"grief",       label:"Grief",             labelAr:"الحزن",          g:"𖤓", glow:"#7c5fb0" },
+  { key:"guidance",    label:"Guidance",          labelAr:"الهداية",        g:"⟡", glow:"#50b080" },
+  { key:"healing",     label:"Healing",           labelAr:"الشفاء",         g:"✿", glow:"#80b070" },
+  { key:"hope",        label:"Hope",              labelAr:"الأمل",          g:"☼", glow:"#c9a84c" },
+  { key:"loneliness",  label:"Loneliness",        labelAr:"الوحدة",         g:"◌", glow:"#6a6ab0" },
+  { key:"love",        label:"Love",              labelAr:"الحب",           g:"♡", glow:"#c06080" },
+  { key:"overwhelm",   label:"Overwhelmed",       labelAr:"الإرهاق",        g:"≋", glow:"#b05a5a" },
+  { key:"patience",    label:"Patience",          labelAr:"الصبر",          g:"∿", glow:"#a09060" },
+  { key:"peace",       label:"Peace",             labelAr:"السلام",         g:"◯", glow:"#50a0c0" },
+  { key:"purpose",     label:"Purpose",           labelAr:"الغاية",         g:"✦", glow:"#7070b0" },
+  { key:"strength",    label:"Strength",          labelAr:"القوة",          g:"⬡", glow:"#c08050" },
 ];
 
 const SITUATIONS = [
-  { key:"revert",    label:"New to Islam",           labelAr:"جديد في الإسلام",        g:"✧", glow:"#c9a84c" },  // hollow star — new light
-  { key:"prayer",    label:"Struggling with prayer",  labelAr:"صعوبة في الصلاة",        g:"☽", glow:"#50a0c0" },  // crescent — prayer times
-  { key:"family",    label:"Family conflict",         labelAr:"خلاف عائلي",             g:"⌂", glow:"#c06080" },  // house — home
-  { key:"injustice", label:"Facing injustice",        labelAr:"مواجهة الظلم",           g:"⚖", glow:"#b05a5a" },  // scales — justice
-  { key:"loss",      label:"Loss of a loved one",     labelAr:"فقدان أحد عزيز",        g:"◦", glow:"#7c5fb0" },  // small hollow — absence
-  { key:"sickness",  label:"Illness",                 labelAr:"المرض",                  g:"❋", glow:"#80b070" },  // snowflake flower — fragility
-  { key:"financial", label:"Financial hardship",      labelAr:"الضائقة المالية",        g:"❀", glow:"#b0902a" },  // full bloom open — provision
-  { key:"identity",  label:"Finding my identity",     labelAr:"البحث عن هويتي",         g:"◉", glow:"#7070b0" },  // target — finding center
-  { key:"sin",       label:"Feeling far from Allah",  labelAr:"الشعور بالبعد عن الله", g:"⊙", glow:"#906040" },  // circled dot — longing to return
-  { key:"tested",    label:"Feeling tested",          labelAr:"الشعور بالابتلاء",       g:"△", glow:"#c08050" },  // triangle — trial
-  { key:"marriage",  label:"Marriage & relationships", labelAr:"الزواج والعلاقات",      g:"∞", glow:"#c06080" },  // infinity — union
-  { key:"seeking",   label:"Seeking the truth",       labelAr:"البحث عن الحقيقة",       g:"⟳", glow:"#50b080" },  // circular arrow — searching
+  { key:"injustice", label:"Facing injustice",         labelAr:"مواجهة الظلم",           g:"⚖", glow:"#b05a5a" },
+  { key:"family",    label:"Family conflict",           labelAr:"خلاف عائلي",             g:"⌂", glow:"#c06080" },
+  { key:"sin",       label:"Feeling far from Allah",    labelAr:"الشعور بالبعد عن الله",  g:"⊙", glow:"#906040" },
+  { key:"tested",    label:"Feeling tested",            labelAr:"الشعور بالابتلاء",        g:"△", glow:"#c08050" },
+  { key:"financial", label:"Financial hardship",        labelAr:"الضائقة المالية",         g:"❀", glow:"#b0902a" },
+  { key:"identity",  label:"Finding my identity",       labelAr:"البحث عن هويتي",          g:"◉", glow:"#7070b0" },
+  { key:"sickness",  label:"Illness",                   labelAr:"المرض",                   g:"❋", glow:"#80b070" },
+  { key:"loss",      label:"Loss of a loved one",       labelAr:"فقدان أحد عزيز",         g:"◦", glow:"#7c5fb0" },
+  { key:"marriage",  label:"Marriage & relationships",  labelAr:"الزواج والعلاقات",        g:"∞", glow:"#c06080" },
+  { key:"revert",    label:"New to Islam",              labelAr:"جديد في الإسلام",         g:"✧", glow:"#c9a84c" },
+  { key:"seeking",   label:"Seeking the truth",         labelAr:"البحث عن الحقيقة",        g:"⟳", glow:"#50b080" },
+  { key:"prayer",    label:"Struggling with prayer",    labelAr:"صعوبة في الصلاة",         g:"☽", glow:"#50a0c0" },
 ];
 
 // Keyword → mood mapping
@@ -1952,6 +2073,10 @@ const KEYWORD_MAP = {
   tested:["tested","trial","tribulation","test from allah","why is this happening","hardship","struggle","challenge","iman"],
   marriage:["marriage","married","divorce","nikah","spouse","proposal","longing","single","want to marry"],
   seeking:["seeking","searching","truth","is islam true","questions about islam","proof","evidence","sign","curious","exploring"],
+  anger:["anger","angry","rage","furious","mad","frustrated","irritated","resentment","bitter","fuming","explode","temper","hate"],
+  emptiness:["empty","emptiness","numb","hollow","void","meaningless","depressed","depression","nothing","flat","dead inside","joyless","hopeless","lost"],
+  envy:["envy","envious","jealous","jealousy","hasad","covet","why them","not fair","comparing","comparison","they have","wish i had"],
+  death:["death","dying","dead","afterlife","akhira","grave","barzakh","inna lillahi","what happens after","fear death","loss","funeral","jannah","paradise"],
 };
 
 // ═══════════════════════════════
@@ -2355,8 +2480,8 @@ let lang = 'en';
 initVOTD();
 
 const UI_TEXT = {
-  en: { sub:'Light from the Quran, for every moment of need.', feelings:'What brought you here today?', situations:'What are you going through?', or:'or speak your heart', placeholder:'Tell me what\'s on your heart…', pull:'✦  Pull a verse  ✦', another:'✦  Another verse', share:'Save Image', copy:'Copy', back:'← Back', swipe:'← swipe for next verse →', pwaTitle:'Save to Your Home Screen', pwaBody:'In Safari, tap the Share icon ↑ then choose "Add to Home Screen." Opens like a native app — no App Store needed.', saved:'Saved to Photos ✦', copied:'Verse copied ✦', footer:'Free Forever ☽ assalamualaykum.app', pwaLink:'Save as App ↗', close:'Done', meaning:'Peace Be Upon You', translit:'Assalamu Alaykum' },
-  ar: { sub:'نور من القرآن الكريم، في كل لحظة تحتاج فيها', feelings:'ما الذي أتى بك اليوم؟', situations:'ما الذي تمر به؟', or:'أو تحدث من قلبك', placeholder:'أخبرني ما يشغل قلبك…', pull:'✦  اسحب آية  ✦', another:'✦  آية أخرى', share:'حفظ صورة', copy:'نسخ', back:'رجوع →', swipe:'← اسحب للآية التالية →', pwaTitle:'احفظ على شاشتك الرئيسية', pwaBody:'في Safari، اضغط على أيقونة المشاركة ↑ ثم اختر "إضافة إلى الشاشة الرئيسية".', saved:'تم الحفظ في الصور ✦', copied:'تم النسخ ✦', footer:'مجاني للأبد ☽ assalamualaykum.app', pwaLink:'احفظ كتطبيق ↗', close:'تم', meaning:'وعليكم السلام', translit:'Wa Alaykum Assalam' }
+  en: { sub:'Light from the Quran, for every moment of need.', feelings:'What brought you here today?', situations:'What are you going through?', or:'or speak your heart', placeholder:'Tell me what\'s on your heart…', pull:'✦  Pull a verse  ✦', another:'✦  Another verse', share:'Save Image', copy:'Copy', back:'← Back', swipe:'← swipe for next verse →', pwaTitle:'Save to Your Home Screen', pwaBody:'In Safari, tap the Share icon ↑ then choose "Add to Home Screen." Opens like a native app — no App Store needed.', saved:'Saved to Photos ✦', copied:'Verse copied ✦', footer:'Free Forever', pwaLink:'Save as an App', close:'Done', meaning:'Peace Be Upon You', translit:'Assalamu Alaykum' },
+  ar: { sub:'نور من القرآن الكريم، في كل لحظة تحتاج فيها', feelings:'ما الذي أتى بك اليوم؟', situations:'ما الذي تمر به؟', or:'أو تحدث من قلبك', placeholder:'أخبرني ما يشغل قلبك…', pull:'✦  اسحب آية  ✦', another:'✦  آية أخرى', share:'حفظ صورة', copy:'نسخ', back:'رجوع →', swipe:'← اسحب للآية التالية →', pwaTitle:'احفظ على شاشتك الرئيسية', pwaBody:'في Safari، اضغط على أيقونة المشاركة ↑ ثم اختر "إضافة إلى الشاشة الرئيسية".', saved:'تم الحفظ في الصور ✦', copied:'تم النسخ ✦', footer:'مجاني للأبد', pwaLink:'احفظ كتطبيق', close:'تم', meaning:'وعليكم السلام', translit:'Wa Alaykum Assalam' }
 };
 
 function applyLang() {
@@ -2381,7 +2506,7 @@ function applyLang() {
   const pwaH = document.querySelector('#pwa-tip h3'); if(pwaH) pwaH.textContent = t.pwaTitle;
   const pwaP = document.querySelector('#pwa-tip p'); if(pwaP) pwaP.textContent = t.pwaBody;
   if(el('closeTip')) el('closeTip').textContent = t.close;
-  const fspan = el('footerText'); if(fspan) fspan.textContent = t.footer + ' ☽ ';
+  const fspan = el('footerText'); if(fspan) fspan.textContent = t.footer;
   if(el('pwaLink')) el('pwaLink').textContent = t.pwaLink;
   const votdL = el('votdLabel');
   if(votdL) votdL.innerHTML = lang==='ar' ? '☽ &nbsp; آية اليوم' : '☽ &nbsp; Verse of the Day';
